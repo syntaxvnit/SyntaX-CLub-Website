@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { events, type ClubEvent } from '../../data/events';
+import WebDevDoodle from '../../components/illustrations/WebDevDoodle.astro';
+import CPDoodle from '../../components/illustrations/CPDoodle.astro';
+import AIDoodle from '../../components/illustrations/AIDoodle.astro';
+import SynHackDoodle from '../../components/illustrations/SynHackDoodle.astro';
+import ScrollReveal from '../../components/motion/ScrollReveal.astro';
+
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: ClubEvent;
+}
+
+const { event } = Astro.props;
+---
+
+<BaseLayout
+  title={`${event.title} | SyntaX VNIT Events`}
+  description={event.summary}
+>
+  <article class="section pt-8 pb-16">
+    <div class="container max-w-4xl space-y-8">
+      <!-- Breadcrumb -->
+      <ScrollReveal animation="fade-up" delay={50}>
+        <nav class="font-mono text-xs text-slate-400 flex items-center gap-2" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-white">Home</a>
+          <span>/</span>
+          <a href="/events" class="hover:text-white">Events</a>
+          <span>/</span>
+          <span class="text-cyan-400 font-bold truncate">{event.title}</span>
+        </nav>
+      </ScrollReveal>
+
+      <!-- Main Event Brief Card -->
+      <ScrollReveal animation="fade-up" delay={150}>
+        <div class="card p-8 md:p-12 bg-gradient-to-br from-[#0F172A] to-[#0A0E1A] border-2 border-cyan-500/30">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="badge badge-brand text-xs font-mono">{event.category}</span>
+              <span class={`badge ${event.status === 'upcoming' ? 'badge-amber' : 'badge-emerald'} text-xs font-mono`}>
+                ● STATUS: {event.status.toUpperCase()}
+              </span>
+            </div>
+            <span class="font-mono text-xs text-slate-400">
+              {event.date}
+            </span>
+          </div>
+
+          <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+            {event.title}
+          </h1>
+
+          <div class="mt-6 flex flex-wrap gap-6 text-sm font-mono text-slate-300">
+            <div><strong class="text-white">{event.venue}</strong></div>
+            {event.speaker && (
+              <div class="text-cyan-400 font-semibold">
+                {event.speaker.name} ({event.speaker.role} @ {event.speaker.organization})
+              </div>
+            )}
+          </div>
+
+          <!-- Matching Editorial Artwork Display -->
+          <div class="mt-8 p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center">
+            {event.doodleType === 'web' && <WebDevDoodle size={500} />}
+            {event.doodleType === 'cp' && <CPDoodle size={500} />}
+            {event.doodleType === 'ai' && <AIDoodle size={500} />}
+            {event.doodleType === 'hackathon' && <SynHackDoodle size={500} />}
+            {event.doodleType === 'general' && <WebDevDoodle size={500} />}
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10 space-y-3">
+            <h2 class="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold">
+              SESSION OVERVIEW & OBJECTIVE
+            </h2>
+            <p class="text-lg leading-relaxed text-slate-300">
+              {event.description}
+            </p>
+          </div>
+
+          <!-- Registration Status Box -->
+          <div class="mt-8 p-6 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="font-mono text-xs font-bold text-white uppercase">
+                REGISTRATION ACCESS
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                {event.status === 'upcoming' || event.status === 'open'
+                  ? 'Official schedule & registration links open on this portal.'
+                  : 'This technical session has concluded. Check notes and takeaways below.'}
+              </div>
+            </div>
+
+            {event.status === 'open' && event.registrationUrl ? (
+              <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary text-xs font-mono py-2.5 px-6 shrink-0">
+                Register For Session ↗
+              </a>
+            ) : event.status === 'upcoming' ? (
+              <span class="badge badge-amber text-xs py-1.5 px-3 shrink-0">
+                Opening Soon
+              </span>
+            ) : (
+              <span class="badge badge-emerald text-xs py-1.5 px-3 shrink-0">
+                ✓ Concluded
+              </span>
+            )}
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <!-- Highlights & Takeaways -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {event.highlights && event.highlights.length > 0 && (
+          <ScrollReveal animation="fade-up" delay={250}>
+            <div class="card p-8 h-full">
+              <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-cyan-400">✦</span>
+                <span>Session Highlights</span>
+              </h2>
+              <ul class="space-y-3 text-sm text-slate-300 font-mono">
+                {event.highlights.map((h) => (
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 font-bold">›</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+        )}
+
+        {event.takeaways && event.takeaways.length > 0 && (
+          <ScrollReveal animation="fade-up" delay={300}>
+            <div class="card p-8 h-full">
+              <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-purple-400">✦</span>
+                <span>Documented Takeaways</span>
+              </h2>
+              <ul class="space-y-3 text-sm text-slate-300 font-mono">
+                {event.takeaways.map((t) => (
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-purple-400 font-bold">›</span>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+        )}
+      </div>
+
+      <div class="text-center pt-6">
+        <a href="/events" class="btn btn-secondary font-mono text-xs py-2.5 px-6">
+          ← Back to All Events
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

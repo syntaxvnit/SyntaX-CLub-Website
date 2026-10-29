@@ -1,0 +1,157 @@
+---
+interface Props {
+  className?: string;
+  size?: number;
+}
+
+const { className = "", size = 520 } = Astro.props;
+---
+
+<div class={`alumni-doodle-container relative select-none ${className}`}>
+  <!-- Volumetric ambient constellation glow -->
+  <div class="absolute -inset-2 bg-gradient-to-r from-[#2ED3FE]/20 via-[#8B5CF6]/20 to-[#10B981]/15 rounded-2xl blur-xl opacity-60 -z-10"></div>
+
+  <svg
+    viewBox="0 0 540 360"
+    width={size}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto filter drop-shadow-2xl"
+    aria-label="SyntaX VNIT Global Alumni Diaspora & Cross-Batch Collaboration Constellation"
+  >
+    <defs>
+      <linearGradient id="alGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(15, 23, 42, 0.95)" />
+        <stop offset="100%" stop-color="rgba(10, 14, 26, 0.98)" />
+      </linearGradient>
+
+      <linearGradient id="alCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2ED3FE" />
+        <stop offset="100%" stop-color="#1E75E8" />
+      </linearGradient>
+
+      <linearGradient id="alPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#C084FC" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+
+      <pattern id="alGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="0.8" fill="rgba(255, 255, 255, 0.04)" />
+      </pattern>
+    </defs>
+
+    <!-- Main Container Card -->
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#alGlass)" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1.6" />
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#alGrid)" />
+
+    <!-- Top Window Bar -->
+    <path d="M 15 54 L 525 54" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" />
+    <circle cx="36" cy="35" r="4.5" fill="#EF4444" />
+    <circle cx="52" cy="35" r="4.5" fill="#F59E0B" />
+    <circle cx="68" cy="35" r="4.5" fill="#10B981" />
+
+    <text x="92" y="39" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#E2E8F0">
+      diaspora://vnit.syntax/global_constellation_telemetry
+    </text>
+
+    <!-- Graduating Batches Pill (Top Right) -->
+    <g transform="translate(370, 22)">
+      <rect x="0" y="0" width="144" height="24" rx="5" fill="rgba(46, 211, 254, 0.12)" stroke="#2ED3FE" stroke-width="1" />
+      <circle cx="12" cy="12" r="3.5" fill="#10B981" class="animate-pulse" />
+      <text x="22" y="16" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#2ED3FE">COHORTS: '20 &rarr; '25</text>
+    </g>
+
+    <!-- Global Coordinate Latitude/Longitude Arcs -->
+    <ellipse cx="270" cy="190" rx="220" ry="110" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1.2" stroke-dasharray="4 4" />
+    <ellipse cx="270" cy="190" rx="150" ry="75" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1.2" stroke-dasharray="3 3" />
+    <line x1="50" y1="190" x2="490" y2="190" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
+    <line x1="270" y1="80" x2="270" y2="300" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
+
+    <!-- ========================================== -->
+    <!-- CENTER NEXUS: VNIT NAGPUR CAMPUS ORIGIN    -->
+    <!-- ========================================== -->
+    <g transform="translate(270, 190)">
+      <!-- Outer Pulsing Rings -->
+      <circle cx="0" cy="0" r="36" fill="rgba(46, 211, 254, 0.08)" stroke="#2ED3FE" stroke-width="1" stroke-dasharray="3 3" />
+      <circle cx="0" cy="0" r="24" fill="rgba(30, 117, 232, 0.2)" stroke="#38BDF8" stroke-width="1.8" />
+      <circle cx="0" cy="0" r="10" fill="#2ED3FE" />
+
+      <text x="0" y="-30" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">VNIT NAGPUR</text>
+      <text x="0" y="42" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#38BDF8" text-anchor="middle">21.1255° N, 79.0522° E</text>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- GLOBAL RADIATING HUBS & FLIGHT ARCS        -->
+    <!-- ========================================== -->
+    <!-- 1. Silicon Valley / SF Bay Area (Top Left) -->
+    <path d="M 270 190 Q 180 110, 95 95" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" fill="none" />
+    <circle cx="180" cy="132" r="3" fill="#8B5CF6" class="animate-pulse" />
+    <g transform="translate(95, 95)">
+      <circle cx="0" cy="0" r="12" fill="#0B0F19" stroke="#8B5CF6" stroke-width="2" />
+      <circle cx="0" cy="0" r="5" fill="#C084FC" />
+      <text x="-16" y="-6" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#FFFFFF" text-anchor="end">SF BAY AREA</text>
+      <text x="-16" y="8" font-family="'JetBrains Mono', monospace" font-size="7" fill="#C084FC" text-anchor="end">Google · Apple · YC</text>
+      <text x="-16" y="20" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#64748B" text-anchor="end">Batch '20, '22</text>
+    </g>
+
+    <!-- 2. Seattle / Redmond (Top Left Higher) -->
+    <path d="M 270 190 Q 210 90, 150 68" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="3 3" fill="none" />
+    <g transform="translate(150, 68)">
+      <circle cx="0" cy="0" r="10" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.8" />
+      <circle cx="0" cy="0" r="4" fill="#38BDF8" />
+      <text x="0" y="-14" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">SEATTLE</text>
+      <text x="0" y="22" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#94A3B8" text-anchor="middle">Microsoft · Amazon</text>
+    </g>
+
+    <!-- 3. Bengaluru & Hyderabad (Bottom Right) -->
+    <path d="M 270 190 Q 320 230, 370 250" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" fill="none" />
+    <circle cx="320" cy="225" r="3" fill="#10B981" class="animate-pulse" />
+    <g transform="translate(370, 250)">
+      <circle cx="0" cy="0" r="14" fill="#0B0F19" stroke="#10B981" stroke-width="2" />
+      <circle cx="0" cy="0" r="6" fill="#34D399" />
+      <text x="18" y="-4" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#FFFFFF">BENGALURU / HYD</text>
+      <text x="18" y="10" font-family="'JetBrains Mono', monospace" font-size="7" fill="#34D399">Rubrik · Sprinklr · Uber</text>
+      <text x="18" y="22" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#64748B">Batch '21, '23, '24</text>
+    </g>
+
+    <!-- 4. London & Zurich (Top Right) -->
+    <path d="M 270 190 Q 340 120, 420 100" stroke="#2ED3FE" stroke-width="2" stroke-linecap="round" fill="none" />
+    <circle cx="350" cy="140" r="3" fill="#2ED3FE" class="animate-pulse" />
+    <g transform="translate(420, 100)">
+      <circle cx="0" cy="0" r="12" fill="#0B0F19" stroke="#2ED3FE" stroke-width="2" />
+      <circle cx="0" cy="0" r="5" fill="#2ED3FE" />
+      <text x="16" y="-6" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#FFFFFF">LONDON / ZURICH</text>
+      <text x="16" y="8" font-family="'JetBrains Mono', monospace" font-size="7" fill="#38BDF8">DeepMind · Google Research</text>
+      <text x="16" y="20" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#64748B">ETH AI Fellowships</text>
+    </g>
+
+    <!-- 5. Mumbai & Pune (Bottom Left) -->
+    <path d="M 270 190 Q 220 220, 160 250" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <g transform="translate(160, 250)">
+      <circle cx="0" cy="0" r="11" fill="#0B0F19" stroke="#F59E0B" stroke-width="1.8" />
+      <circle cx="0" cy="0" r="4.5" fill="#FBBF24" />
+      <text x="-16" y="-4" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#FFFFFF" text-anchor="end">PUNE / MUMBAI</text>
+      <text x="-16" y="10" font-family="'JetBrains Mono', monospace" font-size="7" fill="#FBBF24" text-anchor="end">Barclays · FinTech Labs</text>
+    </g>
+
+    <!-- Return Mentorship Feedback Loops -->
+    <!-- Dotted curve back to VNIT -->
+    <path d="M 370 270 Q 310 300, 270 220" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5" stroke-dasharray="3 3" fill="none" />
+    
+    <!-- Hand-drawn annotation: Mentorship & Code Reviews -->
+    <g transform="translate(170, 292)">
+      <rect x="0" y="0" width="200" height="26" rx="5" fill="#07090E" stroke="rgba(255, 255, 255, 0.1)" />
+      <circle cx="12" cy="13" r="3" fill="#10B981" />
+      <text x="20" y="17" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#E2E8F0">
+        RETURN LOOP: 1:1 AMAs & Referrals
+      </text>
+    </g>
+
+    <!-- Bottom Telemetry Metric Strip -->
+    <g transform="translate(35, 305)">
+      <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#64748B">
+        GLOBAL REACH: 12 COUNTRIES · 100+ ALUMNI RECORDED · ZERO DISCONNECT BETWEEN COHORTS
+      </text>
+    </g>
+  </svg>
+</div>

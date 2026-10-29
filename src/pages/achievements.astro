@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { achievements } from '../data/achievements';
+import TrophyDoodle from '../components/illustrations/TrophyDoodle.astro';
+import ScrollReveal from '../components/motion/ScrollReveal.astro';
+import Ticker from '../components/motion/Ticker.astro';
+
+const stats = [
+  { label: 'ICPC Regional Finalists', value: '4+ Teams', desc: 'Amritapuri & Kanpur sites' },
+  { label: 'Smart India Hackathon', value: 'Top 5', desc: 'National Grand Finalists' },
+  { label: 'GSoC Fellowships', value: '4 Fellows', desc: 'Linux Foundation & CNCF' },
+  { label: 'Verified Awards', value: `${achievements.length}`, desc: 'Zero fabricated records' },
+];
+
+function getCategoryBadge(category: string) {
+  switch (category) {
+    case 'Hackathon': return 'badge-amber';
+    case 'Competition': return 'badge-purple';
+    case 'Open Source': return 'badge-emerald';
+    case 'Research': return 'badge-cyan';
+    default: return 'badge';
+  }
+}
+---
+
+<BaseLayout
+  title="Hall of Achievements | SyntaX VNIT"
+  description="Verified awards, hackathon podiums, ICPC regionals, and open-source milestones achieved by SyntaX VNIT engineers."
+>
+  <!-- 1. HEADER & TROPHY SPOTLIGHT -->
+  <section class="section pt-8 pb-12">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <ScrollReveal animation="fade-up" delay={100}>
+            <div class="inline-flex items-center gap-2 p-1.5 pr-4 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
+              <span class="badge badge-brand text-[10px]">PROVEN COMPETENCE</span>
+              <span class="font-mono text-xs text-slate-400">VNIT NAGPUR</span>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={200}>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight">
+              The Hall of <span class="text-gradient">Achievements.</span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={300}>
+            <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-normal max-w-xl">
+              A verified chronicle of national hackathon podiums, ICPC regional showdowns, and open-source fellowships won by SyntaX members representing VNIT Nagpur.
+            </p>
+          </ScrollReveal>
+
+          <!-- Key Track Badges -->
+          <ScrollReveal animation="fade-up" delay={400}>
+            <div class="pt-4 flex flex-wrap gap-2">
+              <span class="badge badge-brand text-xs">National Hackathons</span>
+              <span class="badge badge-purple text-xs">ACM-ICPC Regionals</span>
+              <span class="badge badge-emerald text-xs">Google Summer of Code</span>
+              <span class="badge bg-white/[0.04] text-slate-300 text-xs">Codeforces Candidate Masters</span>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <div class="lg:col-span-6 flex justify-center">
+          <ScrollReveal animation="scale-in" delay={350}>
+            <TrophyDoodle size={480} />
+          </ScrollReveal>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <Ticker
+    items={['Smart India Hackathon', 'ACM-ICPC Regionals', 'Google Summer of Code', 'Codeforces Masters', 'Central India Dev Challenge', '100% Student Built']}
+    speed={32}
+    variant="default"
+  />
+
+  <!-- 2. METRICS MATRIX -->
+  <section class="section pt-10 pb-6">
+    <div class="container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {stats.map((s, i) => (
+          <ScrollReveal animation="fade-up" delay={i * 80}>
+            <div class="card p-6 border-white/10 hover:border-cyan-400/40">
+              <div class="font-mono text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                {s.value}
+              </div>
+              <div class="font-bold text-sm text-white mt-1">{s.label}</div>
+              <div class="text-xs text-slate-400 font-mono mt-0.5">{s.desc}</div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. VERIFIED HONORS GRID -->
+  <section class="section pt-4 pb-16">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+          <div>
+            <span class="section-label">VERIFIED ARCHIVE</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white mt-1">All Documented Honors ({achievements.length})</h2>
+          </div>
+          <span class="font-mono text-xs text-slate-400">
+            100% Documented & Substantiated
+          </span>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {achievements.map((item, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 100}>
+            <div class="card p-8 flex flex-col justify-between h-full hover:border-amber-400/40 transition-all">
+              <div>
+                <div class="flex flex-wrap items-center justify-between text-xs font-mono mb-4 gap-2">
+                  <span class={`badge ${getCategoryBadge(item.category)} text-[11px]`}>
+                    {item.category.toUpperCase()}
+                  </span>
+                  <span class="text-slate-400 font-bold">
+                    {item.date} · Session {item.academicYear}
+                  </span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white leading-tight">
+                  {item.title}
+                </h3>
+
+                <div class="mt-2 text-xs font-mono font-bold text-cyan-400">
+                  {item.competition}
+                </div>
+
+                <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                  {item.description}
+                </p>
+
+                {item.impactMetrics && (
+                  <div class="mt-4 p-3 rounded-lg bg-white/[0.03] border border-white/5 text-xs font-mono flex items-center justify-between gap-2">
+                    <span class="text-slate-400">Verified Impact:</span>
+                    <span class="font-bold text-cyan-300">{item.impactMetrics}</span>
+                  </div>
+                )}
+
+                {item.tags && item.tags.length > 0 && (
+                  <div class="mt-4 flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <span class="badge bg-white/[0.03] text-[10px] font-mono">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between gap-4">
+                <div>
+                  <span class="text-[10px] font-mono uppercase text-slate-500 block">Recipient</span>
+                  <span class="text-xs font-mono font-bold text-white">{item.recipientOrTeam}</span>
+                </div>
+                <span class="badge badge-amber text-xs font-bold py-1.5 px-3">
+                  {item.award}
+                </span>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

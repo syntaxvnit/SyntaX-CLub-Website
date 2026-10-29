@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { alumniStories, alumniConfig } from '../data/alumni';
+import AlumniNetworkDoodle from '../components/illustrations/AlumniNetworkDoodle.astro';
+import HandDrawnArrow from '../components/illustrations/HandDrawnArrow.astro';
+import ScrollReveal from '../components/motion/ScrollReveal.astro';
+import Ticker from '../components/motion/Ticker.astro';
+---
+
+<BaseLayout
+  title="Alumni Network & Stories | SyntaX VNIT"
+  description="Explore the global diaspora of SyntaX VNIT alumni leading engineering across top tech companies, research labs, and startups."
+>
+  <!-- 1. EDITORIAL HEADER WITH DOODLE -->
+  <section class="section pb-8 pt-8">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6">
+          <ScrollReveal animation="fade-up" delay={100}>
+            <div class="inline-flex items-center gap-2 mb-4">
+              <span class="badge badge-brand font-mono text-[11px] shadow-[0_0_12px_rgba(46,211,254,0.25)]">THE GLOBAL DIASPORA</span>
+              <span class="font-mono text-xs text-[var(--color-ink-tertiary)]">VNIT ALUMNI</span>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={200}>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight">
+              From VNIT to the <span class="text-gradient">World.</span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={300}>
+            <p class="mt-6 text-xl leading-relaxed text-[var(--color-ink-secondary)] max-w-xl">
+              SyntaX alumni design distributed backends, lead cutting-edge AI research, and build resilient infrastructure worldwide. Their journeys inspire the next generation of campus builders.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={400}>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#share" class="btn btn-primary">
+                <span>Submit Alumni Update</span>
+                <span>↗</span>
+              </a>
+              <a href="#directory" class="btn btn-secondary">
+                <span>Explore Directory</span>
+                <span>↓</span>
+              </a>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={500}>
+            <div class="mt-6 flex items-center gap-3">
+              <HandDrawnArrow direction="straight-right" color="#2ED3FE" />
+              <span class="font-serif italic text-sm text-[var(--color-ink-secondary)]">
+                Peer reviews and verified updates published through Git
+              </span>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <div class="lg:col-span-6 flex justify-center">
+          <ScrollReveal animation="fade-left" delay={350}>
+            <AlumniNetworkDoodle size={520} />
+          </ScrollReveal>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <Ticker
+    items={['Google', 'Microsoft', 'Amazon', 'Rubrik', 'Sprinklr', 'Linux Foundation', 'Stanford AI', 'Y Combinator', 'VNIT Alumni']}
+    variant="accent"
+    speed={32}
+  />
+
+  <!-- 2. ALUMNI STORIES DIRECTORY -->
+  <section id="directory" class="section pt-10 pb-16">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="border-b border-white/10 pb-4 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="section-label">CURATED DIRECTORY</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mt-1">Alumni Spotlights & Perspectives</h2>
+          </div>
+          <span class="font-mono text-xs text-[#2ED3FE] font-bold">
+            Verified Archive · {alumniStories.length} Profiles Recorded
+          </span>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {alumniStories.map((alumnus, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 80}>
+            <div class="card p-8 flex flex-col justify-between bg-[#0E131F]/70 border border-white/10 rounded-2xl backdrop-blur-xl hover:border-[#2ED3FE]/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(46,211,254,0.15)] h-full group">
+              <div>
+                <div class="flex items-center justify-between text-xs font-mono mb-4">
+                  <span class="badge badge-brand shadow-[0_0_10px_rgba(46,211,254,0.2)]">CLASS OF {alumnus.graduationYear}</span>
+                  {alumnus.location && (
+                    <span class="text-stone-400 font-bold">{alumnus.location}</span>
+                  )}
+                </div>
+
+                <h3 class="text-2xl font-serif font-bold text-white group-hover:text-[#2ED3FE] transition-colors">
+                  {alumnus.name}
+                </h3>
+
+                <div class="mt-1 text-sm font-mono font-bold text-[#2ED3FE]">
+                  {alumnus.currentRole} @ {alumnus.currentOrg}
+                </div>
+
+                <div class="text-xs text-[var(--color-ink-tertiary)] font-mono mt-0.5">
+                  {alumnus.department}
+                </div>
+
+                <!-- Career Timeline Tags -->
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {alumnus.careerPath.map((step) => (
+                    <span class="badge bg-white/5 text-[10px] font-mono border border-white/10 text-stone-300">
+                      {step}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Quote or Update -->
+                <blockquote class="mt-6 pl-4 border-l-2 border-l-[#2ED3FE] text-sm italic text-stone-300 leading-relaxed font-serif bg-white/[0.02] p-3 rounded-r-xl">
+                  "{alumnus.quoteOrUpdate}"
+                </blockquote>
+              </div>
+
+              <!-- Social Links -->
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+                <span class="text-[var(--color-ink-tertiary)]">Verified SyntaX Alumnus</span>
+                <div class="flex items-center gap-3">
+                  {alumnus.linkedinUrl && (
+                    <a href={alumnus.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#2ED3FE] font-bold transition-colors">
+                      LinkedIn ↗
+                    </a>
+                  )}
+                  {alumnus.githubUrl && (
+                    <a href={alumnus.githubUrl} target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#2ED3FE] font-bold transition-colors">
+                      GitHub ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ALUMNI SUBMISSION SECTION (TRANSPARENT WORKFLOW) -->
+  <section id="share" class="section border-t border-white/10 bg-[#0B0F19]/50">
+    <div class="container max-w-4xl">
+      <ScrollReveal animation="fade-up">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="section-label">COMMUNITY ARCHIVE</span>
+          <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-1">Share Your Story with SyntaX</h2>
+          <p class="mt-3 text-base text-[var(--color-ink-secondary)] leading-relaxed">
+            {alumniConfig.submissionInstructions}
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal animation="fade-up" delay={150}>
+        <div class="card p-8 md:p-10 bg-[#0E131F]/80 border border-white/10 rounded-2xl backdrop-blur-xl shadow-2xl relative overflow-hidden">
+          <h3 class="text-2xl font-bold font-serif text-white mb-4">
+            Submission & Review Governance
+          </h3>
+
+          <!-- Clear 5-Step Submission Workflow from Brief Section 13 -->
+          <ol class="space-y-3.5 text-sm text-stone-300 list-decimal list-inside font-sans leading-relaxed">
+            <li><strong>Step 1:</strong> You fill out the official external submission form below (name, graduation year, career update, links).</li>
+            <li><strong>Step 2:</strong> Submissions are securely stored by the external form provider in our private review spreadsheet.</li>
+            <li><strong>Step 3:</strong> The current SyntaX Council verifies the details and confirms publication consent.</li>
+            <li><strong>Step 4:</strong> An authorized club developer adds the verified record to the website's Git repository.</li>
+            <li><strong>Step 5:</strong> Continuous integration rebuilds and deploys the update automatically to the live site.</li>
+          </ol>
+
+          <div class="mt-8 p-6 rounded-xl bg-white/[0.03] border border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="font-mono text-xs font-bold uppercase tracking-wider text-[#2ED3FE]">
+                  EXTERNAL SUBMISSION FORM
+                </div>
+                <div class="text-xs text-[var(--color-ink-tertiary)] mt-1 font-mono">
+                  {alumniConfig.isFormConfigured
+                    ? "Form is active and open for alumni entries."
+                    : "External form integration ready. Configure via src/data/alumni.ts"}
+                </div>
+              </div>
+
+              {alumniConfig.isFormConfigured ? (
+                <a
+                  href={alumniConfig.formUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary text-xs font-mono py-2.5 px-6 shrink-0"
+                >
+                  Open External Form ↗
+                </a>
+              ) : (
+                <div class="flex items-center gap-2">
+                  <a
+                    href={`mailto:syntax.vnit@gmail.com?subject=SyntaX Alumni Story Submission`}
+                    class="btn btn-primary text-xs font-mono py-2.5 px-6 shrink-0"
+                  >
+                    Submit via Email ↗
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-[var(--color-ink-tertiary)] text-center font-mono">
+            Privacy Note: We never harvest or sell personal contact numbers. Only public career achievements and consented links are published.
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+</BaseLayout>

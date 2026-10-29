@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { events, getUpcomingEvents, getPastEvents } from '../../data/events';
+import SynHackDoodle from '../../components/illustrations/SynHackDoodle.astro';
+import EventPoster from '../../components/illustrations/EventPoster.astro';
+import ScrollReveal from '../../components/motion/ScrollReveal.astro';
+import Ticker from '../../components/motion/Ticker.astro';
+
+const upcoming = getUpcomingEvents();
+const past = getPastEvents();
+
+const categories = [
+  { label: 'All Sessions', count: events.length },
+  { label: 'Hackathons', count: events.filter((e) => e.category === 'Hackathon').length },
+  { label: 'Workshops', count: events.filter((e) => e.category === 'Workshop').length },
+  { label: 'CP Contests', count: events.filter((e) => e.category === 'CP Contest').length },
+  { label: 'AI Bootcamps', count: events.filter((e) => e.category === 'AI Bootcamp').length },
+];
+
+function getCategoryBadge(category: string) {
+  switch (category) {
+    case 'Hackathon': return 'badge-amber';
+    case 'Workshop': return 'badge-brand';
+    case 'CP Contest': return 'badge-purple';
+    case 'AI Bootcamp': return 'badge-cyan';
+    default: return 'badge';
+  }
+}
+---
+
+<BaseLayout
+  title="Events & Technical Clashes | SyntaX VNIT"
+  description="Upcoming hackathons, algorithmic contests, and engineering workshops at VNIT Nagpur."
+>
+  <!-- 1. HEADER SECTION -->
+  <section class="section pt-8 pb-12">
+    <div class="container">
+      <div class="max-w-3xl space-y-4">
+        <ScrollReveal animation="fade-up" delay={100}>
+          <div class="inline-flex items-center gap-2 p-1.5 pr-4 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
+            <span class="badge badge-brand text-[10px]">CALENDAR & DISPATCHES</span>
+            <span class="font-mono text-xs text-slate-400">VNIT CAMPUS</span>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal animation="fade-up" delay={200}>
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight">
+            Events & Technical <span class="text-gradient">Clashes.</span>
+          </h1>
+        </ScrollReveal>
+
+        <ScrollReveal animation="fade-up" delay={300}>
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-normal">
+            No passive webinars—strictly hands-on code, live evaluation juries, and high-stakes algorithmic sprints.
+          </p>
+        </ScrollReveal>
+
+        <!-- Category Tags -->
+        <ScrollReveal animation="fade-up" delay={400}>
+          <div class="pt-4 flex flex-wrap gap-2">
+            {categories.map((c) => (
+              <span class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] border border-white/10 text-white">
+                {c.label} <span class="text-cyan-400 font-bold">({c.count})</span>
+              </span>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <Ticker
+    items={['SynHack \'25', 'Algorithmic Sprints', 'RAG Bootcamps', 'Systems Architecture', 'Live Peer Evaluations', 'Codeforces Contests']}
+    variant="default"
+  />
+
+  <!-- 2. UPCOMING / ACTIVE EVENTS (FEATURED SPOTLIGHT) -->
+  {upcoming.length > 0 && (
+    <section class="section pt-12 pb-8">
+      <div class="container">
+        <ScrollReveal animation="fade-up">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="badge badge-brand text-[10px]">SCHEDULED & OPEN</span>
+          </div>
+        </ScrollReveal>
+
+        <div class="space-y-8">
+          {upcoming.map((item) => (
+            <ScrollReveal animation="fade-up" delay={150}>
+              <div class="card p-8 md:p-12 bg-gradient-to-br from-[#0F172A] via-[#101B33] to-[#18112C] border-2 border-cyan-500/30">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div class="lg:col-span-8 space-y-4">
+                    <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+                      <span class={`badge ${getCategoryBadge(item.category)}`}>
+                        {item.category}
+                      </span>
+                      <span class="badge badge-amber">
+                        ● STATUS: {item.status.toUpperCase()}
+                      </span>
+                      <span class="text-slate-400">
+                        🗓 {item.date}
+                      </span>
+                    </div>
+
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+                      <a href={`/events/${item.slug}`} class="hover:text-cyan-400 transition-colors">
+                        {item.title}
+                      </a>
+                    </h2>
+
+                    <p class="text-base text-slate-300 leading-relaxed max-w-2xl">
+                      {item.summary}
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400 pt-2">
+                      <span>📍 {item.venue}</span>
+                      {item.speaker && (
+                        <span>🎙 {item.speaker.name} ({item.speaker.organization})</span>
+                      )}
+                    </div>
+
+                    {item.highlights && item.highlights.length > 0 && (
+                      <div class="pt-4 border-t border-white/10">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-slate-300">
+                          {item.highlights.slice(0, 4).map((h) => (
+                            <div class="flex items-center gap-2">
+                              <span class="text-cyan-400 font-bold">✦</span>
+                              <span>{h}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                      <a href={`/events/${item.slug}`} class="btn btn-primary text-xs font-mono py-2.5 px-6">
+                        <span>View Event Brief</span>
+                        <span>→</span>
+                      </a>
+                      <a href="/synhack" class="btn btn-syntax text-xs font-mono py-2.5 px-5">
+                        <span>SynHack '25 Portal</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="lg:col-span-5 flex justify-center">
+                    <EventPoster category={item.category} slug={item.slug} className="w-full max-w-md shadow-2xl" />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 3. COMPLETED EVENTS ARCHIVE -->
+  <section class="section pt-4 pb-16">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+          <div>
+            <span class="section-label">RETROSPECTIVE</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white mt-1">Concluded Sessions Archive</h2>
+          </div>
+          <span class="font-mono text-xs text-slate-400">
+            {past.length} COMPLETED
+          </span>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {past.map((item, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 100}>
+            <div class="card p-6 flex flex-col justify-between h-full hover:border-cyan-400/40">
+              <div>
+                <!-- Editorial Illustrated Poster Banner -->
+                <EventPoster category={item.category} slug={item.slug} className="mb-4" />
+
+                <div class="flex items-center justify-between text-xs font-mono mb-3">
+                  <span class={`badge ${getCategoryBadge(item.category)} text-[10px]`}>
+                    {item.category}
+                  </span>
+                  <span class="text-slate-400">{item.date}</span>
+                </div>
+
+                <h3 class="text-xl font-bold text-white line-clamp-2">
+                  <a href={`/events/${item.slug}`} class="hover:text-cyan-400 transition-colors">
+                    {item.title}
+                  </a>
+                </h3>
+
+                <p class="mt-2 text-xs text-slate-400 leading-relaxed line-clamp-3">
+                  {item.summary}
+                </p>
+
+                <div class="mt-4 pt-3 border-t border-white/5 text-xs font-mono text-slate-500 space-y-1">
+                  <div>📍 {item.venue}</div>
+                  {item.speaker && (
+                    <div class="text-cyan-400 font-semibold">🎙 {item.speaker.name}</div>
+                  )}
+                </div>
+              </div>
+
+              <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between">
+                <a href={`/events/${item.slug}`} class="text-xs font-mono font-bold text-cyan-400 hover:underline">
+                  Read Notes →
+                </a>
+                <span class="badge badge-emerald text-[10px]">
+                  ✓ Completed
+                </span>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

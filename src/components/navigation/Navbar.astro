@@ -1,0 +1,532 @@
+---
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+function isActive(href: string): boolean {
+  if (href === '/' && (currentPath === '/' || currentPath === '')) return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+}
+---
+
+<header class="site-header" id="site-header">
+  <div class="header-container">
+    <!-- Brand -->
+    <a href="/" class="brand-link" aria-label={`${siteConfig.name} - Return to homepage`}>
+      <img
+        src={siteConfig.logo.src}
+        alt={siteConfig.logo.alt}
+        width="32"
+        height="32"
+        class="brand-logo"
+        loading="eager"
+      />
+      <div class="brand-info">
+        <span class="brand-name">{siteConfig.shortName}</span>
+        <span class="brand-college">VNIT Nagpur</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-desktop" aria-label="Main Navigation">
+      <ul class="nav-links" role="list">
+        {siteConfig.navigation.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <li class="nav-item">
+              <a
+                href={item.href}
+                class={`nav-link ${active ? 'is-active' : ''}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span>{item.label}</span>
+                {item.badge && <span class="nav-badge">{item.badge}</span>}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+    <!-- Action & Mobile Toggle -->
+    <div class="nav-actions">
+      <a
+        href={siteConfig.synhackCta.href}
+        class="cta-button"
+        aria-label="Participate in SynHack 2025 hackathon"
+      >
+        <span class="cta-label">{siteConfig.synhackCta.label}</span>
+        <svg class="cta-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+
+      <button
+        id="mobile-nav-toggle"
+        class="mobile-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-panel"
+      >
+        <span class="toggle-bar bar-top"></span>
+        <span class="toggle-bar bar-bottom"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Sheet / Drawer -->
+  <div id="mobile-nav-panel" class="mobile-nav-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-inner">
+      <ul class="mobile-nav-list" role="list">
+        {siteConfig.navigation.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`mobile-nav-link ${active ? 'is-active' : ''}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span class="mobile-link-text">{item.label}</span>
+                {item.badge ? (
+                  <span class="nav-badge">{item.badge}</span>
+                ) : (
+                  <svg class="mobile-chevron" width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div class="mobile-nav-footer">
+        <a href={siteConfig.synhackCta.href} class="mobile-cta-btn">
+          <span>{siteConfig.synhackCta.label}</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <div class="mobile-college-note">
+          Visvesvaraya National Institute of Technology · Nagpur
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: rgba(7, 9, 14, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 64px;
+  }
+
+  /* Brand */
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .brand-link:hover .brand-logo {
+      transform: scale(1.04);
+    }
+  }
+
+  .brand-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .brand-name {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+
+  .brand-college {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-secondary);
+  }
+
+  /* Desktop Nav */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.45rem 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  .nav-link.is-active {
+    color: #FFFFFF;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.625rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    background-color: rgba(30, 117, 232, 0.18);
+    color: #38BDF8;
+  }
+
+  /* Nav Actions */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.95rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #1E75E8;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 150ms ease, transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .cta-button:hover {
+      background-color: #1664CA;
+    }
+    .cta-button:hover .cta-arrow {
+      transform: translateX(2px);
+    }
+  }
+
+  .cta-button:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
+
+  .cta-arrow {
+    transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #FFFFFF;
+    transition: background-color 150ms ease, transform 100ms ease-out;
+  }
+
+  .mobile-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .toggle-bar {
+    width: 20px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms ease;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .bar-top {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .bar-bottom {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  /* Mobile Nav Panel */
+  .mobile-nav-panel {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .cta-button {
+      display: none;
+    }
+
+    .mobile-nav-panel {
+      display: block;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(7, 9, 14, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1), visibility 200ms;
+      pointer-events: none;
+    }
+
+    .mobile-nav-panel.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .mobile-nav-inner {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 64px);
+      padding: 1.25rem 1.5rem 2.5rem;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      flex: 1;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-ink-primary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 150ms ease, color 150ms ease;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:active {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: #FFFFFF;
+    }
+
+    .mobile-nav-link.is-active {
+      font-weight: 600;
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .mobile-chevron {
+      color: var(--color-ink-tertiary);
+    }
+
+    .mobile-nav-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
+    }
+
+    .mobile-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background-color: #1E75E8;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 150ms ease, transform 100ms ease-out;
+    }
+
+    .mobile-cta-btn:active {
+      transform: scale(0.98);
+      background-color: #1664CA;
+    }
+
+    .mobile-college-note {
+      margin-top: 1rem;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--color-ink-tertiary);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .brand-logo,
+    .nav-link,
+    .cta-button,
+    .cta-arrow,
+    .mobile-toggle,
+    .toggle-bar,
+    .mobile-nav-panel,
+    .mobile-nav-link,
+    .mobile-cta-btn {
+      transition-duration: 0.01ms !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  function setupNavbar() {
+    const toggle = document.getElementById('mobile-nav-toggle');
+    const panel = document.getElementById('mobile-nav-panel');
+
+    if (!toggle || !panel) return;
+
+    function openMenu() {
+      panel.classList.add('is-open');
+      panel.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      panel.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = panel.classList.contains('is-open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Close when clicking any nav link inside mobile panel
+    const mobileLinks = panel.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    // Close if window resized to desktop viewport
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && panel.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavbar);
+  } else {
+    setupNavbar();
+  }
+</script>

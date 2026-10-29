@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCurrentSynHack, synhackEditions } from '../../data/synhack';
+import SynHackDoodle from '../../components/illustrations/SynHackDoodle.astro';
+import ScrollReveal from '../../components/motion/ScrollReveal.astro';
+
+const currentEdition = getCurrentSynHack();
+const pastEditions = synhackEditions.filter((e) => !e.isCurrent);
+---
+
+<BaseLayout
+  title={`${currentEdition.edition} | Central India's Flagship Hackathon by SyntaX VNIT`}
+  description={currentEdition.overview}
+>
+  <!-- Hero Section -->
+  <section class="section pt-12 pb-20 relative overflow-hidden">
+    <!-- Ambient ambient backdrop glows -->
+    <div class="absolute top-10 right-10 w-96 h-96 bg-[#2ED3FE]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-[#8B5CF6]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6">
+          <ScrollReveal animation="fade-up" delay={50}>
+            <div class="inline-flex items-center gap-2 mb-4">
+              <span class="badge badge-brand shadow-[0_0_12px_rgba(46,211,254,0.3)]">
+                FLAGSHIP HACKATHON
+              </span>
+              <span class="font-mono text-xs text-[#849197]">VNIT NAGPUR</span>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={150}>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight">
+              {currentEdition.edition}:<br />
+              <span class="text-gradient">
+                {currentEdition.theme}
+              </span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={250}>
+            <p class="mt-6 text-xl text-[#B0BCC2] leading-relaxed max-w-2xl">
+              {currentEdition.tagline}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={350}>
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm font-mono text-[#E2DDD3]">
+              <div class="flex items-center gap-2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2ED3FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>{currentEdition.venue}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>{currentEdition.durationHours} Hours In-Person</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path><path d="M14 14.66V17c0 .55.45 1 1 1h2"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                <span>{currentEdition.prizePool}</span>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <!-- Registration State Panel -->
+          <ScrollReveal animation="fade-up" delay={450}>
+            <div class="mt-8 p-6 rounded-2xl bg-[#0E131F]/90 border border-white/10 backdrop-blur-xl shadow-2xl max-w-xl relative overflow-hidden">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+                <div>
+                  <div class="font-mono text-xs uppercase text-[#849197] font-semibold">
+                    REGISTRATION STATUS
+                  </div>
+                  <div class="text-lg font-bold text-white mt-0.5 flex items-center gap-2">
+                    <span class={`w-2.5 h-2.5 rounded-full ${currentEdition.status === 'open' ? 'bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]' : 'bg-amber-400'}`}></span>
+                    <span class="capitalize">{currentEdition.status}</span>
+                  </div>
+                  <div class="text-xs text-[#849197] font-mono mt-1">
+                    {currentEdition.dates}
+                  </div>
+                </div>
+
+                {currentEdition.status === 'open' && currentEdition.registrationUrl ? (
+                  <a
+                    href={currentEdition.registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-syntax text-sm font-mono py-2.5 px-6 shrink-0 shadow-[0_0_20px_rgba(46,211,254,0.4)]"
+                  >
+                    Register Team Now ↗
+                  </a>
+                ) : currentEdition.status === 'upcoming' ? (
+                  <div class="text-xs font-mono px-3.5 py-2 rounded-lg bg-white/5 text-stone-300 border border-white/10">
+                    Official Launch Soon
+                  </div>
+                ) : currentEdition.status === 'closed' ? (
+                  <div class="text-xs font-mono px-3.5 py-2 rounded-lg bg-red-950/60 text-red-300 border border-red-800/60">
+                    Registrations Closed
+                  </div>
+                ) : (
+                  <div class="text-xs font-mono px-3.5 py-2 rounded-lg bg-emerald-950/60 text-emerald-300 border border-emerald-800/60">
+                    Edition Completed
+                  </div>
+                )}
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <div class="lg:col-span-6 flex justify-center">
+          <ScrollReveal animation="fade-left" delay={250}>
+            <SynHackDoodle size={520} />
+          </ScrollReveal>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT METRICS -->
+  {currentEdition.highlights && (
+    <section class="border-y border-white/10 bg-[#0B0F19]/80 backdrop-blur-xl py-10">
+      <div class="container">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {currentEdition.highlights.map((h, idx) => (
+            <ScrollReveal animation="fade-up" delay={idx * 80}>
+              <div>
+                <div class="font-serif text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#2ED3FE] to-[#8B5CF6]">
+                  {h.metric}
+                </div>
+                <div class="text-xs font-mono text-[var(--color-ink-tertiary)] uppercase tracking-wider mt-1.5 font-bold">
+                  {h.label}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- HACKATHON TRACKS -->
+  <section class="section">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="section-header max-w-2xl mb-12">
+          <span class="section-label">INNOVATION DOMAINS</span>
+          <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-1">SynHack '25 Problem Tracks</h2>
+          <p class="mt-3 text-base text-[var(--color-ink-secondary)]">
+            Four multidisciplinary challenge tracks designed to push algorithmic execution, system resilience, and product polish.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {currentEdition.tracks.map((track, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 100}>
+            <div class="card p-8 bg-[#0E131F]/70 border border-white/10 rounded-2xl backdrop-blur-xl flex flex-col justify-between hover:border-[#2ED3FE]/50 transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(46,211,254,0.15)] h-full group">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-[#2ED3FE] tracking-wider">
+                  TRACK 0{idx + 1}
+                </span>
+                <h3 class="text-2xl font-serif font-bold text-white mt-1.5 group-hover:text-[#2ED3FE] transition-colors">
+                  {track.title}
+                </h3>
+                <p class="mt-3 text-sm text-[var(--color-ink-secondary)] leading-relaxed">
+                  {track.description}
+                </p>
+              </div>
+
+              {track.bounties && (
+                <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+                  <span class="text-[var(--color-ink-tertiary)]">Special Bounty:</span>
+                  <span class="badge bg-purple-500/15 text-purple-300 border border-purple-500/30">{track.bounties}</span>
+                </div>
+              )}
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIZES & REWARDS -->
+  <section class="section border-t border-white/10 bg-[#0B0F19]/50">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="section-header max-w-2xl mb-12">
+          <span class="section-label">BOUNTIES & PODIUM</span>
+          <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-1">Prize Pool: {currentEdition.prizePool}</h2>
+          <p class="mt-3 text-base text-[var(--color-ink-secondary)]">
+            Rewarding standout execution, technical depth, and demo performance.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentEdition.prizes.slice(0, 3).map((prize, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 100}>
+            <div class={`card p-8 flex flex-col justify-between rounded-2xl backdrop-blur-xl text-center h-full transition-all duration-300 ${idx === 0 ? 'bg-gradient-to-b from-[#0E131F] to-[#141C2E] border-2 border-[#2ED3FE]/50 shadow-[0_0_35px_rgba(46,211,254,0.2)]' : 'bg-[#0E131F]/70 border border-white/10'}`}>
+              <div>
+                <span class={`font-mono text-xs uppercase tracking-wider font-bold ${idx === 0 ? 'text-[#2ED3FE]' : 'text-stone-400'}`}>
+                  {prize.rank}
+                </span>
+                <div class={`font-serif text-3xl font-bold mt-3 ${idx === 0 ? 'text-transparent bg-clip-text bg-gradient-to-r from-white via-[#2ED3FE] to-[#8B5CF6]' : 'text-white'}`}>
+                  {prize.reward}
+                </div>
+                <p class="text-xs text-[var(--color-ink-secondary)] mt-2 font-mono">
+                  {prize.perks}
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-white/10 text-[10px] font-mono text-[var(--color-ink-tertiary)] uppercase font-semibold">
+                SynHack Trophy + Citations
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 36-HOUR TIMELINE -->
+  {currentEdition.schedule.length > 0 && (
+    <section class="section">
+      <div class="container max-w-4xl">
+        <ScrollReveal animation="fade-up">
+          <div class="section-header text-center max-w-xl mx-auto mb-12">
+            <span class="section-label">36-HOUR RUN SHEET</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-1">The Sprint Schedule</h2>
+            <p class="mt-3 text-base text-[var(--color-ink-secondary)]">
+              A carefully timed sprint balancing rapid prototyping, architecture reviews, and mentorship rounds.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div class="space-y-4">
+          {currentEdition.schedule.map((item, idx) => (
+            <ScrollReveal animation="fade-up" delay={idx * 60}>
+              <div class="p-4 rounded-xl bg-[#0E131F]/60 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-[#2ED3FE]/40 transition-all backdrop-blur-xl">
+                <div class="flex items-center gap-4">
+                  <div class="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[#2ED3FE] shrink-0">
+                    {item.day} · {item.time}
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-sm text-white">{item.title}</h4>
+                    <p class="text-xs text-[var(--color-ink-secondary)] mt-0.5">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- PAST EDITIONS ARCHIVE -->
+  <section class="section border-t border-white/10 bg-[#0B0F19]/50">
+    <div class="container">
+      <ScrollReveal animation="fade-up">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span class="section-label">THE LEGACY</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mt-1">Past SynHack Editions</h2>
+            <p class="mt-2 text-sm text-[var(--color-ink-secondary)]">
+              Explore results, archived winning solutions, and metrics from previous years.
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {pastEditions.map((edition, idx) => (
+          <ScrollReveal animation="fade-up" delay={idx * 100}>
+            <div class="card p-6 md:p-8 bg-[#0E131F]/70 border border-white/10 rounded-2xl backdrop-blur-xl hover:border-[#2ED3FE]/40 transition-all shadow-xl h-full flex flex-col justify-between">
+              <div>
+                <span class="badge text-xs font-mono bg-white/5 border border-white/10 text-[#2ED3FE]">{edition.dates}</span>
+                <h3 class="text-2xl font-serif font-bold text-white mt-3">{edition.edition}</h3>
+                <p class="font-serif italic text-sm text-purple-300 mt-1">
+                  "{edition.theme}"
+                </p>
+                <p class="text-sm text-[var(--color-ink-secondary)] mt-3 leading-relaxed">
+                  {edition.overview}
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-stone-300">
+                  {edition.expectedHackerCount}+ Hackers · {edition.prizePool}
+                </span>
+                <a href={`/synhack/${edition.year}`} class="btn btn-secondary text-xs font-mono py-1.5 px-4">
+                  View Archive →
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

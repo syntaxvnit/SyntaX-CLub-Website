@@ -1,0 +1,44 @@
+---
+interface Props {
+  direction?: 'right' | 'down' | 'curve-right' | 'curve-left';
+  className?: string;
+  color?: string;
+  label?: string;
+}
+
+const {
+  direction = 'curve-right',
+  className = '',
+  color = '#1E75E8',
+  label = '',
+} = Astro.props;
+---
+
+<div class={`hand-drawn-arrow inline-flex items-center gap-2 ${className}`}>
+  {direction === 'curve-right' && (
+    <svg width="60" height="32" viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 22 C22 4, 38 6, 52 18" stroke={color} stroke-width="2.2" stroke-linecap="round" fill="none" />
+      <path d="M43 18 L52 18 L49 9" stroke={color} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )}
+
+  {direction === 'right' && (
+    <svg width="48" height="20" viewBox="0 0 48 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 10 H42" stroke={color} stroke-width="2" stroke-linecap="round" />
+      <path d="M35 4 L42 10 L35 16" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )}
+
+  {direction === 'down' && (
+    <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4 V40" stroke={color} stroke-width="2" stroke-linecap="round" />
+      <path d="M6 34 L12 40 L18 34" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )}
+
+  {label && (
+    <span class="font-serif italic text-sm text-[var(--color-ink-secondary)] select-none">
+      {label}
+    </span>
+  )}
+</div>

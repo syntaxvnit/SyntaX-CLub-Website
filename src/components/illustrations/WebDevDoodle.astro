@@ -1,0 +1,143 @@
+---
+interface Props {
+  className?: string;
+  size?: number;
+}
+
+const { className = "", size = 520 } = Astro.props;
+---
+
+<div class={`web-doodle-container relative select-none ${className}`}>
+  <!-- Subtle ambient volumetric glow -->
+  <div class="absolute -inset-2 bg-gradient-to-r from-[#1E75E8]/20 via-[#2ED3FE]/15 to-transparent rounded-2xl blur-xl opacity-60 -z-10"></div>
+
+  <svg
+    viewBox="0 0 540 360"
+    width={size}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto filter drop-shadow-xl"
+    aria-label="Web & Systems Architecture Editorial Illustration"
+  >
+    <defs>
+      <linearGradient id="wdGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(15, 23, 42, 0.92)" />
+        <stop offset="100%" stop-color="rgba(10, 14, 26, 0.96)" />
+      </linearGradient>
+
+      <linearGradient id="wdAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1E75E8" />
+        <stop offset="100%" stop-color="#2ED3FE" />
+      </linearGradient>
+
+      <filter id="wdGlow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="4" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+
+    <!-- Main Outer Browser Window -->
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#wdGlass)" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1.6" />
+    <path d="M 15 54 L 525 54" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" />
+
+    <!-- Browser Controls -->
+    <circle cx="36" cy="35" r="4.5" fill="#EF4444" />
+    <circle cx="52" cy="35" r="4.5" fill="#F59E0B" />
+    <circle cx="68" cy="35" r="4.5" fill="#10B981" />
+
+    <!-- Responsive Breakpoint Pills -->
+    <rect x="96" y="27" width="28" height="16" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.8" />
+    <text x="103" y="38" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#94A3B8">375</text>
+    <rect x="128" y="27" width="28" height="16" rx="4" fill="rgba(46, 211, 254, 0.15)" stroke="rgba(46, 211, 254, 0.4)" stroke-width="0.8" />
+    <text x="135" y="38" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#2ED3FE">768</text>
+    <rect x="160" y="27" width="32" height="16" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.8" />
+    <text x="165" y="38" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#94A3B8">1280</text>
+
+    <!-- Address Bar -->
+    <rect x="204" y="25" width="220" height="20" rx="5" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <text x="216" y="38" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#38BDF8">https://syntax.vnit/systems</text>
+    <!-- SSL lock icon -->
+    <circle cx="412" cy="35" r="2.5" fill="#10B981" />
+
+    <!-- Lighthouse 100 Badge -->
+    <rect x="436" y="25" width="75" height="20" rx="5" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" />
+    <text x="445" y="38" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#34D399">⚡ 100/100</text>
+
+    <!-- ========================================== -->
+    <!-- BROWSER CONTENT VIEWPORT (LEFT 60%)        -->
+    <!-- ========================================== -->
+    <!-- Viewport Header Mockup -->
+    <rect x="35" y="72" width="280" height="22" rx="4" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <circle cx="50" cy="83" r="4.5" fill="#2ED3FE" />
+    <rect x="62" y="80" width="45" height="6" rx="2" fill="#E2E8F0" />
+    <rect x="250" y="78" width="52" height="10" rx="3" fill="rgba(46, 211, 254, 0.2)" />
+
+    <!-- Hero Card inside preview -->
+    <rect x="35" y="104" width="280" height="90" rx="8" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <text x="50" y="125" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#FFFFFF">&lt;App.Router&gt;</text>
+    <rect x="50" y="135" width="130" height="6" rx="2" fill="#64748B" />
+    <rect x="50" y="146" width="180" height="5" rx="1.5" fill="#475569" />
+
+    <!-- Island Hydration Live Component with Glowing Pulse -->
+    <rect x="50" y="160" width="150" height="24" rx="5" fill="rgba(139, 92, 246, 0.18)" stroke="#8B5CF6" stroke-width="1.2" />
+    <circle cx="62" cy="172" r="3.5" fill="#34D399" class="animate-pulse" />
+    <text x="72" y="175" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#C084FC">&lt;Island client:load /&gt;</text>
+
+    <!-- Two Responsive Content Tiles Below -->
+    <rect x="35" y="204" width="134" height="68" rx="6" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <circle cx="50" cy="220" r="5" fill="#38BDF8" />
+    <rect x="62" y="217" width="55" height="6" rx="2" fill="#E2E8F0" />
+    <rect x="50" y="234" width="95" height="4" rx="1" fill="#64748B" />
+    <rect x="50" y="244" width="80" height="4" rx="1" fill="#475569" />
+
+    <rect x="181" y="204" width="134" height="68" rx="6" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <circle cx="196" cy="220" r="5" fill="#8B5CF6" />
+    <rect x="208" y="217" width="55" height="6" rx="2" fill="#E2E8F0" />
+    <rect x="196" y="234" width="95" height="4" rx="1" fill="#64748B" />
+    <rect x="196" y="244" width="80" height="4" rx="1" fill="#475569" />
+
+    <!-- Terminal Drawer at bottom of viewport -->
+    <rect x="35" y="282" width="280" height="48" rx="6" fill="#07090E" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1.2" />
+    <text x="48" y="298" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#94A3B8">vnit@syntax:~$ <tspan fill="#34D399">npm run build</tspan></text>
+    <text x="48" y="316" font-family="'JetBrains Mono', monospace" font-size="8" fill="#38BDF8">✓ 34 static routes generated [650ms]</text>
+
+    <!-- ========================================== -->
+    <!-- DEVTOOLS INSPECTOR PANEL (RIGHT 38%)       -->
+    <!-- ========================================== -->
+    <rect x="330" y="72" width="180" height="258" rx="8" fill="rgba(10, 14, 26, 0.95)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
+    <!-- DevTools Tabs -->
+    <path d="M 330 96 L 510 96" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <text x="342" y="88" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#2ED3FE">Elements</text>
+    <text x="390" y="88" font-family="'JetBrains Mono', monospace" font-size="8" fill="#64748B">Console</text>
+    <text x="435" y="88" font-family="'JetBrains Mono', monospace" font-size="8" fill="#38BDF8">Network</text>
+    <text x="480" y="88" font-family="'JetBrains Mono', monospace" font-size="8" fill="#64748B">Audit</text>
+
+    <!-- Network Waterfall Metrics -->
+    <rect x="342" y="108" width="156" height="34" rx="5" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <text x="350" y="122" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#34D399">200 OK</text>
+    <text x="390" y="122" font-family="'JetBrains Mono', monospace" font-size="8" fill="#E2E8F0">index.html</text>
+    <text x="350" y="134" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#94A3B8">size: 14.2kB · time: 8ms</text>
+
+    <rect x="342" y="148" width="156" height="34" rx="5" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <text x="350" y="162" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#34D399">200 OK</text>
+    <text x="390" y="162" font-family="'JetBrains Mono', monospace" font-size="8" fill="#E2E8F0">global.css</text>
+    <text x="350" y="174" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#94A3B8">size: 8.4kB · edge: HIT</text>
+
+    <!-- DOM Hierarchy Tree -->
+    <text x="342" y="202" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#94A3B8">DOM TREE</text>
+    <text x="342" y="218" font-family="'JetBrains Mono', monospace" font-size="8" fill="#C084FC">▼ &lt;html lang="en"&gt;</text>
+    <text x="352" y="232" font-family="'JetBrains Mono', monospace" font-size="8" fill="#C084FC">▼ &lt;body class="dark"&gt;</text>
+    <text x="364" y="246" font-family="'JetBrains Mono', monospace" font-size="8" fill="#38BDF8">&lt;header.navbar /&gt;</text>
+    <text x="364" y="260" font-family="'JetBrains Mono', monospace" font-size="8" fill="#38BDF8">&lt;main.container /&gt;</text>
+    <text x="376" y="274" font-family="'JetBrains Mono', monospace" font-size="8" fill="#10B981">&lt;section.island /&gt;</text>
+    <text x="364" y="288" font-family="'JetBrains Mono', monospace" font-size="8" fill="#38BDF8">&lt;footer /&gt;</text>
+
+    <!-- Edge Routing Marker -->
+    <rect x="342" y="302" width="156" height="20" rx="4" fill="rgba(46, 211, 254, 0.1)" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1" />
+    <text x="350" y="315" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#2ED3FE">⚡ Edge CDN: BOM-Nagpur</text>
+
+    <!-- Editorial Hand-drawn Connector Arrow -->
+    <path d="M 315 172 Q 330 172, 340 162" stroke="#2ED3FE" stroke-width="1.4" stroke-linecap="round" fill="none" />
+    <path d="M 334 160 L 341 161 L 338 168" stroke="#2ED3FE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</div>

@@ -1,0 +1,357 @@
+---
+import { siteConfig } from '../../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <!-- Top Editorial Rule with glowing tag -->
+    <div class="footer-rule-row">
+      <div class="rule-line"></div>
+      <span class="rule-tag">SYNTAX · VNIT NAGPUR · <span class="font-curvy text-base text-cyan-400 font-bold">Est. 2020</span></span>
+      <div class="rule-line"></div>
+    </div>
+
+    <!-- Main Footer Grid -->
+    <div class="footer-grid">
+      <!-- Col 1: Brand & College details -->
+      <div class="footer-brand-col">
+        <div class="flex items-center gap-3">
+          <div class="footer-logo-wrapper">
+            <img
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              width="40"
+              height="40"
+              class="footer-logo"
+            />
+          </div>
+          <div>
+            <div class="font-sans font-bold text-xl text-white">SyntaX</div>
+            <div class="font-mono text-xs uppercase tracking-wider text-[var(--color-syntax-cyan)]">
+              VNIT Nagpur
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed max-w-sm text-[var(--color-ink-secondary)]">
+          {siteConfig.description}
+        </p>
+
+        <!-- College Address citation -->
+        <div class="mt-4 text-xs font-mono text-[var(--color-ink-tertiary)] flex items-center gap-2">
+          <span>📍</span>
+          <span>{siteConfig.college}, South Ambazari Road, {siteConfig.location}</span>
+        </div>
+
+        <!-- Replay Intro Video Button -->
+        <div class="mt-6">
+          <button
+            id="replay-intro-btn"
+            type="button"
+            class="replay-video-btn"
+            aria-label="Replay website opening video"
+          >
+            <span class="text-[var(--color-syntax-cyan)]">▶</span>
+            <span>Replay Opening Animation</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation Links -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Explore</h4>
+        <ul class="footer-links-list" role="list">
+          <li><a href="/about" class="footer-link">About the Guild</a></li>
+          <li><a href="/council" class="footer-link">Council & Leadership</a></li>
+          <li><a href="/events" class="footer-link">Events & Workshops</a></li>
+          <li><a href="/achievements" class="footer-link">Hall of Achievements</a></li>
+          <li><a href="/blogs" class="footer-link">Technical Journal</a></li>
+          <li><a href="/alumni" class="footer-link">Alumni Network</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Domains & Initiatives -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Initiatives</h4>
+        <ul class="footer-links-list" role="list">
+          <li>
+            <a href="/synhack" class="footer-link flex items-center gap-1.5 text-[var(--color-syntax-cyan)]">
+              <span>✦</span> SynHack '25
+            </a>
+          </li>
+          <li><a href="/events#workshops" class="footer-link">Web Systems Clinics</a></li>
+          <li><a href="/events#cp" class="footer-link">Algorithmic Clashes</a></li>
+          <li><a href="/events#ai" class="footer-link">Applied AI & Agents</a></li>
+          <li><a href="/alumni#share" class="footer-link">Alumni Submissions</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Verified Socials & Connect -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Connect</h4>
+        <div class="footer-social-links">
+          {siteConfig.socials.github && (
+            <a
+              href={siteConfig.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-pill-link"
+              aria-label="SyntaX VNIT GitHub Organization"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+          )}
+
+          {siteConfig.socials.linkedin && (
+            <a
+              href={siteConfig.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-pill-link"
+              aria-label="SyntaX VNIT LinkedIn Profile"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          )}
+
+          {siteConfig.socials.instagram && (
+            <a
+              href={siteConfig.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-pill-link"
+              aria-label="SyntaX VNIT Instagram Account"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+          )}
+
+          <a
+            href="mailto:syntax.vnit@gmail.com"
+            class="social-pill-link"
+            aria-label="Email SyntaX VNIT"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <span>syntax.vnit@gmail.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom">
+      <div class="text-xs text-[var(--color-ink-tertiary)]">
+        © {new Date().getFullYear()} SyntaX VNIT. All rights reserved.
+      </div>
+      <div class="text-xs text-[var(--color-ink-tertiary)]">
+        Visvesvaraya National Institute of Technology, Nagpur
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #070A0F;
+    border-top: 1px solid var(--color-border);
+    padding-top: 4.5rem;
+    padding-bottom: 3.5rem;
+    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46, 211, 254, 0.4), transparent);
+    pointer-events: none;
+  }
+
+  .footer-rule-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  }
+
+  .rule-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--color-ink-tertiary);
+    letter-spacing: 0.15em;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+  }
+
+  .footer-logo-wrapper {
+    position: relative;
+  }
+
+  .footer-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+
+  .footer-col-title {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .footer-links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    color: #FFFFFF;
+    transform: translateX(3px);
+  }
+
+  .footer-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .social-pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0.875rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    transition: all var(--transition-fast);
+  }
+
+  .social-pill-link:hover {
+    background: rgba(46, 211, 254, 0.1);
+    border-color: var(--color-border-glow);
+    color: #2ED3FE;
+    transform: translateX(2px);
+  }
+
+  .replay-video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-ink-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .replay-video-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-syntax-cyan);
+    color: #FFFFFF;
+  }
+
+  .footer-bottom {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 1rem;
+  }
+
+  @media (max-width: 920px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand-col {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-brand-col {
+      grid-column: span 1;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<script>
+  function setupReplayButton() {
+    const replayBtn = document.getElementById('replay-intro-btn');
+    if (!replayBtn) return;
+
+    replayBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('syntax_intro_seen');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupReplayButton);
+  } else {
+    setupReplayButton();
+  }
+</script>

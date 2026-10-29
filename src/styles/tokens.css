@@ -1,0 +1,64 @@
+:root {
+  /* Modern High-End Dark Obsidian Canvas */
+  --color-bg: #07090E;
+  --color-bg-card: rgba(14, 19, 31, 0.72);
+  --color-bg-subtle: #0B0F19;
+  --color-bg-muted: #111726;
+  --color-bg-elevated: #161F33;
+  --color-bg-glass: rgba(16, 22, 36, 0.65);
+  
+  /* Luminous Modern Typography Inks */
+  --color-ink-primary: #F8FAFC;
+  --color-ink-secondary: #94A3B8;
+  --color-ink-tertiary: #64748B;
+  --color-ink-inverse: #07090E;
+  
+  /* Authentic SyntaX Brand Colors & Energy */
+  --color-syntax-blue: #1E75E8;
+  --color-syntax-blue-light: #38BDF8;
+  --color-syntax-cyan: #2ED3FE;
+  --color-syntax-purple: #8B5CF6;
+  --color-syntax-purple-deep: #7C3AED;
+  --color-syntax-glow: rgba(46, 211, 254, 0.2);
+  --color-syntax-gradient: linear-gradient(135deg, #1E75E8 0%, #2ED3FE 50%, #8B5CF6 100%);
+  --color-syntax-gradient-subtle: linear-gradient(135deg, rgba(30, 117, 232, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  
+  /* Accents */
+  --color-accent-amber: #F59E0B;
+  --color-accent-emerald: #10B981;
+  --color-accent-rose: #F43F5E;
+  
+  /* Glassmorphism Borders */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-glow: rgba(46, 211, 254, 0.35);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
+  --color-border-dark: rgba(255, 255, 255, 0.15);
+
+  /* Typography Scales */
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --font-curvy: 'Caveat', cursive, sans-serif;
+
+  /* Elevation, Glows & Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(46, 211, 254, 0.1);
+  --shadow-glow: 0 0 35px rgba(30, 117, 232, 0.35), 0 0 70px rgba(139, 92, 246, 0.2);
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 16px 48px -8px rgba(46, 211, 254, 0.25), 0 0 1px 1px rgba(46, 211, 254, 0.4);
+  --shadow-doodle: 0 0 24px rgba(46, 211, 254, 0.15);
+  --shadow-doodle-hover: 0 0 40px rgba(139, 92, 246, 0.35);
+  
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}

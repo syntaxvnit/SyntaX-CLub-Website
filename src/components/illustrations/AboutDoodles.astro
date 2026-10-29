@@ -1,0 +1,600 @@
+---
+interface Props {
+  type: 
+    | 'stamp-merit' 
+    | 'stamp-public' 
+    | 'scribble-circle' 
+    | 'scribble-underline' 
+    | 'arrow-annotate' 
+    | 'curly-arrow'
+    | 'star-sparkle'
+    | 'code-braces'
+    | 'lightning-doodle'
+    | 'tech-react'
+    | 'tech-python'
+    | 'tech-go'
+    | 'tech-cpp'
+    | 'tech-js'
+    | 'flow-connector'
+    | 'retro-computer-art'
+    | 'rocket-coder-art'
+    | 'cloud-coder-art'
+    | 'robot-companion-art'
+    | 'coffee-art'
+    | 'brain-ai-art'
+    | 'floppy-disk-art'
+    | 'microchip-processor-art'
+    | 'server-rack-art'
+    | 'git-branch-tree-art'
+    | 'terminal-window-art'
+    | 'satellite-dish-art'
+    | 'mechanical-keyboard-switch-art'
+    | 'cyber-shield-security-art'
+    | 'sticker-ship-it'
+    | 'sticker-algo';
+  className?: string;
+  color?: string;
+  text?: string;
+  size?: number;
+}
+
+const {
+  type,
+  className = '',
+  color = '#2ED3FE',
+  text = '',
+  size = 32,
+} = Astro.props;
+---
+
+{type === 'stamp-merit' && (
+  <div class={`inline-flex items-center gap-1.5 border-2 border-dashed border-[#F59E0B] bg-[#07090E]/90 px-3 py-1 font-mono text-[11px] font-extrabold uppercase tracking-widest text-[#FBBF24] rotate-[-2.5deg] select-none shadow-[3px_3px_0px_#F59E0B] ${className}`}>
+    <span>★</span>
+    <span>100% MERIT · ZERO VANITY</span>
+  </div>
+)}
+
+{type === 'stamp-public' && (
+  <div class={`inline-flex items-center gap-1.5 border-2 border-[#2ED3FE] bg-[#07090E]/90 px-3 py-1 font-mono text-[11px] font-extrabold uppercase tracking-widest text-[#2ED3FE] rotate-[2deg] select-none shadow-[3px_3px_0px_#2ED3FE] ${className}`}>
+    <span>[ GIT-DRIVEN & PUBLIC ]</span>
+  </div>
+)}
+
+{type === 'sticker-ship-it' && (
+  <div class={`inline-flex items-center gap-1.5 border-2 border-[#10B981] bg-[#07090E] px-2.5 py-1 font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#34D399] rotate-[-3deg] select-none shadow-[3px_3px_0px_#10B981] ${className}`}>
+    <span>🚀</span>
+    <span>SHIP IT! · PROD</span>
+  </div>
+)}
+
+{type === 'sticker-algo' && (
+  <div class={`inline-flex items-center gap-1.5 border-2 border-[#8B5CF6] bg-[#07090E] px-2.5 py-1 font-mono text-[11px] font-extrabold uppercase tracking-wider text-[#C084FC] rotate-[3.5deg] select-none shadow-[3px_3px_0px_#8B5CF6] ${className}`}>
+    <span>★</span>
+    <span>O(log N) PURITY</span>
+  </div>
+)}
+
+{type === 'scribble-circle' && (
+  <svg class={`pointer-events-none select-none inline-block ${className}`} viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16 36 C10 18, 48 8, 92 10 C140 12, 172 26, 166 42 C160 56, 108 64, 56 62 C22 60, 6 48, 11 32 C15 16, 60 12, 102 14"
+      stroke={color}
+      stroke-width="2.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+  </svg>
+)}
+
+{type === 'scribble-underline' && (
+  <svg class={`pointer-events-none select-none block ${className}`} viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M4 16 Q 55 4, 110 16 T 216 14"
+      stroke={color}
+      stroke-width="3.2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M14 22 Q 65 12, 120 22 T 204 20"
+      stroke={color}
+      stroke-width="1.8"
+      stroke-linecap="round"
+      opacity="0.6"
+    />
+  </svg>
+)}
+
+{type === 'arrow-annotate' && (
+  <div class={`inline-flex items-center gap-2 select-none ${className}`}>
+    <svg width="54" height="28" viewBox="0 0 54 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 22 C16 8, 32 8, 48 16" stroke={color} stroke-width="2.2" stroke-linecap="round" fill="none" />
+      <path d="M38 10 L48 16 L43 24" stroke={color} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    {text && (
+      <span class="font-mono text-xs font-bold uppercase tracking-wider" style={`color: ${color}`}>
+        {text}
+      </span>
+    )}
+  </div>
+)}
+
+{type === 'curly-arrow' && (
+  <svg class={`pointer-events-none select-none ${className}`} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M15 15 C 45 5, 70 25, 60 50 C 52 70, 25 65, 30 45 C 34 32, 55 35, 65 65"
+      stroke={color}
+      stroke-width="2.5"
+      stroke-linecap="round"
+      fill="none"
+    />
+    <path
+      d="M56 65 L 65 65 L 67 55"
+      stroke={color}
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+)}
+
+{type === 'star-sparkle' && (
+  <svg class={`pointer-events-none select-none inline-block ${className}`} width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16 2 C16 9, 23 16, 30 16 C23 16, 16 23, 16 30 C16 23, 9 16, 2 16 C9 16, 16 9, 16 2 Z"
+      fill={color}
+      opacity="0.9"
+    />
+    <circle cx="16" cy="16" r="3" fill="#FFFFFF" />
+  </svg>
+)}
+
+{type === 'code-braces' && (
+  <svg class={`pointer-events-none select-none inline-block ${className}`} width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M 14 6 C 10 6, 8 10, 8 16 C 8 20, 4 20, 4 20 C 4 20, 8 20, 8 24 C 8 30, 10 34, 14 34"
+      stroke={color}
+      stroke-width="2.5"
+      stroke-linecap="round"
+      fill="none"
+    />
+    <path
+      d="M 26 6 C 30 6, 32 10, 32 16 C 32 20, 36 20, 36 20 C 36 20, 32 20, 32 24 C 32 30, 30 34, 26 34"
+      stroke={color}
+      stroke-width="2.5"
+      stroke-linecap="round"
+      fill="none"
+    />
+  </svg>
+)}
+
+{type === 'lightning-doodle' && (
+  <svg class={`pointer-events-none select-none inline-block ${className}`} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M13 2 L4 14 H12 L11 22 L20 10 H12 L13 2 Z"
+      fill={color}
+      stroke="#000000"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+  </svg>
+)}
+
+{/* ============================================================== */}
+{/* 2D TECHNOLOGY & ENGINEERING ART DOODLES                        */}
+{/* ============================================================== */}
+
+{/* 1. ADVANCED MICROCHIP / PROCESSOR ART (REMOVED) */}
+{type === 'microchip-processor-art' && null}
+
+{/* 2. HIGH-DENSITY SERVER BLADE RACK ART */}
+{type === 'server-rack-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer Cabinet -->
+    <rect x="28" y="16" width="104" height="128" rx="8" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <!-- Side Mount Rails with bolts -->
+    <line x1="36" y1="18" x2="36" y2="142" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+    <line x1="124" y1="18" x2="124" y2="142" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+    <circle cx="36" cy="32" r="1.5" fill="#F59E0B" />
+    <circle cx="36" cy="64" r="1.5" fill="#F59E0B" />
+    <circle cx="36" cy="96" r="1.5" fill="#F59E0B" />
+    <circle cx="36" cy="128" r="1.5" fill="#F59E0B" />
+    <circle cx="124" cy="32" r="1.5" fill="#F59E0B" />
+    <circle cx="124" cy="64" r="1.5" fill="#F59E0B" />
+    <circle cx="124" cy="96" r="1.5" fill="#F59E0B" />
+    <circle cx="124" cy="128" r="1.5" fill="#F59E0B" />
+
+    <!-- Blade 1 (Top) -->
+    <rect x="42" y="24" width="76" height="24" rx="4" fill="#07090E" stroke="#8B5CF6" stroke-width="1.8" />
+    <circle cx="50" cy="36" r="3" fill="#10B981" />
+    <circle cx="58" cy="36" r="3" fill="#10B981" />
+    <circle cx="66" cy="36" r="3" fill="#2ED3FE" />
+    <line x1="80" y1="32" x2="110" y2="32" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="3 2" />
+    <line x1="80" y1="40" x2="110" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="3 2" />
+
+    <!-- Blade 2 (Upper Middle) -->
+    <rect x="42" y="54" width="76" height="24" rx="4" fill="#07090E" stroke={color} stroke-width="1.8" />
+    <circle cx="50" cy="66" r="3" fill="#10B981" />
+    <circle cx="58" cy="66" r="3" fill="#F59E0B" />
+    <circle cx="66" cy="66" r="3" fill="#10B981" />
+    <text x="80" y="69" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#2ED3FE">NODE:02</text>
+
+    <!-- Blade 3 (Lower Middle) -->
+    <rect x="42" y="84" width="76" height="24" rx="4" fill="#07090E" stroke="#8B5CF6" stroke-width="1.8" />
+    <circle cx="50" cy="96" r="3" fill="#10B981" />
+    <circle cx="58" cy="96" r="3" fill="#10B981" />
+    <circle cx="66" cy="96" r="3" fill="#EF4444" />
+    <text x="80" y="99" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#10B981">99.9% UP</text>
+
+    <!-- Blade 4 (Bottom - Switch Unit) -->
+    <rect x="42" y="114" width="76" height="24" rx="4" fill="#07090E" stroke={color} stroke-width="1.8" />
+    <rect x="48" y="122" width="28" height="8" rx="2" fill="#10B981" opacity="0.3" />
+    <text x="50" y="129" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="900" fill="#10B981">100GbE</text>
+    <circle cx="86" cy="126" r="2.5" fill="#2ED3FE" />
+    <circle cx="94" cy="126" r="2.5" fill="#2ED3FE" />
+    <circle cx="102" cy="126" r="2.5" fill="#2ED3FE" />
+    <circle cx="110" cy="126" r="2.5" fill="#F59E0B" />
+
+    <!-- Looping Neon Patch Cables -->
+    <path d="M72 36 C86 48, 86 60, 72 66" stroke="#2ED3FE" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M68 96 C84 106, 84 116, 78 126" stroke="#F59E0B" stroke-width="2" fill="none" stroke-linecap="round" />
+  </svg>
+)}
+
+{/* 3. GIT BRANCHING & COMMIT GRAPH TREE ART */}
+{type === 'git-branch-tree-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main Trunk Line (main branch) -->
+    <line x1="46" y1="20" x2="46" y2="140" stroke="#2ED3FE" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Feature Branch Splitting and Merging -->
+    <path
+      d="M46 50 C70 50, 96 65, 96 85 C96 105, 70 120, 46 120"
+      stroke="#8B5CF6"
+      stroke-width="3"
+      fill="none"
+      stroke-linecap="round"
+    />
+
+    <!-- Second Sub-branch (hotfix) -->
+    <path
+      d="M96 85 C116 85, 126 95, 126 105 C126 115, 116 120, 96 120"
+      stroke="#F59E0B"
+      stroke-width="2.5"
+      fill="none"
+      stroke-linecap="round"
+    />
+
+    <!-- Main Branch Commit Nodes -->
+    <circle cx="46" cy="28" r="8" fill="#0B0F19" stroke="#2ED3FE" stroke-width="2.5" />
+    <circle cx="46" cy="28" r="3.5" fill="#2ED3FE" />
+
+    <circle cx="46" cy="50" r="9" fill="#0B0F19" stroke="#2ED3FE" stroke-width="2.5" />
+    <circle cx="46" cy="50" r="4" fill="#10B981" />
+
+    <circle cx="46" cy="85" r="7" fill="#0B0F19" stroke="#2ED3FE" stroke-width="2" />
+    <circle cx="46" cy="85" r="3" fill="#2ED3FE" />
+
+    <!-- Merge Commit Node -->
+    <circle cx="46" cy="120" r="10" fill="#0B0F19" stroke="#10B981" stroke-width="3" />
+    <circle cx="46" cy="120" r="4.5" fill="#10B981" />
+
+    <!-- Feature Branch Commit Nodes -->
+    <circle cx="82" cy="65" r="7" fill="#0B0F19" stroke="#8B5CF6" stroke-width="2.5" />
+    <circle cx="82" cy="65" r="3" fill="#8B5CF6" />
+
+    <circle cx="96" cy="85" r="8" fill="#0B0F19" stroke="#8B5CF6" stroke-width="2.5" />
+    <circle cx="96" cy="85" r="3.5" fill="#F59E0B" />
+
+    <!-- Sub-branch node -->
+    <circle cx="126" cy="105" r="6" fill="#0B0F19" stroke="#F59E0B" stroke-width="2" />
+    <circle cx="126" cy="105" r="2.5" fill="#F59E0B" />
+
+    <!-- Branch Name Tags -->
+    <rect x="58" y="22" width="70" height="15" rx="3" fill="#07090E" stroke="#2ED3FE" stroke-width="1.5" />
+    <text x="63" y="33" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="800" fill="#2ED3FE">HEAD -> main</text>
+
+    <rect x="104" y="68" width="50" height="14" rx="3" fill="#07090E" stroke="#8B5CF6" stroke-width="1.5" />
+    <text x="108" y="78" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#C084FC">feat:v2</text>
+
+    <!-- Merge Sparkle -->
+    <path d="M30 114 L33 118 L38 119 L34 122 L35 127 L30 124 L25 127 L26 122 L22 119 L27 118 Z" fill="#10B981" />
+  </svg>
+)}
+
+{/* 4. RETRO UNIX / LINUX TERMINAL WINDOW ART (REMOVED) */}
+{type === 'terminal-window-art' && null}
+
+{/* 5. DEEP NETWORK SATELLITE DISH TRANSMITTER ART */}
+{type === 'satellite-dish-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Radio Waves in Space -->
+    <path d="M96 38 C114 44, 126 56, 132 74" stroke="#2ED3FE" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3" />
+    <path d="M106 28 C128 36, 142 50, 150 72" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" />
+    <path d="M116 18 C142 28, 158 44, 168 70" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3" />
+
+    <!-- Floating Binary Packets -->
+    <text x="120" y="56" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#2ED3FE">01</text>
+    <text x="136" y="40" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#10B981">10</text>
+
+    <!-- Parabolic Dish Structure -->
+    <path
+      d="M40 95 C45 60, 85 40, 115 50 C105 75, 80 105, 40 95 Z"
+      fill="#0B0F19"
+      stroke={color}
+      stroke-width="3"
+    />
+    <path d="M45 92 C62 76, 88 56, 110 52" stroke="#8B5CF6" stroke-width="2" fill="none" />
+
+    <!-- Feed Horn & Focal Point Receiver -->
+    <line x1="72" y1="70" x2="108" y2="34" stroke={color} stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="108" cy="34" r="5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5" />
+    <circle cx="108" cy="34" r="2" fill="#07090E" />
+
+    <!-- Turret Mount Base -->
+    <path d="M50 96 L42 124 L68 124 L60 96 Z" fill="#07090E" stroke={color} stroke-width="2.5" />
+    <rect x="30" y="124" width="50" height="12" rx="3" fill="#0B0F19" stroke={color} stroke-width="2.5" />
+    <circle cx="55" cy="110" r="4" fill="#8B5CF6" stroke="#2ED3FE" stroke-width="1.5" />
+    <line x1="36" y1="136" x2="74" y2="136" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round" />
+  </svg>
+)}
+
+{/* 6. MECHANICAL KEYBOARD SWITCH & KEYCAP ART */}
+{type === 'mechanical-keyboard-switch-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Keycap Floating Above Stem -->
+    <polygon points="40,24 110,24 122,54 28,54" fill="#0B0F19" stroke={color} stroke-width="3" stroke-linejoin="round" />
+    <polygon points="48,28 102,28 110,48 40,48" fill="#07090E" stroke="#8B5CF6" stroke-width="1.5" />
+    <text x="75" y="42" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="900" fill="#2ED3FE" text-anchor="middle">&lt; / &gt;</text>
+
+    <!-- Cross Stem -->
+    <rect x="68" y="54" width="14" height="22" fill="#8B5CF6" stroke={color} stroke-width="2" />
+    <rect x="62" y="60" width="26" height="8" fill="#8B5CF6" stroke={color} stroke-width="2" />
+
+    <!-- Switch Housing Box -->
+    <rect x="42" y="74" width="66" height="42" rx="6" fill="#0B0F19" stroke={color} stroke-width="3" />
+    
+    <!-- Internal Mechanical Spring Coil -->
+    <path d="M75 76 Q 66 82, 75 88 Q 84 94, 75 100 Q 66 106, 75 112" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+    <!-- Solder Contact Pins -->
+    <line x1="56" y1="116" x2="56" y2="136" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+    <line x1="94" y1="116" x2="94" y2="136" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+    <circle cx="75" cy="124" r="3" fill="#10B981" />
+
+    <!-- Click Annotation Lines -->
+    <path d="M118 64 L126 60 M120 72 L130 72 M118 80 L126 84" stroke="#10B981" stroke-width="2" stroke-linecap="round" />
+  </svg>
+)}
+
+{/* 7. CYBER SHIELD CRYPTOGRAPHIC SECURITY ART */}
+{type === 'cyber-shield-security-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer Shield Frame -->
+    <path
+      d="M75 16 L124 34 C124 82, 102 118, 75 134 C48 118, 26 82, 26 34 Z"
+      fill="#0B0F19"
+      stroke={color}
+      stroke-width="3"
+      stroke-linejoin="round"
+    />
+    <!-- Inner Inset -->
+    <path
+      d="M75 28 L114 42 C114 80, 96 108, 75 122 C54 108, 36 80, 36 42 Z"
+      fill="#07090E"
+      stroke="#8B5CF6"
+      stroke-width="1.8"
+    />
+
+    <!-- Binary Orbit Ring -->
+    <circle cx="75" cy="72" r="30" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <!-- Cryptographic Padlock -->
+    <path d="M64 64 L64 52 C64 46, 86 46, 86 52 L86 64" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" />
+    <rect x="56" y="64" width="38" height="28" rx="4" fill="#0B0F19" stroke="#F59E0B" stroke-width="2.5" />
+    <circle cx="75" cy="76" r="3" fill="#2ED3FE" />
+    <polygon points="73,76 77,76 78,84 72,84" fill="#2ED3FE" />
+
+    <!-- Status Nodes -->
+    <circle cx="75" cy="106" r="2.5" fill="#10B981" />
+    <circle cx="65" cy="106" r="1.5" fill="#2ED3FE" />
+    <circle cx="85" cy="106" r="1.5" fill="#2ED3FE" />
+  </svg>
+)}
+
+{/* ============================================================== */}
+{/* ORIGINAL RETRO TECH & WORKSPACE ART DOODLES                   */}
+{/* ============================================================== */}
+
+{type === 'retro-computer-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="24" y="24" width="112" height="92" rx="14" fill="#07090E" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+    <rect x="20" y="18" width="112" height="92" rx="14" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <rect x="32" y="28" width="88" height="66" rx="8" fill="#07090E" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+    <circle cx="56" cy="56" r="6" fill={color} />
+    <circle cx="96" cy="56" r="6" fill={color} />
+    <circle cx="58" cy="54" r="2" fill="#FFFFFF" />
+    <circle cx="98" cy="54" r="2" fill="#FFFFFF" />
+    <path d="M64 74 Q 76 86, 88 74" stroke={color} stroke-width="3" stroke-linecap="round" fill="none" />
+    <text x="36" y="40" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#10B981">> syntax.sh</text>
+    <rect x="44" y="100" width="36" height="4" rx="2" fill={color} />
+    <circle cx="88" cy="102" r="2.5" fill="#EF4444" />
+    <path d="M62 110 L90 110 L96 128 L56 128 Z" fill="#0B0F19" stroke={color} stroke-width="2" />
+    <rect x="42" y="128" width="68" height="10" rx="4" fill="#07090E" stroke={color} stroke-width="2.5" />
+    <path d="M26 142 L126 142 L132 152 L20 152 Z" fill="#0B0F19" stroke={color} stroke-width="2" />
+    <line x1="36" y1="147" x2="116" y2="147" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" />
+    <line x1="76" y1="18" x2="76" y2="6" stroke={color} stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="76" cy="5" r="4" fill="#F59E0B" stroke={color} stroke-width="1.5" />
+  </svg>
+)}
+
+{type === 'rocket-coder-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="56" cy="128" r="16" fill="rgba(245, 158, 11, 0.2)" />
+    <circle cx="76" cy="138" r="18" fill="rgba(239, 68, 68, 0.25)" />
+    <circle cx="96" cy="128" r="16" fill="rgba(245, 158, 11, 0.2)" />
+    <path d="M66 114 Q 76 146, 76 150 Q 86 146, 86 114 Z" fill="#EF4444" stroke="#F59E0B" stroke-width="2" />
+    <path d="M71 114 Q 76 138, 76 142 Q 81 138, 81 114 Z" fill="#FEF08A" />
+    <path d="M52 86 C40 94, 34 116, 44 122 C52 118, 56 106, 56 94 Z" fill="#8B5CF6" stroke={color} stroke-width="2" />
+    <path d="M100 86 C112 94, 118 116, 108 122 C100 118, 96 106, 96 94 Z" fill="#8B5CF6" stroke={color} stroke-width="2" />
+    <path d="M76 18 C60 40, 52 74, 52 114 L100 114 C100 74, 92 40, 76 18 Z" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <path d="M64 48 Q 76 44, 88 48" stroke="#F59E0B" stroke-width="3" fill="none" />
+    <circle cx="76" cy="68" r="14" fill="#07090E" stroke={color} stroke-width="2.5" />
+    <circle cx="76" cy="68" r="9" fill="#1E75E8" opacity="0.6" />
+    <path d="M70 62 Q 74 60, 78 62" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <circle cx="60" cy="98" r="1.5" fill={color} />
+    <circle cx="76" cy="98" r="1.5" fill={color} />
+    <circle cx="92" cy="98" r="1.5" fill={color} />
+    <path d="M30 40 L34 40 L34 44 L30 44 Z" fill="#F59E0B" />
+    <path d="M124 32 L128 32 L128 36 L124 36 Z" fill="#2ED3FE" />
+  </svg>
+)}
+
+{type === 'cloud-coder-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M36 78 C22 78, 14 66, 18 52 C20 40, 32 34, 42 36 C48 20, 70 14, 88 22 C96 16, 114 16, 124 28 C138 28, 148 40, 144 54 C150 66, 142 80, 126 80 Z"
+      fill="#0B0F19"
+      stroke={color}
+      stroke-width="3"
+    />
+    <rect x="48" y="44" width="24" height="14" rx="3" fill="#07090E" stroke="#F59E0B" stroke-width="2" />
+    <rect x="80" y="44" width="24" height="14" rx="3" fill="#07090E" stroke="#F59E0B" stroke-width="2" />
+    <line x1="72" y1="51" x2="80" y2="51" stroke="#F59E0B" stroke-width="2" />
+    <circle cx="60" cy="51" r="3" fill="#2ED3FE" />
+    <circle cx="92" cy="51" r="3" fill="#2ED3FE" />
+    <path d="M68 66 Q 76 72, 84 66" stroke={color} stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <text x="36" y="104" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill={color}>01</text>
+    <text x="74" y="108" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#8B5CF6">{}</text>
+    <text x="112" y="104" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#10B981">10</text>
+  </svg>
+)}
+
+{type === 'robot-companion-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="80" y1="26" x2="80" y2="10" stroke={color} stroke-width="3" stroke-linecap="round" />
+    <circle cx="80" cy="8" r="5" fill="#EF4444" stroke={color} stroke-width="2" />
+    <rect x="36" y="26" width="88" height="60" rx="14" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <rect x="26" y="46" width="10" height="20" rx="4" fill="#8B5CF6" stroke={color} stroke-width="2" />
+    <rect x="124" y="46" width="10" height="20" rx="4" fill="#8B5CF6" stroke={color} stroke-width="2" />
+    <rect x="46" y="38" width="68" height="26" rx="8" fill="#07090E" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+    <rect x="54" y="44" width="14" height="14" rx="3" fill="#10B981" />
+    <rect x="92" y="44" width="14" height="14" rx="3" fill="#10B981" />
+    <line x1="56" y1="48" x2="66" y2="48" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <line x1="94" y1="48" x2="104" y2="48" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <line x1="62" y1="74" x2="98" y2="74" stroke={color} stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3" />
+    <rect x="70" y="86" width="20" height="10" fill="#07090E" stroke={color} stroke-width="2" />
+    <rect x="42" y="96" width="76" height="52" rx="12" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <circle cx="80" cy="120" r="14" fill="#07090E" stroke="#F59E0B" stroke-width="2" />
+    <line x1="80" y1="120" x2="88" y2="114" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+    <text x="48" y="116" font-family="'JetBrains Mono', monospace" font-size="7" fill={color}>01</text>
+    <text x="100" y="116" font-family="'JetBrains Mono', monospace" font-size="7" fill={color}>11</text>
+  </svg>
+)}
+
+{type === 'coffee-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M54 36 C50 24, 60 16, 54 4" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M70 34 C64 22, 74 14, 70 2" stroke={color} stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M86 36 C82 24, 92 16, 86 4" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <rect x="36" y="36" width="68" height="10" rx="4" fill="#1E75E8" stroke={color} stroke-width="2" />
+    <rect x="48" y="32" width="44" height="6" rx="2" fill={color} />
+    <path d="M42 46 L50 120 L90 120 L98 46 Z" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <path d="M46 68 L48 98 L92 98 L94 68 Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="2" />
+    <text x="70" y="87" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="900" fill="#07090E" text-anchor="middle">S</text>
+  </svg>
+)}
+
+{type === 'brain-ai-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="80" cy="70" r="48" fill="rgba(139, 92, 246, 0.15)" />
+    <path
+      d="M74 30 C58 30, 40 40, 36 56 C32 68, 38 80, 42 86 C36 94, 40 106, 52 110 C62 114, 72 112, 74 104 Z"
+      fill="#0B0F19"
+      stroke="#8B5CF6"
+      stroke-width="3"
+    />
+    <path
+      d="M86 30 C102 30, 120 40, 124 56 C128 68, 122 80, 118 86 C124 94, 120 106, 108 110 C98 114, 88 112, 86 104 Z"
+      fill="#0B0F19"
+      stroke={color}
+      stroke-width="3"
+    />
+    <line x1="80" y1="36" x2="80" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="4 4" />
+    <circle cx="56" cy="56" r="4" fill="#8B5CF6" />
+    <circle cx="62" cy="84" r="4" fill="#8B5CF6" />
+    <circle cx="104" cy="56" r="4" fill={color} />
+    <circle cx="98" cy="84" r="4" fill={color} />
+    <line x1="56" y1="56" x2="62" y2="84" stroke="#8B5CF6" stroke-width="2" />
+    <line x1="104" y1="56" x2="98" y2="84" stroke={color} stroke-width="2" />
+    <line x1="62" y1="84" x2="98" y2="84" stroke="#10B981" stroke-width="2" />
+    <path d="M80 18 L82 26 L80 34 L78 26 Z" fill="#F59E0B" />
+  </svg>
+)}
+
+{type === 'floppy-disk-art' && (
+  <svg class={`select-none ${className}`} viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M26 18 L104 18 L116 30 L116 122 L26 122 Z" fill="#0B0F19" stroke={color} stroke-width="3" />
+    <rect x="44" y="18" width="48" height="42" fill="#07090E" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+    <rect x="52" y="26" width="12" height="24" rx="2" fill={color} />
+    <rect x="36" y="68" width="68" height="46" rx="4" fill="#07090E" stroke={color} stroke-width="2" />
+    <line x1="44" y1="80" x2="96" y2="80" stroke="#EF4444" stroke-width="2" />
+    <text x="44" y="94" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#FFFFFF">SYNTAX.EXE</text>
+    <text x="44" y="104" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#38BDF8">v2026 · PROD</text>
+    <rect x="28" y="110" width="8" height="8" rx="1" fill={color} />
+  </svg>
+)}
+
+{type === 'tech-react' && (
+  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#2ED3FE]/10 border border-[#2ED3FE]/40 rounded-md font-mono text-xs font-bold text-[#2ED3FE] select-none ${className}`}>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1c2.5 0 4.8.8 6.3 2.1 1.6 1.3 2.2 3.1 1.6 4.9-.6 1.8-2.2 3.3-4.4 4.5-2.2 1.1-4.7 1.5-6.8 1.1-2.1-.4-3.7-1.7-4.4-3.4-.6-1.8 0-3.6 1.6-4.9C3.5 1.9 5.8 1 8 1zm4.7 3.4C11.5 3.3 9.8 2.6 8 2.6s-3.5.7-4.7 1.8c-1.1 1-1.6 2.2-1.2 3.4.4 1.2 1.6 2.1 3.2 2.4 1.7.3 3.7 0 5.4-.9 1.8-1 3.1-2.2 3.6-3.4.4-1.2-.1-2.4-1.6-3.5z" opacity="0.8" />
+    </svg>
+    <span>React</span>
+  </div>
+)}
+
+{type === 'tech-python' && (
+  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F59E0B]/10 border border-[#F59E0B]/40 rounded-md font-mono text-xs font-bold text-[#FBBF24] select-none ${className}`}>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M7.9 1C5.7 1 5.3 1.9 5.3 2.9V4h5.4V4.6H4.2C3.1 4.6 2 5.5 2 7.7s.9 3.1 2.2 3.1h1.1v-1.5c0-1.2 1-2.2 2.2-2.2h5.4c1 0 1.9-.9 1.9-1.9V4.2C14.8 2.2 13.7 1 7.9 1zm-1.8 1.1c.4 0 .8.4.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8z" />
+      <path d="M8.1 15c2.2 0 2.6-.9 2.6-1.9V12H5.3v-.6h6.5c1.1 0 2.2-.9 2.2-3.1s-.9-3.1-2.2-3.1h-1.1v1.5c0 1.2-1 2.2-2.2 2.2H3.1c-1 0-1.9.9-1.9 1.9v2.9C1.2 13.8 2.3 15 8.1 15zm1.8-1.1c-.4 0-.8-.4-.8-.8s.4-.8.8-.8.8.4.8.8-.4.8-.8.8z" opacity="0.8" />
+    </svg>
+    <span>Python</span>
+  </div>
+)}
+
+{type === 'tech-go' && (
+  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#00ADD8]/10 border border-[#00ADD8]/40 rounded-md font-mono text-xs font-bold text-[#00ADD8] select-none ${className}`}>
+    <span class="font-black text-sm leading-none">Go</span>
+    <span>Golang</span>
+  </div>
+)}
+
+{type === 'tech-cpp' && (
+  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#8B5CF6]/10 border border-[#8B5CF6]/40 rounded-md font-mono text-xs font-bold text-[#A78BFA] select-none ${className}`}>
+    <span class="font-extrabold text-sm leading-none">C++</span>
+    <span>C++20</span>
+  </div>
+)}
+
+{type === 'tech-js' && (
+  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F7DF1E]/10 border border-[#F7DF1E]/40 rounded-md font-mono text-xs font-bold text-[#F7DF1E] select-none ${className}`}>
+    <span class="font-extrabold text-xs">TS</span>
+    <span>TypeScript</span>
+  </div>
+)}
+
+{type === 'flow-connector' && (
+  <svg class={`pointer-events-none select-none ${className}`} viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M10 20 C 40 5, 80 35, 110 20"
+      stroke={color}
+      stroke-width="2"
+      stroke-dasharray="4 4"
+      fill="none"
+    />
+    <polygon points="106,15 116,20 106,25" fill={color} />
+  </svg>
+)}

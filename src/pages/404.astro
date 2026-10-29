@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found | SyntaX VNIT"
+  description="The requested page could not be found on the SyntaX VNIT website."
+>
+  <section class="section py-24 text-center relative overflow-hidden">
+    <!-- Ambient ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#2ED3FE]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container max-w-2xl relative z-10">
+      <!-- 404 Cyber Terminal sketch container -->
+      <div class="mx-auto w-72 h-44 mb-8 flex items-center justify-center">
+        <svg viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full filter drop-shadow-[0_0_20px_rgba(46,211,254,0.2)]">
+          <!-- Terminal glass box -->
+          <rect x="10" y="10" width="220" height="100" rx="12" fill="#0E131F" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+          <!-- Header dots -->
+          <circle cx="28" cy="24" r="4" fill="#EF4444" />
+          <circle cx="42" cy="24" r="4" fill="#F59E0B" />
+          <circle cx="56" cy="24" r="4" fill="#10B981" />
+          <line x1="10" y1="36" x2="230" y2="36" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+          <!-- 404 text -->
+          <text x="50" y="86" font-family="'JetBrains Mono', monospace" font-size="48" font-weight="800" fill="#2ED3FE" letter-spacing="2">404</text>
+          <!-- Terminal cursor -->
+          <rect x="165" y="52" width="12" height="36" fill="#8B5CF6" class="animate-pulse" rx="2" />
+          <!-- Laser trace underline -->
+          <path d="M30 102 Q120 106, 210 102" stroke="#2ED3FE" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+        </svg>
+      </div>
+
+      <span class="badge badge-purple font-mono text-xs shadow-[0_0_12px_rgba(139,92,246,0.3)]">HTTP 404 ERROR</span>
+      <h1 class="mt-4 text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
+        Null Pointer in <span class="text-gradient">Route Lookup.</span>
+      </h1>
+
+      <p class="mt-4 text-base text-[var(--color-ink-secondary)] leading-relaxed max-w-lg mx-auto">
+        The route you followed does not exist or has been refactored in Git. The main branches of SyntaX are safe, verified, and continuously deployed.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/" class="btn btn-primary font-mono text-xs py-2.5 px-6">
+          Return to Base (/) →
+        </a>
+        <a href="/council" class="btn btn-secondary font-mono text-xs py-2.5 px-6">
+          Council Archive
+        </a>
+        <a href="/synhack" class="btn btn-secondary font-mono text-xs py-2.5 px-6">
+          SynHack '25
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

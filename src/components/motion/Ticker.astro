@@ -1,0 +1,119 @@
+---
+interface Props {
+  items: string[];
+  speed?: number;
+  separator?: string;
+  class?: string;
+  direction?: 'left' | 'right';
+  variant?: 'default' | 'dark' | 'accent';
+}
+
+const {
+  items,
+  speed = 35,
+  separator = '✦',
+  class: className = '',
+  direction = 'left',
+  variant = 'default',
+} = Astro.props;
+
+// Double the items for seamless loop
+const repeatedItems = [...items, ...items, ...items];
+---
+
+<div class={`ticker-ribbon ticker-${variant} ${className}`} aria-hidden="true">
+  <div
+    class="ticker-track"
+    style={`animation-duration: ${speed}s; animation-direction: ${direction === 'right' ? 'reverse' : 'normal'};`}
+  >
+    {repeatedItems.map((item, i) => (
+      <span class="ticker-item">
+        <span class="ticker-text">{item}</span>
+        <span class="ticker-sep">{separator}</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .ticker-ribbon {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 0.85rem 0;
+    border-top: 1.5px solid var(--color-border);
+    border-bottom: 1.5px solid var(--color-border);
+  }
+
+  .ticker-default {
+    background: var(--color-bg-card);
+  }
+
+  .ticker-dark {
+    background: #141B1E;
+    border-color: #2B383D;
+  }
+
+  .ticker-accent {
+    background: linear-gradient(135deg, rgba(30, 117, 232, 0.06), rgba(139, 92, 246, 0.06));
+  }
+
+  .ticker-track {
+    display: inline-flex;
+    gap: 0;
+    animation: marquee linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .ticker-text {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .ticker-default .ticker-text {
+    color: var(--color-ink-secondary);
+  }
+
+  .ticker-dark .ticker-text {
+    color: #849197;
+  }
+
+  .ticker-accent .ticker-text {
+    color: var(--color-syntax-blue);
+  }
+
+  .ticker-sep {
+    font-size: 0.65rem;
+    opacity: 0.5;
+  }
+
+  .ticker-default .ticker-sep {
+    color: var(--color-syntax-blue);
+  }
+
+  .ticker-dark .ticker-sep {
+    color: #2ED3FE;
+  }
+
+  .ticker-accent .ticker-sep {
+    color: var(--color-syntax-purple);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none !important;
+    }
+  }
+</style>

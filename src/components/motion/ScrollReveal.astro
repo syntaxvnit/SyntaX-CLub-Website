@@ -1,0 +1,136 @@
+---
+interface Props {
+  animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'scale-in' | 'fade-in';
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  class?: string;
+  tag?: string;
+  stagger?: number;
+}
+
+const {
+  animation = 'fade-up',
+  delay = 0,
+  duration = 700,
+  threshold = 0.15,
+  class: className = '',
+  tag = 'div',
+  stagger = 0,
+} = Astro.props;
+
+const Tag = tag as any;
+---
+
+<Tag
+  class={`scroll-reveal sr-${animation} ${className}`}
+  data-sr-delay={delay}
+  data-sr-duration={duration}
+  data-sr-threshold={threshold}
+  data-sr-stagger={stagger}
+  style={`--sr-delay: ${delay}ms; --sr-duration: ${duration}ms;`}
+>
+  <slot />
+</Tag>
+
+<style is:global>
+  /* Scroll Reveal Base States */
+  .scroll-reveal {
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: var(--sr-duration, 700ms);
+    transition-delay: var(--sr-delay, 0ms);
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Pre-reveal states */
+  .sr-fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  .sr-fade-left {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+
+  .sr-fade-right {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+
+  .sr-scale-in {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  .sr-fade-in {
+    opacity: 0;
+    transform: none;
+  }
+
+  /* Revealed state */
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initScrollReveal() {
+    const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)');
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const stagger = parseInt(el.dataset.srStagger || '0', 10);
+
+            if (stagger > 0) {
+              // Apply stagger to sibling scroll-reveal elements
+              const parent = el.parentElement;
+              if (parent) {
+                const siblings = parent.querySelectorAll(':scope > .scroll-reveal');
+                siblings.forEach((sib, idx) => {
+                  (sib as HTMLElement).style.transitionDelay = `${idx * stagger}ms`;
+                  requestAnimationFrame(() => {
+                    sib.classList.add('is-visible');
+                  });
+                });
+              }
+            } else {
+              el.classList.add('is-visible');
+            }
+
+            observer.unobserve(el);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  // Init on DOM load and view transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+  } else {
+    initScrollReveal();
+  }
+  document.addEventListener('astro:after-swap', initScrollReveal);
+</script>

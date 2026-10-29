@@ -1,0 +1,237 @@
+---
+interface Props {
+  className?: string;
+  size?: number;
+}
+
+const { className = "", size = 520 } = Astro.props;
+---
+
+<div class={`synhack-doodle-container relative select-none ${className}`}>
+  <!-- Volumetric ambient hackathon lighting -->
+  <div class="absolute -inset-3 bg-gradient-to-r from-[#8B5CF6]/25 via-[#2ED3FE]/20 to-[#F59E0B]/15 rounded-3xl blur-2xl opacity-70 -z-10"></div>
+
+  <svg
+    viewBox="0 0 540 360"
+    width={size}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto filter drop-shadow-2xl"
+    aria-label="SynHack 36-Hour Hackathon Arena Editorial Battle Station Illustration"
+  >
+    <defs>
+      <linearGradient id="shGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(15, 23, 42, 0.95)" />
+        <stop offset="100%" stop-color="rgba(10, 14, 26, 0.98)" />
+      </linearGradient>
+
+      <linearGradient id="shCyanPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2ED3FE" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+
+      <linearGradient id="shGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A" />
+        <stop offset="50%" stop-color="#F59E0B" />
+        <stop offset="100%" stop-color="#D97706" />
+      </linearGradient>
+
+      <pattern id="shGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="0.8" fill="rgba(255, 255, 255, 0.04)" />
+      </pattern>
+    </defs>
+
+    <!-- Main Container Card -->
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#shGlass)" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1.8" />
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#shGrid)" />
+
+    <!-- Top Window Chrome Bar -->
+    <path d="M 15 54 L 525 54" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" />
+    <circle cx="36" cy="35" r="4.5" fill="#EF4444" />
+    <circle cx="52" cy="35" r="4.5" fill="#F59E0B" />
+    <circle cx="68" cy="35" r="4.5" fill="#10B981" />
+
+    <text x="92" y="39" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#E2E8F0">
+      synhack://arena.vnit.ac.in/clash_station_07.live
+    </text>
+
+    <!-- 36H Countdown HUD Badge (Top Right) -->
+    <g transform="translate(390, 22)">
+      <rect x="0" y="0" width="124" height="24" rx="5" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" stroke-width="1.2" />
+      <circle cx="12" cy="12" r="3.5" fill="#2ED3FE" class="animate-pulse" />
+      <text x="22" y="16" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#2ED3FE" letter-spacing="1">36:00:00</text>
+      <text x="88" y="16" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#C084FC">LIVE</text>
+    </g>
+
+    <!-- Radiating Conduit Wire Traces Across Battle Station -->
+    <path d="M 35 150 H 120 L 150 180 H 220" stroke="rgba(46, 211, 254, 0.4)" stroke-width="1.5" stroke-dasharray="3 3" />
+    <path d="M 330 180 H 390 L 420 140 H 500" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <!-- ========================================== -->
+    <!-- 1. LEFT MONITOR: TERMINAL & GIT MERGE TREE -->
+    <!-- ========================================== -->
+    <g transform="translate(35, 70)">
+      <rect x="0" y="0" width="195" height="150" rx="8" fill="#07090E" stroke="rgba(46, 211, 254, 0.35)" stroke-width="1.4" />
+      <rect x="0" y="0" width="195" height="20" rx="8" fill="rgba(255, 255, 255, 0.04)" />
+      <circle cx="10" cy="10" r="2.5" fill="#EF4444" />
+      <circle cx="18" cy="10" r="2.5" fill="#F59E0B" />
+      <circle cx="26" cy="10" r="2.5" fill="#10B981" />
+      <text x="36" y="13" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B">tmux::workspace/hacker_core</text>
+
+      <!-- Git Branch Commit Tree -->
+      <g transform="translate(14, 30)">
+        <line x1="8" y1="10" x2="8" y2="70" stroke="#8B5CF6" stroke-width="2" />
+        <circle cx="8" cy="12" r="4" fill="#8B5CF6" />
+        <circle cx="8" cy="40" r="4" fill="#2ED3FE" />
+        <circle cx="8" cy="68" r="4" fill="#10B981" />
+
+        <!-- Feature Branch Arc -->
+        <path d="M 8 12 C 32 12, 32 40, 52 40" stroke="#2ED3FE" stroke-width="1.6" fill="none" />
+        <circle cx="52" cy="40" r="3.5" fill="#2ED3FE" />
+
+        <text x="18" y="15" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#E2E8F0">origin/main</text>
+        <text x="60" y="43" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#38BDF8">feat: rag-agent</text>
+        <text x="18" y="71" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#34D399">v1.0.0-PROD ✓</text>
+      </g>
+
+      <!-- Terminal Command Execution -->
+      <g transform="translate(10, 108)">
+        <rect x="0" y="0" width="175" height="32" rx="4" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.08)" />
+        <text x="8" y="13" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#2ED3FE">$ git push origin main --force</text>
+        <text x="8" y="24" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#34D399">Deploy successful · latency 18ms</text>
+      </g>
+    </g>
+
+    <!-- Hand-drawn annotation: Midnight Deploy -->
+    <path d="M 120 62 Q 150 45, 185 58" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="2 2" fill="none" />
+    <text x="150" y="46" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#FBBF24" text-anchor="middle">
+      midnight commit // 02:45 AM
+    </text>
+
+    <!-- ========================================== -->
+    <!-- 2. CENTER: HACKATHON ESSENTIALS            -->
+    <!-- ========================================== -->
+    <!-- Steaming Coffee Mug -->
+    <g transform="translate(245, 80)">
+      <rect x="0" y="12" width="34" height="42" rx="4" fill="#0E131F" stroke="#FFFFFF" stroke-width="1.6" />
+      <path d="M 34 18 C 44 18, 44 38, 34 38" stroke="#FFFFFF" stroke-width="1.6" fill="none" />
+      <!-- Steam Scribbles -->
+      <path d="M 10 7 Q 15 0, 10 -6" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.4" stroke-linecap="round" fill="none" />
+      <path d="M 22 7 Q 27 0, 22 -6" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.4" stroke-linecap="round" fill="none" />
+      <text x="6" y="34" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#2ED3FE">CAFF</text>
+      <text x="17" y="64" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#64748B" text-anchor="middle">Cup #5</text>
+    </g>
+
+    <!-- Energy Drink Can -->
+    <g transform="translate(245, 155)">
+      <rect x="5" y="5" width="24" height="48" rx="4" fill="#18112C" stroke="#8B5CF6" stroke-width="1.4" />
+      <!-- Lightning Bolt Doodle -->
+      <polygon points="17,14 11,26 18,26 15,38 23,24 17,24" fill="#2ED3FE" />
+      <text x="17" y="62" font-family="'JetBrains Mono', monospace" font-size="6" fill="#C084FC" text-anchor="middle">BOLT</text>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 3. RIGHT MONITOR: JURY SCORECARD & PODIUM  -->
+    <!-- ========================================== -->
+    <g transform="translate(305, 70)">
+      <rect x="0" y="0" width="195" height="150" rx="8" fill="#07090E" stroke="rgba(139, 92, 246, 0.35)" stroke-width="1.4" />
+      <rect x="0" y="0" width="195" height="20" rx="8" fill="rgba(255, 255, 255, 0.04)" />
+      <circle cx="10" cy="10" r="2.5" fill="#EF4444" />
+      <circle cx="18" cy="10" r="2.5" fill="#F59E0B" />
+      <circle cx="26" cy="10" r="2.5" fill="#10B981" />
+      <text x="36" y="13" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B">jury::evaluation_matrix</text>
+
+      <!-- Scorecard Criteria Bars -->
+      <g transform="translate(14, 28)">
+        <!-- Criteria 1: Innovation -->
+        <text x="0" y="12" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#94A3B8">INNOVATION</text>
+        <text x="165" y="12" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#2ED3FE" text-anchor="end">98%</text>
+        <rect x="0" y="16" width="165" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
+        <rect x="0" y="16" width="161" height="4" rx="2" fill="#2ED3FE" />
+
+        <!-- Criteria 2: Architecture -->
+        <text x="0" y="32" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#94A3B8">SYSTEM ARCH</text>
+        <text x="165" y="32" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#C084FC" text-anchor="end">96%</text>
+        <rect x="0" y="36" width="165" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
+        <rect x="0" y="36" width="158" height="4" rx="2" fill="#8B5CF6" />
+
+        <!-- Criteria 3: UX & Polish -->
+        <text x="0" y="52" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#94A3B8">UX & MOTION</text>
+        <text x="165" y="52" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#34D399" text-anchor="end">100%</text>
+        <rect x="0" y="56" width="165" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
+        <rect x="0" y="56" width="165" height="4" rx="2" fill="#10B981" />
+      </g>
+
+      <!-- Grand Winner Trophy Badge -->
+      <g transform="translate(14, 98)">
+        <rect x="0" y="0" width="165" height="42" rx="6" fill="rgba(245, 158, 11, 0.12)" stroke="#F59E0B" stroke-width="1.2" />
+        <circle cx="20" cy="21" r="10" fill="url(#shGold)" />
+        <text x="20" y="24" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#0B0F19" text-anchor="middle">★</text>
+        <text x="38" y="18" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#FBBF24">GRAND CHAMPIONS</text>
+        <text x="38" y="31" font-family="'JetBrains Mono', monospace" font-size="7" fill="#94A3B8">Prize Pool: ₹1,00,000+</text>
+      </g>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 4. BOTTOM WORKSTATION: MECHANICAL KEYBOARD -->
+    <!-- ========================================== -->
+    <g transform="translate(35, 235)">
+      <!-- Desk Mat / Laptop base -->
+      <rect x="0" y="0" width="470" height="85" rx="10" fill="#07090E" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.4" />
+      
+      <!-- Mechanical Keyboard Layout -->
+      <g transform="translate(18, 12)">
+        <rect x="0" y="0" width="280" height="62" rx="6" fill="#0B0F19" stroke="rgba(46, 211, 254, 0.25)" stroke-width="1" />
+        
+        <!-- Key rows with glowing RGB backlight -->
+        <!-- Row 1 -->
+        <g transform="translate(8, 8)">
+          <rect x="0" y="0" width="18" height="10" rx="2" fill="rgba(46, 211, 254, 0.2)" stroke="#2ED3FE" stroke-width="0.8" />
+          <rect x="22" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="44" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="66" y="0" width="18" height="10" rx="2" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" stroke-width="0.8" />
+          <rect x="88" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="110" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="132" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="154" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="176" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="198" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="220" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="242" y="0" width="22" height="10" rx="2" fill="rgba(239, 68, 68, 0.2)" stroke="#EF4444" stroke-width="0.8" />
+        </g>
+        <!-- Row 2 -->
+        <g transform="translate(8, 22)">
+          <rect x="0" y="0" width="24" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="28" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="50" y="0" width="18" height="10" rx="2" fill="rgba(46, 211, 254, 0.3)" stroke="#2ED3FE" stroke-width="0.8" />
+          <rect x="72" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="94" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="116" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="138" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="160" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="182" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="204" y="0" width="18" height="10" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="226" y="0" width="38" height="10" rx="2" fill="rgba(16, 185, 129, 0.3)" stroke="#10B981" stroke-width="0.8" />
+        </g>
+        <!-- Row 3: Spacebar row -->
+        <g transform="translate(8, 36)">
+          <rect x="0" y="0" width="30" height="18" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="34" y="0" width="24" height="18" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="62" y="0" width="130" height="18" rx="3" fill="rgba(46, 211, 254, 0.15)" stroke="#2ED3FE" stroke-width="1" />
+          <text x="127" y="12" font-family="'JetBrains Mono', monospace" font-size="7" fill="#38BDF8" text-anchor="middle">SPACE</text>
+          <rect x="196" y="0" width="24" height="18" rx="2" fill="rgba(255,255,255,0.05)" />
+          <rect x="224" y="0" width="40" height="18" rx="2" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" stroke-width="0.8" />
+        </g>
+      </g>
+
+      <!-- Trackpad / Hardware Specs (Right) -->
+      <g transform="translate(315, 12)">
+        <rect x="0" y="0" width="140" height="62" rx="6" fill="#0B0F19" stroke="rgba(255, 255, 255, 0.08)" />
+        <circle cx="16" cy="18" r="4" fill="#10B981" />
+        <text x="26" y="21" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#FFFFFF">STATUS: ONLINE</text>
+        <text x="12" y="38" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#94A3B8">In-Person at VNIT Campus</text>
+        <text x="12" y="50" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#38BDF8">50+ Teams · 200+ Hackers</text>
+      </g>
+    </g>
+  </svg>
+</div>

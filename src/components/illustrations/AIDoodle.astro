@@ -1,0 +1,209 @@
+---
+interface Props {
+  className?: string;
+  size?: number;
+}
+
+const { className = "", size = 520 } = Astro.props;
+---
+
+<div class={`ai-doodle-container relative select-none ${className}`}>
+  <!-- Subtle ambient volumetric glow -->
+  <div class="absolute -inset-2 bg-gradient-to-r from-[#2ED3FE]/20 via-[#8B5CF6]/20 to-transparent rounded-2xl blur-xl opacity-60 -z-10"></div>
+
+  <svg
+    viewBox="0 0 540 360"
+    width={size}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto filter drop-shadow-xl"
+    aria-label="Applied AI, Neural Weights & Autonomous Agents Editorial Illustration"
+  >
+    <defs>
+      <linearGradient id="aiGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(15, 23, 42, 0.92)" />
+        <stop offset="100%" stop-color="rgba(10, 14, 26, 0.96)" />
+      </linearGradient>
+
+      <linearGradient id="aiAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2ED3FE" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+
+      <linearGradient id="heat1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#38BDF8" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+
+      <pattern id="aiGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="0.75" fill="rgba(255, 255, 255, 0.05)" />
+      </pattern>
+    </defs>
+
+    <!-- Main Outer Container Window -->
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#aiGlass)" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1.6" />
+    <rect x="15" y="15" width="510" height="330" rx="16" fill="url(#aiGrid)" />
+    <path d="M 15 54 L 525 54" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" />
+
+    <!-- Window Controls & Header -->
+    <circle cx="36" cy="35" r="4.5" fill="#EF4444" />
+    <circle cx="52" cy="35" r="4.5" fill="#F59E0B" />
+    <circle cx="68" cy="35" r="4.5" fill="#10B981" />
+
+    <!-- Terminal Title -->
+    <text x="92" y="39" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#E2E8F0">
+      neural://vnit.ai/transformers/multihead_attention.pt
+    </text>
+
+    <!-- Inference Engine Pill (Top Right) -->
+    <g transform="translate(390, 24)">
+      <rect x="0" y="0" width="122" height="22" rx="5" fill="rgba(46, 211, 254, 0.15)" stroke="#2ED3FE" stroke-width="1" />
+      <circle cx="12" cy="11" r="3.5" fill="#2ED3FE" class="animate-pulse" />
+      <text x="22" y="15" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#2ED3FE">SLM INFERENCE · 4-BIT</text>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- LEFT PANEL: ATTENTION MATRIX & NEURAL NET  -->
+    <!-- ========================================== -->
+    <rect x="30" y="68" width="310" height="195" rx="10" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+
+    <!-- Panel Header -->
+    <text x="44" y="86" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#38BDF8">
+      ATTENTION_MAP // Softmax(QKᵀ / √dₖ) · V
+    </text>
+    <text x="250" y="86" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#64748B">
+      HEADS: 8 · D_MODEL: 512
+    </text>
+
+    <!-- Attention Heatmap 4x4 Grid -->
+    <g transform="translate(44, 98)">
+      <!-- Row 0 -->
+      <rect x="0" y="0" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.85)" />
+      <rect x="32" y="0" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.3)" />
+      <rect x="64" y="0" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.2)" />
+      <rect x="96" y="0" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.1)" />
+
+      <!-- Row 1 -->
+      <rect x="0" y="28" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.2)" />
+      <rect x="32" y="28" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.9)" />
+      <rect x="64" y="28" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.45)" />
+      <rect x="96" y="28" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.2)" />
+
+      <!-- Row 2 -->
+      <rect x="0" y="56" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.15)" />
+      <rect x="32" y="56" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.4)" />
+      <rect x="64" y="56" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.95)" />
+      <rect x="96" y="56" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.3)" />
+
+      <!-- Row 3 -->
+      <rect x="0" y="84" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.1)" />
+      <rect x="32" y="84" width="28" height="24" rx="3" fill="rgba(139, 92, 246, 0.25)" />
+      <rect x="64" y="84" width="28" height="24" rx="3" fill="rgba(46, 211, 254, 0.4)" />
+      <rect x="96" y="84" width="28" height="24" rx="3" fill="rgba(16, 185, 129, 0.9)" />
+
+      <!-- Heatmap axis labels -->
+      <text x="-4" y="16" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B" text-anchor="end">tok₁</text>
+      <text x="-4" y="44" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B" text-anchor="end">tok₂</text>
+      <text x="-4" y="72" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B" text-anchor="end">tok₃</text>
+      <text x="-4" y="100" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748B" text-anchor="end">tok₄</text>
+    </g>
+
+    <!-- Synaptic Latent Projection (Center to Right) -->
+    <!-- Input Latent Vectors -->
+    <g transform="translate(195, 105)">
+      <!-- Node L1 -->
+      <circle cx="10" cy="15" r="7" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.8" />
+      <circle cx="10" cy="45" r="7" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.8" />
+      <circle cx="10" cy="75" r="7" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.8" />
+      <circle cx="10" cy="105" r="7" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.8" />
+
+      <!-- Synaptic Weight Lines -->
+      <line x1="17" y1="15" x2="68" y2="35" stroke="rgba(46, 211, 254, 0.4)" stroke-width="1.2" />
+      <line x1="17" y1="15" x2="68" y2="85" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" />
+      <line x1="17" y1="45" x2="68" y2="35" stroke="#2ED3FE" stroke-width="2" />
+      <line x1="17" y1="45" x2="68" y2="85" stroke="rgba(139, 92, 246, 0.6)" stroke-width="1.5" />
+      <line x1="17" y1="75" x2="68" y2="35" stroke="rgba(46, 211, 254, 0.3)" stroke-width="1" />
+      <line x1="17" y1="75" x2="68" y2="85" stroke="#8B5CF6" stroke-width="2" />
+      <line x1="17" y1="105" x2="68" y2="85" stroke="rgba(46, 211, 254, 0.5)" stroke-width="1.2" />
+
+      <!-- Hidden Latent Nodes L2 -->
+      <circle cx="75" cy="35" r="9" fill="rgba(46, 211, 254, 0.2)" stroke="#2ED3FE" stroke-width="2" />
+      <circle cx="75" cy="85" r="9" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" stroke-width="2" />
+
+      <!-- Output Connections -->
+      <line x1="84" y1="35" x2="120" y2="60" stroke="#2ED3FE" stroke-width="2.2" />
+      <line x1="84" y1="85" x2="120" y2="60" stroke="#8B5CF6" stroke-width="2.2" />
+
+      <!-- Embedded Vector Result Node -->
+      <circle cx="126" cy="60" r="12" fill="#0B0F19" stroke="#10B981" stroke-width="2" />
+      <circle cx="126" cy="60" r="5" fill="#34D399" class="animate-pulse" />
+      <text x="126" y="85" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#34D399" text-anchor="middle">EMBED</text>
+    </g>
+
+    <!-- Hand-drawn callout -->
+    <path d="M 120 230 Q 155 245, 190 230" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="2 2" fill="none" />
+    <text x="155" y="250" font-family="'JetBrains Mono', monospace" font-size="7" fill="#FBBF24" text-anchor="middle">Cosine similarity: 0.942</text>
+
+    <!-- ========================================== -->
+    <!-- BOTTOM TAPE: AUTONOMOUS AGENT WORKFLOW     -->
+    <!-- ========================================== -->
+    <rect x="30" y="272" width="310" height="58" rx="8" fill="#07090E" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.2" />
+    <text x="42" y="288" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#C084FC">
+      AGENT_DISPATCH // Loop: perceive → retrieve(rag) → plan → execute
+    </text>
+
+    <!-- Agent Steps -->
+    <g transform="translate(42, 296)">
+      <rect x="0" y="0" width="62" height="24" rx="4" fill="rgba(46, 211, 254, 0.15)" stroke="rgba(46, 211, 254, 0.4)" stroke-width="1" />
+      <text x="31" y="15" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#2ED3FE" text-anchor="middle">&gt; query</text>
+
+      <path d="M 64 12 L 74 12" stroke="#64748B" stroke-width="1.2" />
+
+      <rect x="76" y="0" width="70" height="24" rx="4" fill="rgba(139, 92, 246, 0.15)" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1" />
+      <text x="111" y="15" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#C084FC" text-anchor="middle">RAG_HIT: 5</text>
+
+      <path d="M 148 12 L 158 12" stroke="#64748B" stroke-width="1.2" />
+
+      <rect x="160" y="0" width="65" height="24" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
+      <text x="192" y="15" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#FBBF24" text-anchor="middle">TOOL_CALL</text>
+
+      <path d="M 227 12 L 237 12" stroke="#64748B" stroke-width="1.2" />
+
+      <rect x="239" y="0" width="48" height="24" rx="4" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1.2" />
+      <text x="263" y="15" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#34D399" text-anchor="middle">DONE ✓</text>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- RIGHT PANEL: LOSS CONVERGENCE & METRICS    -->
+    <!-- ========================================== -->
+    <!-- Loss Curve Card -->
+    <rect x="355" y="68" width="155" height="95" rx="8" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <text x="368" y="85" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#94A3B8">VALIDATION LOSS</text>
+    
+    <!-- Loss Curve Graph -->
+    <path d="M 368 140 Q 395 138, 415 115 T 465 96 T 495 92" stroke="#F43F5E" stroke-width="2" fill="none" stroke-linecap="round" />
+    <circle cx="495" cy="92" r="3.5" fill="#F43F5E" />
+    <text x="368" y="154" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#34D399">Loss: 0.0124 (Converged)</text>
+
+    <!-- Inference Latency & Quantization -->
+    <rect x="355" y="172" width="155" height="90" rx="8" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <text x="368" y="189" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#2ED3FE">ON-DEVICE BENCHMARK</text>
+
+    <!-- Metrics -->
+    <text x="368" y="210" font-family="'JetBrains Mono', monospace" font-size="8" fill="#94A3B8">Throughput:</text>
+    <text x="495" y="210" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#38BDF8" text-anchor="end">42 tok/s</text>
+
+    <text x="368" y="228" font-family="'JetBrains Mono', monospace" font-size="8" fill="#94A3B8">Time to 1st Token:</text>
+    <text x="495" y="228" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#34D399" text-anchor="end">118 ms</text>
+
+    <text x="368" y="246" font-family="'JetBrains Mono', monospace" font-size="8" fill="#94A3B8">VRAM Consumption:</text>
+    <text x="495" y="246" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#C084FC" text-anchor="end">3.1 GB</text>
+
+    <!-- RAG Vector DB Tag -->
+    <rect x="355" y="272" width="155" height="58" rx="8" fill="rgba(46, 211, 254, 0.12)" stroke="rgba(46, 211, 254, 0.4)" stroke-width="1.2" />
+    <circle cx="372" cy="301" r="9" fill="#2ED3FE" />
+    <text x="372" y="304" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#0B0F19" text-anchor="middle">HNSW</text>
+    <text x="390" y="296" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#38BDF8">CAMPUS ARCHIVE</text>
+    <text x="390" y="310" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#94A3B8">Cosine Index: 12,400 docs</text>
+  </svg>
+</div>

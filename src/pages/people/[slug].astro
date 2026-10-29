@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { people, type Person } from '../../data/people';
+import { councilYears } from '../../data/council';
+import ScrollReveal from '../../components/motion/ScrollReveal.astro';
+import FramingCrosshair from '../../components/illustrations/FramingCrosshair.astro';
+
+export function getStaticPaths() {
+  return people.map((person) => ({
+    params: { slug: person.slug },
+    props: { person },
+  }));
+}
+
+interface Props {
+  person: Person;
+}
+
+const { person } = Astro.props;
+
+// Find all council tenures and roles this person held
+const tenuresHeld = councilYears.flatMap((c) => {
+  const roleMatch = c.roles.find((r) => r.personSlug === person.slug);
+  if (!roleMatch) return [];
+  return [{
+    year: c.academicYear,
+    role: roleMatch.role,
+    category: roleMatch.category,
+    isCurrent: c.isCurrent,
+  }];
+});
+---
+
+<BaseLayout
+  title={`${person.name} | SyntaX VNIT Member Profile`}
+  description={`${person.name} — ${person.roleCurrent || 'Member'} at SyntaX VNIT. ${person.bio.slice(0, 140)}...`}
+>
+  <section class="section pt-8 pb-16">
+    <div class="container max-w-4xl">
+      <!-- Breadcrumb -->
+      <ScrollReveal animation="fade-up" delay={50}>
+        <nav class="mb-6 font-mono text-xs text-[var(--color-ink-tertiary)] flex items-center gap-2" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <a href="/council" class="hover:text-white transition-colors">Council</a>
+          <span>/</span>
+          <span class="text-[#2ED3FE] font-bold">{person.name}</span>
+        </nav>
+      </ScrollReveal>
+
+      <!-- Member Header Card -->
+      <ScrollReveal animation="fade-up" delay={150}>
+        <div class="card p-8 md:p-10 bg-[#0E131F]/80 border border-white/10 rounded-2xl backdrop-blur-xl shadow-2xl relative overflow-hidden group">
+          <FramingCrosshair color="#2ED3FE" />
+          <!-- Ambient glow in corner -->
+          <div class="absolute -top-20 -right-20 w-56 h-56 bg-gradient-to-br from-[#2ED3FE]/10 to-[#8B5CF6]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+            <!-- Portrait / Fallback Monogram Avatar -->
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#2ED3FE] to-[#8B5CF6] p-1 shadow-[0_0_25px_rgba(46,211,254,0.3)] shrink-0">
+              <div class="w-full h-full rounded-full bg-[#0B0F19] flex items-center justify-center font-serif font-bold text-3xl text-white">
+                {person.name.split(' ').map((n) => n[0]).join('')}
+              </div>
+            </div>
+
+            <!-- Name & Details -->
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                {person.roleCurrent && (
+                  <span class="badge badge-brand shadow-[0_0_12px_rgba(46,211,254,0.25)]">{person.roleCurrent}</span>
+                )}
+                {person.batch && (
+                  <span class="badge font-mono bg-white/5 border border-white/10 text-stone-300">VNIT Class of {person.batch}</span>
+                )}
+              </div>
+
+              <h1 class="text-3xl md:text-5xl font-serif font-bold text-white tracking-tight">
+                {person.name}
+              </h1>
+
+              {person.department && (
+                <p class="font-mono text-sm text-[var(--color-ink-tertiary)] mt-1">
+                  {person.department}
+                </p>
+              )}
+            </div>
+
+            <!-- Verified Socials Only -->
+            <div class="flex flex-wrap gap-2 shrink-0">
+              {person.socials.github && (
+                <a
+                  href={person.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary py-1.5 px-3 text-xs font-mono"
+                  aria-label={`${person.name}'s GitHub Profile`}
+                >
+                  GitHub ↗
+                </a>
+              )}
+
+              {person.socials.linkedin && (
+                <a
+                  href={person.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary py-1.5 px-3 text-xs font-mono"
+                  aria-label={`${person.name}'s LinkedIn Profile`}
+                >
+                  LinkedIn ↗
+                </a>
+              )}
+
+              {person.socials.website && (
+                <a
+                  href={person.socials.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary py-1.5 px-3 text-xs font-mono"
+                  aria-label={`${person.name}'s Personal Website`}
+                >
+                  Website ↗
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- Approved Biography -->
+          <div class="mt-8 pt-6 border-t border-white/10 relative z-10">
+            <h2 class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink-tertiary)] font-bold mb-2">
+              BIOGRAPHY & FOCUS
+            </h2>
+            <p class="text-base text-[var(--color-ink-secondary)] leading-relaxed font-sans">
+              {person.bio}
+            </p>
+          </div>
+
+          <!-- Skills / Technologies -->
+          {person.skills && person.skills.length > 0 && (
+            <div class="mt-6 relative z-10">
+              <h2 class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink-tertiary)] font-bold mb-3">
+                TECHNICAL PROFICIENCIES
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {person.skills.map((skill) => (
+                  <span class="badge bg-white/5 border border-white/10 text-xs font-mono text-[#2ED3FE]">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </ScrollReveal>
+
+      <!-- Two Column Details: Projects & Council History -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <!-- Council Tenures -->
+        <ScrollReveal animation="fade-up" delay={200}>
+          <div class="card p-6 bg-[#0E131F]/60 border border-white/10 rounded-2xl backdrop-blur-xl h-full">
+            <h2 class="font-serif text-xl font-bold text-white mb-4">Council Appointments</h2>
+            {tenuresHeld.length > 0 ? (
+              <div class="space-y-3">
+                {tenuresHeld.map((t) => (
+                  <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between hover:border-white/15 transition-colors">
+                    <div>
+                      <div class="font-bold text-sm text-white">{t.role}</div>
+                      <div class="text-xs font-mono text-[#2ED3FE] font-semibold mt-0.5">
+                        Session {t.year}
+                      </div>
+                    </div>
+                    <a
+                      href={`/council/${t.year}`}
+                      class="text-xs font-mono font-bold text-white hover:text-[#2ED3FE] transition-colors"
+                    >
+                      View Council →
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p class="text-xs text-[var(--color-ink-secondary)]">
+                General active contributor and technical mentor.
+              </p>
+            )}
+          </div>
+        </ScrollReveal>
+
+        <!-- Notable Achievements or Projects -->
+        <ScrollReveal animation="fade-up" delay={250}>
+          <div class="card p-6 bg-[#0E131F]/60 border border-white/10 rounded-2xl backdrop-blur-xl h-full">
+            <h2 class="font-serif text-xl font-bold text-white mb-4">Selected Work & Accolades</h2>
+            {person.projects && person.projects.length > 0 && (
+              <div class="space-y-3 mb-4">
+                {person.projects.map((proj) => (
+                  <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5">
+                    <div class="font-bold text-sm text-white">{proj.title}</div>
+                    <p class="text-xs text-[var(--color-ink-secondary)] mt-1 leading-relaxed">{proj.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {person.achievements && person.achievements.length > 0 && (
+              <div class="space-y-2 mt-4 pt-4 border-t border-white/10">
+                <span class="font-mono text-xs uppercase text-[var(--color-ink-tertiary)] font-bold">
+                  Honors
+                </span>
+                <ul class="list-disc list-inside text-xs text-[var(--color-ink-secondary)] space-y-1">
+                  {person.achievements.map((ach) => (
+                    <li>{ach}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </ScrollReveal>
+      </div>
+
+      <ScrollReveal animation="fade-up" delay={300}>
+        <div class="mt-12 text-center">
+          <a href="/council" class="btn btn-secondary font-mono text-xs py-2.5 px-6">
+            ← Back to All Council Members
+          </a>
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+</BaseLayout>
