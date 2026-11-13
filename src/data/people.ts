@@ -26,8 +26,8 @@ export interface Person {
 
 export const people: Person[] = [
   {
-    slug: "omkar-deshmukh",
-    name: "Omkar Deshmukh",
+    slug: "Omkar-More",
+    name: "Omkar More",
     department: "Computer Science & Engineering",
     batch: "2025",
     roleCurrent: "President",
@@ -54,8 +54,8 @@ export const people: Person[] = [
     ],
   },
   {
-    slug: "ananya-sharma",
-    name: "Ananya Sharma",
+    slug: "Aritra-Sarkar",
+    name: "Aritra Sarkar",
     department: "Computer Science & Engineering",
     batch: "2025",
     roleCurrent: "Vice President",
@@ -77,11 +77,11 @@ export const people: Person[] = [
     ],
   },
   {
-    slug: "rohit-kulkarni",
-    name: "Rohit Kulkarni",
+    slug: "Hrushikesh",
+    name: "Hrushikesh",
     department: "Electronics & Communication",
     batch: "2025",
-    roleCurrent: "Technical Head (Web & Systems)",
+    roleCurrent: "Treasurer",
     bio: "Obsessed with web standards, frontend craft, micro-interactions, and accessible interface engineering. Drives the core tech stack and open-source initiatives across SyntaX.",
     socials: {
       github: "https://github.com/syntaxvnit",
@@ -99,11 +99,11 @@ export const people: Person[] = [
     ],
   },
   {
-    slug: "priya-verma",
-    name: "Priya Verma",
+    slug: "Ayush-Kumar",
+    name: "Ayush Kumar",
     department: "Computer Science & Engineering",
     batch: "2025",
-    roleCurrent: "Competitive Programming Lead",
+    roleCurrent: "Organisational Head",
     bio: "Algorithmic problem solver and mathematical modeler. Curates the weekly SyntaX contest problem sets, code walkthroughs, and contest preparation roadmaps for VNITians.",
     socials: {
       github: "https://github.com/syntaxvnit",
@@ -122,11 +122,77 @@ export const people: Person[] = [
     ],
   },
   {
-    slug: "aditya-nair",
-    name: "Aditya Nair",
+    slug: "Sangram",
+    name: "Sangram",
     department: "Computer Science & Engineering",
     batch: "2026",
-    roleCurrent: "AI & Research Lead",
+    roleCurrent: "Computer Science Core Head",
+    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    projects: [
+      {
+        title: "CampusDoc RAG",
+        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+      },
+    ],
+    achievements: [
+      "Best Technical Paper Award at IEEE Student Conference 2024",
+    ],
+  },
+  {
+    slug: "Aditya-Sahu",
+    name: "Aditya Sahu",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "AI/ML Head",
+    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    projects: [
+      {
+        title: "CampusDoc RAG",
+        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+      },
+    ],
+    achievements: [
+      "Best Technical Paper Award at IEEE Student Conference 2024",
+    ],
+  },
+  {
+    slug: "Harshit-Raj",
+    name: "Harshit Raj",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "DSA Head",
+    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    projects: [
+      {
+        title: "CampusDoc RAG",
+        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+      },
+    ],
+    achievements: [
+      "Best Technical Paper Award at IEEE Student Conference 2024",
+    ],
+  },
+  {
+    slug: "Srikar",
+    name: "Srikar",
+    department: "Competitive Programming Head",
+    batch: "2026",
+    roleCurrent: "DSA Head",
     bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
     socials: {
       github: "https://github.com/syntaxvnit",
