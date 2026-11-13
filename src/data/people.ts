@@ -188,6 +188,28 @@ export const people: Person[] = [
     ],
   },
   {
+    slug: "bhanu-prakash",
+    name: "Tilavath Bhanu Prakash ",
+    department: "Computer Science & Engineering",
+    batch: "2028",
+    roleCurrent: "DEV Head",
+    bio: "Full-stack developer and aspiring AI engineer passionate about building scalable web applications and intelligent systems. Exploring Agentic AI, modern web technologies, and AI-powered developer tools while leading development initiatives at Syntax and mentoring aspiring developers at VNIT.",
+    socials: {
+      github: "https://github.com/bhanu806",
+      linkedin: "https://www.linkedin.com/in/bhanu-prakash-tilavath-bb6804343/",
+    },
+    skills: ["JavaScript", "React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Agentic AI", "LLMs"],
+    projects: [
+      {
+        title: "CampusDoc RAG",
+        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+      },
+    ],
+    achievements: [
+      "Best Technical Paper Award at IEEE Student Conference 2024",
+    ],
+  },
+  {
     slug: "Srikar",
     name: "Srikar",
     department: "Competitive Programming Head",
