@@ -324,6 +324,198 @@ export const people: Person[] = [
       "SyntaX Club Co-founder",
     ],
   },
+  {
+    slug: "Shresth-Verma",
+    name: "Shresth Verma",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "President (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Pratik-Jha",
+    name: "Pratik Jha",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Vice President (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Deepak-Jalan",
+    name: "Deepak Jalan",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Treasurer (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Bhupendra-Tiwari",
+    name: "Bhupendra Tiwari",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Project Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Yash-Goyal",
+    name: "Yash Goyal",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Event Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Aryan-Dwivedi",
+    name: "Aryan Dwivedi",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Blockchain Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Smit-Gharat",
+    name: "Smit Gharat",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Operations Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Om-Kharat",
+    name: "Om Kharat",
+    department: "Computer Science & Engineering",
+    batch: "2025",
+    roleCurrent: "Event Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Ansh-Dalal",
+    name: "Ansh Dalal",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "WEB Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Vaidehi",
+    name: "Vaidehi",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "Operations Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Harshada",
+    name: "Harshada",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "APP Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Sakshi",
+    name: "Sakshi",
+    department: "Computer Science & Engineering",
+    batch: "2026",
+    roleCurrent: "Operations Head (2024-2025)",
+    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    socials: {
+      github: "https://github.com/syntaxvnit",
+      linkedin: "https://linkedin.com/company/syntaxvnit",
+    },
+    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
 ];
 
 export function getPersonBySlug(slug: string): Person | undefined {
