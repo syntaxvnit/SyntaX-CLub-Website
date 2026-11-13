@@ -39,25 +39,25 @@ export const people: Person[] = [
     skills: ["GO", "MERN Stack", "LangChain", "Agentic AI"],
     projects: [
       {
-        title: "VNIT Campus Portal Engine",
-        description: "Open-source high-throughput platform for academic schedules and student society coordination.",
+        title: "GitLike: Version Control System",
+        description: "Developed a command-line version control system implementing repository creation, staging, committing, and branching from scratch.",
         link: "https://github.com/syntaxvnit",
       },
       {
-        title: "SynHack Online Judge",
-        description: "Automated sandboxed evaluation pipeline for algorithmic problem sets.",
+        title: "RayTracer: Ray Tracing Engine",
+        description: "Created a ray tracer that renders spheres with recursive reflection, refraction, shadows, and Lambertian shading.",
       },
     ],
     achievements: [
-      "Smart India Hackathon Finalist 2023",
-      "Lead Organizer for SynHack 2024 (500+ participants)",
+      "3-Star rating of 1600 on CodeChef; 1900+ Knight on LeetCode; 950+ questions solved on Codolio.",
+      "Flipkart GRID 7.0 semifinalist across India.",
     ],
   },
   {
     slug: "Aritra-Sarkar",
     name: "Aritra Sarkar",
-    department: "Computer Science & Engineering",
-    batch: "2025",
+    department: "Chemical Engineering",
+    batch: "2027",
     roleCurrent: "Vice President",
     bio: "Machine learning practitioner and competitive programmer focused on computer vision, generative models, and algorithmic efficiency. Mentors junior members in data structures and graph algorithms.",
     socials: {
