@@ -63,6 +63,6 @@ export const siteConfig: SiteConfig = {
   ],
   synhackCta: {
     label: "SynHack '25",
-    href: "/synhack",
+    href: "/register",
   },
 };

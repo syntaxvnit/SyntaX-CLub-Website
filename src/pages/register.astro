@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/registration.css";
+---
+
+<BaseLayout title="Team Registration" description="Register your SyntaX team and submit payment details." showVideoLoader={false}>
+  <section class="registration-page">
+    <div class="registration-ambient registration-ambient--cyan" aria-hidden="true"></div>
+    <div class="registration-ambient registration-ambient--purple" aria-hidden="true"></div>
+
+    <div class="registration-shell">
+      <header class="registration-heading">
+        <span class="registration-eyebrow"><span class="eyebrow-dot"></span> SYNTAX · VNIT NAGPUR</span>
+        <h1>Make your <span>move.</span></h1>
+        <p>Register your team and submit the payment details below. We’ll review your payment and confirm your registration.</p>
+      </header>
+
+      <div class="registration-layout">
+        <section class="registration-card registration-form-card" aria-labelledby="form-title">
+          <div class="card-topline">
+            <div><span class="step-label">01 / TEAM DETAILS</span><h2 id="form-title">Team registration</h2></div>
+            <span class="required-note"><span>*</span> Required</span>
+          </div>
+
+          <form id="registrationForm" class="registration-form" novalidate>
+            <div class="field">
+              <label for="teamSize">Team size <span>*</span></label>
+              <select id="teamSize" name="teamSize" required>
+                <option value="3">3 members</option>
+                <option value="4">4 members</option>
+              </select>
+            </div>
+
+            <div class="team-members-grid">
+              <div class="field"><label for="member1">Team member 1 name <span>*</span></label><input id="member1" name="member1" type="text" maxlength="100" placeholder="Enter member 1 name" required /></div>
+              <div class="field"><label for="member2">Team member 2 name <span>*</span></label><input id="member2" name="member2" type="text" maxlength="100" placeholder="Enter member 2 name" required /></div>
+              <div class="field"><label for="member3">Team member 3 name <span>*</span></label><input id="member3" name="member3" type="text" maxlength="100" placeholder="Enter member 3 name" required /></div>
+              <div class="field" id="member4Field" hidden><label for="member4">Team member 4 name <span>*</span></label><input id="member4" name="member4" type="text" maxlength="100" placeholder="Enter member 4 name" /></div>
+            </div>
+
+            <div class="field">
+              <label for="year">Year <span>*</span></label>
+              <select id="year" name="year" required>
+                <option value="" selected disabled>Select your year</option>
+                <option value="1st Year">1st Year</option><option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option><option value="4th Year">4th Year</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="hostel">Hostel name</label>
+              <input id="hostel" name="hostel" type="text" maxlength="100" placeholder="Enter hostel name (if applicable)" />
+              <small>Fill this only if you are a first-year student or a girl. Otherwise, leave it blank.</small>
+            </div>
+
+            <div class="form-divider"></div>
+            <div class="payment-section-heading">
+              <span class="step-label">02 / TEAM LEADER</span><h3>Team leader details</h3>
+              <p>Provide the contact details of the person representing your team.</p>
+            </div>
+
+            <div class="field"><label for="leaderName">Team leader name <span>*</span></label><input id="leaderName" name="leaderName" type="text" maxlength="100" placeholder="Enter team leader name" required /></div>
+            <div class="field"><label for="leaderEmail">Team leader email <span>*</span></label><input id="leaderEmail" name="leaderEmail" type="email" maxlength="254" placeholder="you@example.com" required /></div>
+            <div class="field">
+              <label for="leaderContact">Team leader contact number <span>*</span></label>
+              <div class="input-with-prefix"><span class="input-prefix">+91</span><input id="leaderContact" name="leaderContact" type="tel" inputmode="numeric" placeholder="10-digit mobile number" pattern="[0-9]{10}" minlength="10" maxlength="10" required /></div>
+              <small>Enter a 10-digit Indian mobile number.</small>
+            </div>
+
+            <div class="form-divider"></div>
+            <div class="payment-section-heading">
+              <span class="step-label">03 / PAYMENT DETAILS</span><h3>Complete your payment</h3>
+              <p>Scan the QR code using any UPI app. Enter the transaction number after paying.</p>
+            </div>
+
+            <div class="qr-panel">
+              <div class="qr-panel-copy"><span class="qr-kicker">SCAN &amp; PAY</span><strong>Pay using any UPI app</strong><span class="qr-hint">Open your UPI app and scan the code.</span></div>
+              <div class="qr-image-frame"><img src="/qr-code.png" alt="SyntaX event payment UPI QR code" /></div>
+              <p class="qr-replace-note">SyntaX payment QR code</p>
+            </div>
+
+            <div class="field">
+              <label for="transactionId">UPI transaction number <span>*</span></label>
+              <input id="transactionId" name="transactionId" type="text" maxlength="120" placeholder="Enter UPI / UTR reference number" autocomplete="off" required />
+              <small>Find this in your UPI app’s payment history.</small>
+            </div>
+
+            <div class="field">
+              <label for="screenshot">Payment screenshot <span>*</span></label>
+              <label class="upload-zone" for="screenshot">
+                <input id="screenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp" required />
+                <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 16.5v2A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5v-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="upload-main" id="uploadMain">Choose payment screenshot</span>
+                <span class="upload-sub" id="uploadSub">PNG, JPG or WEBP · Maximum 2 MB</span>
+              </label>
+              <div class="screenshot-preview" id="screenshotPreview" hidden>
+                <img id="previewImage" alt="Selected payment screenshot preview" />
+                <div class="preview-details"><strong id="previewName">Screenshot selected</strong><span id="previewSize"></span></div>
+                <button class="remove-image" id="removeImage" type="button">Remove</button>
+              </div>
+            </div>
+
+            <div class="form-consent"><span class="consent-mark" aria-hidden="true">✓</span><p>I confirm that the team and payment details provided are correct. Registration will be reviewed after payment verification.</p></div>
+            <button class="submit-button" id="submitBtn" type="submit"><span id="submitButtonText">Submit team registration</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="form-message" id="message" role="status" aria-live="polite"></p>
+            <p class="privacy-note">Your information is used only for event registration and payment verification.</p>
+          </form>
+        </section>
+
+        <aside class="registration-aside">
+          <div class="aside-card aside-info-card">
+            <span class="step-label">GOOD TO KNOW</span><h2>One team. <span>One move.</span></h2>
+            <p class="aside-description">A few quick checks will help us verify your registration smoothly.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">01</span><span><strong>Enter every teammate</strong><small>Names should match the details used for event participation.</small></span></li>
+              <li><span class="check-icon">02</span><span><strong>Use an active team leader contact</strong><small>Updates about registration will be sent to the team leader.</small></span></li>
+              <li><span class="check-icon">03</span><span><strong>Upload a clear screenshot</strong><small>Make sure the amount, date and transaction details are visible.</small></span></li>
+            </ul>
+          </div>
+          <div class="aside-card verification-card">
+            <div class="verification-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 19 6v5c0 4.5-2.9 8.1-7 10-4.1-1.9-7-5.5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Payment verification</strong><p>Submitting this form does not automatically confirm payment. The SyntaX team will verify it manually.</p></div>
+          </div>
+          <p class="aside-footer">BUILD · CREATE · INNOVATE <span>✳</span></p>
+        </aside>
+      </div>
+    </div>
+    <iframe name="appsScriptFrame" id="appsScriptFrame" title="Registration submission response" class="submission-frame"></iframe>
+  </section>
+</BaseLayout>
+
+<script>
+  import { initRegistrationForm } from "../scripts/registration";
+  initRegistrationForm();
+</script>
