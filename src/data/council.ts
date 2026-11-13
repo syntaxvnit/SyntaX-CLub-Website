@@ -18,11 +18,11 @@ export interface CouncilYear {
 
 export const councilYears: CouncilYear[] = [
   {
-    academicYear: "2024-2025",
+    academicYear: "2026-2027",
     isCurrent: true,
     theme: "Engineering With Intent",
-    tenure: "July 2024 – June 2025",
-    summary: "Focused on expanding open-source contributions, launching AI research tracks, hosting SynHack '25, and fostering rigorous competitive programming culture across VNIT.",
+    tenure: "July 2026 – June 2027",
+    summary: "Focused on expanding open-source contributions, launching AI research tracks, hosting SynHack '27, and fostering rigorous competitive programming culture across VNIT.",
     roles: [
       {
         personSlug: "Omkar-More",

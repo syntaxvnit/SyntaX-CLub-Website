@@ -28,15 +28,15 @@ export const people: Person[] = [
   {
     slug: "Omkar-More",
     name: "Omkar More",
-    department: "Computer Science & Engineering",
-    batch: "2025",
+    department: "Metallurgical & Materials Engineering",
+    batch: "2027",
     roleCurrent: "President",
-    bio: "Systems architect and full-stack engineer passionate about building high-performance web applications, developer tooling, and distributed systems. Leading SyntaX into its next era of student engineering excellence at VNIT.",
+    bio: "I've always wondered how computers have shaped our lives in the 21st century, the thinking behind every design decision, and how today's right answers often emerge from yesterday's wrong ones.\nMy journey into tech started with web development, but curiosity eventually led me towards systems engineering and backend development.\nComing from a non-CS branch (MME) hasn't stopped me from exploring computer science, and it shouldn't stop you either. Curiosity matters more than where you are right now.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://royalbeast2211.github.io/",
+      linkedin: "https://www.linkedin.com/in/theomkarmore/",
     },
-    skills: ["TypeScript", "Next.js", "Go", "Docker", "PostgreSQL", "Cloud Architecture"],
+    skills: ["GO", "MERN Stack", "LangChain", "Agentic AI"],
     projects: [
       {
         title: "VNIT Campus Portal Engine",
@@ -101,15 +101,15 @@ export const people: Person[] = [
   {
     slug: "Ayush-Kumar",
     name: "Ayush Kumar",
-    department: "Computer Science & Engineering",
-    batch: "2025",
+    department: "Metallurgical & Materials Engineering",
+    batch: "2028",
     roleCurrent: "Organisational Head",
-    bio: "Algorithmic problem solver and mathematical modeler. Curates the weekly SyntaX contest problem sets, code walkthroughs, and contest preparation roadmaps for VNITians.",
+    bio: "Figuring things out as I go, staying ahead of the curve, and keeping things simple. Here to build cool stuff and enjoy the ride.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/AyushKumar5944",
+      linkedin: "https://www.linkedin.com/in/ayush-kumar-a4259831b/",
     },
-    skills: ["C++20", "Data Structures", "Dynamic Programming", "Combinatorics", "Graph Theory"],
+    skills: ["AI/ML", "CP"],
     projects: [
       {
         title: "AlgoVisualizer VNIT",
@@ -168,15 +168,15 @@ export const people: Person[] = [
   {
     slug: "Harshit-Raj",
     name: "Harshit Raj",
-    department: "Computer Science & Engineering",
-    batch: "2026",
+    department: "Civil Engineering",
+    batch: "2028",
     roleCurrent: "DSA Head",
-    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    bio: "A little curious, a little ambitious, and always finding new ways to grow. I enjoy exploring new ideas and believe in growing together",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/itsharshiit",
+      linkedin: "https://www.linkedin.com/in/harshit-raj-97851936b/",
     },
-    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    skills: ["Python", "MERN Stack", "OpenCV", "REST APIs", "DSA","Arduino IDE"],
     projects: [
       {
         title: "CampusDoc RAG",
