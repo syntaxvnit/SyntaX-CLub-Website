@@ -39,13 +39,13 @@ export const councilYears: CouncilYear[] = [
       {
         personSlug: "Hrushikesh",
         role: "Treasurer",
-        category: "Operations",
+        category: "Creative",
         order: 3,
       },
       {
         personSlug: "Ayush-Kumar",
         role: "Organisational Head",
-        category: "Operations",
+        category: "Technical",
         order: 4,
       },
       {
