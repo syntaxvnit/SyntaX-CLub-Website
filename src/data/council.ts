@@ -74,6 +74,29 @@ export const councilYears: CouncilYear[] = [
       },
     ],
   },
+
+  {
+      academicYear: "2025-2026",
+      isCurrent: false,
+      theme: "Foundations & Code",
+      tenure: "July 2025 – June 2026",
+      summary: "The formative year when SyntaX established weekly algorithmic contests, foundational Git workshops, and campus-wide peer programming circles.",
+      roles: [
+        {
+          personSlug: "Vaidehi",
+          role: "President",
+          category: "Executive",
+          order: 1,
+        },
+        {
+          personSlug: "Omkar-More",
+          role: "Vice President",
+          category: "Executive",
+          order: 2,
+        },
+      ],
+  },
+
   {
     academicYear: "2024-2025",
     isCurrent: false,
@@ -155,33 +178,7 @@ export const councilYears: CouncilYear[] = [
       },
     ],
   },
-  {
-    academicYear: "2022-2023",
-    isCurrent: false,
-    theme: "Foundations & Code",
-    tenure: "July 2022 – June 2023",
-    summary: "The formative year when SyntaX established weekly algorithmic contests, foundational Git workshops, and campus-wide peer programming circles.",
-    roles: [
-      {
-        personSlug: "varun-gupta",
-        role: "Technical Lead",
-        category: "Technical",
-        order: 1,
-      },
-      {
-        personSlug: "siddharth-rao",
-        role: "General Secretary",
-        category: "Executive",
-        order: 2,
-      },
-      {
-        personSlug: "megha-bose",
-        role: "Event Coordinator",
-        category: "Operations",
-        order: 3,
-      },
-    ],
-  },
+  
 ];
 
 export function getCurrentCouncil(): CouncilYear {

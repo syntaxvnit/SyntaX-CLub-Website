@@ -473,7 +473,7 @@ export const people: Person[] = [
     name: "Vaidehi",
     department: "Computer Science & Engineering",
     batch: "2026",
-    roleCurrent: "Operations Head (2024-2025)",
+    roleCurrent: "President (2025-2026)",
     bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
     socials: {
       github: "https://github.com/syntaxvnit",
