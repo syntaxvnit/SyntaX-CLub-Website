@@ -78,6 +78,12 @@ export const councilYears: CouncilYear[] = [
         category: "Domains",
         order: 9,
       },
+      {
+        personSlug: "Shivman-Raj",
+        role: "Advisory",
+        category: "Domains",
+        order: 10,
+      },
     ],
   },
 
@@ -99,6 +105,18 @@ export const councilYears: CouncilYear[] = [
           role: "Vice President",
           category: "Executive",
           order: 2,
+        },
+        {
+          personSlug: "Shivam-Raj",
+          role: "WEB Head",
+          category: "Domains",
+          order: 3,
+        },
+        {
+          personSlug: "Aritra-Sarkar",
+          role: "AI/ML Head",
+          category: "Domains",
+          order: 3,
         },
       ],
   },
@@ -166,8 +184,8 @@ export const councilYears: CouncilYear[] = [
       },
       {
         personSlug: "Vaidehi",
-        role: "Operations Head",
-        category: "Executive",
+        role: "Technical Operations Head",
+        category: "Technical",
         order: 10,
       },
       {

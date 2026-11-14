@@ -59,12 +59,12 @@ export const people: Person[] = [
     department: "Chemical Engineering",
     batch: "2027",
     roleCurrent: "Vice President",
-    bio: "Machine learning practitioner and competitive programmer focused on computer vision, generative models, and algorithmic efficiency. Mentors junior members in data structures and graph algorithms.",
+    bio: "​Driven to grow our campus coding community through SyntaX, I actively engage students in diverse activities so we can learn and evolve together. Blending my Chemical Engineering background with a deep interest in Data Science and AI/ML has cultivated a holistic learning mindset, empowering me to embrace leadership responsibilities, build impactful initiatives, and foster continuous peer growth.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/AritraSarkar1203",
+      linkedin: "https://www.linkedin.com/in/aritra-sarkar120320",
     },
-    skills: ["Python", "PyTorch", "C++", "FastAPI", "Computer Vision", "Algorithms"],
+    skills: ["Python", "C++", "Pytorch", "Next.js", "Node.js", "JavaScript", "Langchain", "Hugging Face"],
     projects: [
       {
         title: "Medical Image Segmentation Pipeline",
@@ -123,16 +123,16 @@ export const people: Person[] = [
   },
   {
     slug: "Sangram",
-    name: "Sangram",
+    name: "Sangram Bavadhane",
     department: "Computer Science & Engineering",
-    batch: "2026",
-    roleCurrent: "Computer Science Core Head",
-    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    batch: "2028",
+    roleCurrent: "CS Core Head",
+    bio: "Full-stack and agentic AI developer building high-performance web applications and agentic workflows. CS Core Head at SyntaX, VNIT Nagpur, driving developer communities.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/SangramPrakashBavadhane",
+      linkedin: "https://www.linkedin.com/in/sangram-bavadhane-329a53365/",
     },
-    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    skills: ["TypeScript", "Next.js", "React.js", "Node.js", "Python", "Agentic AI", "PostgreSQL"],
     projects: [
       {
         title: "CampusDoc RAG",
@@ -492,16 +492,16 @@ export const people: Person[] = [
   },
   {
     slug: "Vaidehi",
-    name: "Vaidehi",
+    name: "Vaidehi Kharde",
     department: "Computer Science & Engineering",
     batch: "2026",
     roleCurrent: "President (2025-2026)",
-    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
+    bio: "I am a curious and driven individual with a passion for technology, problem-solving, and continuous learning. I enjoy exploring new ideas, building things, and taking on challenges that push me to grow. I believe in learning through experiences, collaborating with others, and turning ideas into meaningful outcomes. My journey as President of SyntaX has been an important part of my growth, shaping my approach to leadership, teamwork, and creating opportunities for others.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/Vaidehi-Kharde",
+      linkedin: "https://www.linkedin.com/in/vaidehi-kharde-84351b279/",
     },
-    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    skills: ["Go", "Python", "C/C++", "Java", "JavaScript", "TypeScript", "Django", "FastAPI", "Flutter", "SQL", "MongoDB", "Firebase", "GCP", "Docker", "Jenkins", "Git"],
     achievements: [
       "SyntaX Club Co-founder",
     ],
@@ -534,6 +534,22 @@ export const people: Person[] = [
       linkedin: "https://linkedin.com/company/syntaxvnit",
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
+    achievements: [
+      "SyntaX Club Co-founder",
+    ],
+  },
+  {
+    slug: "Shivam-Raj",
+    name: "Shivam Raj",
+    department: "Metallurgical & Materials Engineering",
+    batch: "2027",
+    roleCurrent: "Advisory (2026-2027)",
+    bio: "A developer passionate about building impactful products and solving complex problems. Interested in full-stack development, emerging technologies, and collaborative innovation.",
+    socials: {
+      github: "https://github.com/Shivamraj2006",
+      linkedin: "https://www.linkedin.com/in/emailshivamraj/",
+    },
+    skills: ["C++", "C", "Python", "JavaScript", "TypeScript", "Dart", "MATLAB", "Flutter", "React.js", "Next.js", "Node.js", "Express.js"],
     achievements: [
       "SyntaX Club Co-founder",
     ],
