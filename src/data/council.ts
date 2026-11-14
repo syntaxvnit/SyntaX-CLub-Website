@@ -79,10 +79,22 @@ export const councilYears: CouncilYear[] = [
         order: 9,
       },
       {
-        personSlug: "Shivman-Raj",
+        personSlug: "Shivam-Raj",
         role: "Advisory",
         category: "Domains",
         order: 10,
+      },
+      {
+        personSlug: "Swanand-Dhere",
+        role: "Advisory",
+        category: "Domains",
+        order: 11,
+      },
+      {
+        personSlug: "Pratk-Nawale",
+        role: "Advisory",
+        category: "Domains",
+        order: 12,
       },
     ],
   },

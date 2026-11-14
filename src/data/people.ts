@@ -66,36 +66,39 @@ export const people: Person[] = [
     },
     skills: ["Python", "C++", "Pytorch", "Next.js", "Node.js", "JavaScript", "Langchain", "Hugging Face"],
     projects: [
-      {
-        title: "Medical Image Segmentation Pipeline",
-        description: "Lightweight neural network architecture for localized lesion detection in low-resource environments.",
-      },
     ],
     achievements: [
-      "ICPC Amritapuri Regionalist 2023",
-      "Knight on LeetCode (Top 2% globally)",
+      
     ],
   },
   {
     slug: "Hrushikesh",
-    name: "Hrushikesh",
-    department: "Electronics & Communication",
-    batch: "2025",
+    name: "Hrushikesh Musaloj ",
+    department: "Computer Science & Engineering",
+    batch: "2027",
     roleCurrent: "Treasurer",
-    bio: "Obsessed with web standards, frontend craft, micro-interactions, and accessible interface engineering. Drives the core tech stack and open-source initiatives across SyntaX.",
+    bio: "Hey, I’m Hrushikesh, a final-year Computer Science student at VNIT Nagpur and a former Engineering Intern at Goldman Sachs. I enjoy building impactful technology, from full-stack applications and real-time systems to AI-powered tools that solve real-world problems. I’m passionate about turning ideas into practical solutions and constantly exploring new technologies.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      website: "https://syntaxvnit.vercel.app",
+      github: "https://github.com/Hrushikesh-0105",
+      website: "linkedin.com/in/hrushikeshmusaloj",
     },
-    skills: ["Astro", "React", "Rust", "WebAssembly", "Tailwind CSS", "Design Systems"],
+    skills: ["Flutter", "MERN"],
     projects: [
       {
-        title: "SyntaX Design System & UI Kit",
-        description: "Bespoke design tokens and accessible web components for club projects.",
+        title: "Warp (P2P file sharing)",
+        description: " ",
+      },
+      {
+        title: "GymSync",
+        description: " ",
+      },
+      {
+        title: "CRC Manager",
+        description: " ",
       },
     ],
     achievements: [
-      "Top 10 Global Open Source Contributor (Hacktoberfest VNIT Chapter)",
+      
     ],
   },
   {
@@ -111,14 +114,10 @@ export const people: Person[] = [
     },
     skills: ["AI/ML", "CP"],
     projects: [
-      {
-        title: "AlgoVisualizer VNIT",
-        description: "Interactive visual tool explaining complex graph algorithms and segment trees step-by-step.",
-      },
+      
     ],
     achievements: [
-      "Codeforces Candidate Master",
-      "Top 50 in Google Kick Start Round F",
+     
     ],
   },
   {
@@ -134,35 +133,47 @@ export const people: Person[] = [
     },
     skills: ["TypeScript", "Next.js", "React.js", "Node.js", "Python", "Agentic AI", "PostgreSQL"],
     projects: [
-      {
-        title: "CampusDoc RAG",
-        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
-      },
+     
     ],
     achievements: [
-      "Best Technical Paper Award at IEEE Student Conference 2024",
+      
     ],
   },
   {
     slug: "Aditya-Sahu",
     name: "Aditya Sahu",
     department: "Computer Science & Engineering",
-    batch: "2026",
+    batch: "2028",
     roleCurrent: "AI/ML Head",
-    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    bio: "I am a third-year Computer Science and Engineering undergraduate at VNIT Nagpur and currently serve as the AI/ML Head at Syntax Club. My primary areas of interest include Machine Learning, Deep Learning, Computer Vision, and Generative AI, with a keen interest in exploring Large Language Models (LLMs) and Agentic AI. I enjoy understanding the underlying concepts of AI/ML and applying them to build practical, real-world solutions. My project experience includes developing hybrid recommendation systems, AI-powered applications, and computer vision-based solutions. I am also interested in backend engineering and scalable software systems, with experience in Python, Go, FastAPI, React, and SQL. I strongly believe in collaboration, knowledge sharing, and growing together through hands-on experiences. I see communities like Syntax as platforms where individuals can learn from one another, work on meaningful projects, and collectively develop their skills. I actively encourage collaborations and real-world project opportunities, including our collaboration through AXIS VNIT, where we worked on designing and developing a Campus Ambassador website. As AI/ML Head, I aim to foster an environment of collective learning, experimentation, and innovation.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/adityasahu1109",
+      linkedin: "https://www.linkedin.com/in/sahuaditya11",
     },
-    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    skills: ["Python", "Go (Golang)", "NumPy", "Pandas", "Scikit-learn", "OpenCV", "Machine Learning", "Deep Learning", "Computer Vision", "Generative AI", "LLMs", "FastAPI", "React.js", "PostgreSQL", "SQLite"],
     projects: [
       {
-        title: "CampusDoc RAG",
-        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+        title: "ORBIT (Hybrid Recommendation System)",
+        description: " ",
+      },
+      {
+        title: "Campus Ambassador Website (AXIS VNIT Collaboration)",
+        description: " ",
+      },
+      {
+        title: "Campus Ambassador Website (AXIS VNIT Collaboration)",
+        description: " ",
+      },
+      {
+        title: "Gemini AI Frontend Clone",
+        description: " ",
+      },
+      {
+        title: "Developer Portfolio",
+        description: " ",
       },
     ],
     achievements: [
-      "Best Technical Paper Award at IEEE Student Conference 2024",
     ],
   },
   {
@@ -178,13 +189,10 @@ export const people: Person[] = [
     },
     skills: ["Python", "MERN Stack", "OpenCV", "REST APIs", "DSA","Arduino IDE"],
     projects: [
-      {
-        title: "CampusDoc RAG",
-        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
-      },
+      
     ],
     achievements: [
-      "Best Technical Paper Award at IEEE Student Conference 2024",
+      
     ],
   },
   {
@@ -200,152 +208,92 @@ export const people: Person[] = [
     },
     skills: ["JavaScript", "React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Agentic AI", "LLMs"],
     projects: [
+      
+    ],
+    achievements: [
+      
+    ],
+  },
+  {
+    slug: "Swanand-Dhere",
+    name: "Swanand Dhere",
+    department: "Computer Science & Engineering",
+    batch: "2027",
+    roleCurrent: "Advisory (2026-2027)",
+    bio: "I am a Computer Science and Engineering undergraduate at VNIT Nagpur, passionate about competitive programming, software engineering, and building scalable systems. I gained industry experience as a Software Engineering Intern at Google, where I contributed to modernizing the Android Launcher experience for over 2 million users. As an ICPC Regionalist, I have solved over 900 algorithmic problems across LeetCode, Codeforces, and CodeChef, securing AIR 205 in ICPC Regionals. My technical interests include Data Structures and Algorithms, System Design, Full-Stack Development, Android Engineering, and Vector Databases. I served as the Competitive Programming Head at SyntaX – The Coding Club, VNIT Nagpur, where I organize coding contests, hackathons, and problem-solving sessions while mentoring fellow students. I enjoy tackling challenging technical problems, exploring innovative technologies, and fostering a collaborative programming culture. My focus is on continuous learning, building impactful software, and helping strengthen the competitive programming community.",
+    socials: {
+      github: "https://github.com/swand-12",
+      linkedin: "https://www.linkedin.com/in/swanand-dhere-85647b27b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    },
+    skills: ["MERN", "Golang"],
+    projects: [
       {
-        title: "CampusDoc RAG",
-        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+        title: "INTER NIT APP",
+        description: " ",
+      },
+      {
+        title: "Telephone Directory",
+        description: " ",
       },
     ],
     achievements: [
-      "Best Technical Paper Award at IEEE Student Conference 2024",
+      "SWE INTERN GOOGLE",
+      "ICPC REGIONALIST",
+      "UPCOMING SWE AT COHESITY"
     ],
   },
   {
     slug: "Srikar",
-    name: "Srikar",
-    department: "Competitive Programming Head",
-    batch: "2026",
-    roleCurrent: "DSA Head",
-    bio: "Deep learning enthusiast working on LLM fine-tuning, retrieval-augmented generation (RAG), and efficient inference pipelines. Organizing AI study groups and hands-on workshops.",
+    name: "Srikar Bhamidipati",
+    department: "Electrical and Electronics Engineering",
+    batch: "2028",
+    roleCurrent: "Competitive Programming Head",
+    bio: "Competitive programmer and CP Head at VNIT SyntaX, focused on algorithms, dynamic programming, and helping peers grow through structured problem-solving sessions.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/srikarbhamidipati2005-code",
+      linkedin: "https://www.linkedin.com/in/srikar-bhamidipati-670283336/",
     },
-    skills: ["Python", "Hugging Face", "LangChain", "Vector DBs", "Linux", "MLOps"],
+    skills: ["C++", "Python", "JavaScript", "TypeScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "PostgreSQL", "MongoDB", "Git", "Linux"],
     projects: [
       {
-        title: "CampusDoc RAG",
-        description: "Semantic search engine over VNIT course syllabi, past exams, and institutional documents.",
+        title: "DSA Search Engine",
+        description: "Built a search engine indexing 36,000+ competitive programming problems. Implemented TF-IDF, BM25 ranking, and fuzzy matching. Optimized search to deliver results in under 2 seconds.",
+      },
+      {
+        title: "RAG Flow AI",
+        description: "Built a Retrieval-Augmented Generation application using FastAPI, TypeScript, ChromaDB, Docker, and Gemini. Worked on document retrieval and AI-powered question answering.",
+      },
+      {
+        title: "Live Collaborative Whiteboard",
+        description: "Developed a real-time collaborative whiteboard using Socket.IO, JWT, and MongoDB. Supported multiple simultaneous users.",
       },
     ],
     achievements: [
-      "Best Technical Paper Award at IEEE Student Conference 2024",
+      "Codeforces Expert (peak rating: 1739)",
+      "AtCoder peak rating: 1387",
+      "Codeforces Round 1071 Div. 3: Rank 459 out of approximately 14,000 participants"
     ],
   },
   {
-    slug: "tanvi-joshi",
-    name: "Tanvi Joshi",
-    department: "Computer Science & Engineering",
-    batch: "2026",
-    roleCurrent: "App Development Lead",
-    bio: "Mobile engineer specializing in cross-platform Flutter and React Native architectures. Passionate about fluid 60fps animations, offline-first sync, and intuitive user experiences.",
+    slug: "Pratk-Nawale",
+    name: "Pratk Nawale",
+    department: "Civil Engineering",
+    batch: "2028",
+    roleCurrent: "Advisory (2026-2027)",
+    bio: "I give my 100% effort in whatever I do. My area of interest is Artificial Intelligence. I wanna go deep into AI research and try to make a positive change in the world.",
     socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
+      github: "https://github.com/pratik-n30",
+      linkedin: "https://www.linkedin.com/in/pratik-nawale-a97824361?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
-    skills: ["Flutter", "Dart", "React Native", "Firebase", "Kotlin", "UI/UX Design"],
+    skills: ["Python", "C++", "PyTorch"],
     projects: [
-      {
-        title: "VNIT Timetable & Mess Companion",
-        description: "Mobile utility used by 2,000+ VNIT students with live schedule notifications and mess menus.",
-      },
     ],
     achievements: [
-      "1st Prize, Central India Mobile App Hackathon 2024",
+      
     ],
   },
-  {
-    slug: "harsh-patel",
-    name: "Harsh Patel",
-    department: "Mechanical Engineering",
-    batch: "2026",
-    roleCurrent: "Design & Creative Lead",
-    bio: "Digital artist and visual designer crafting illustrations, brand identities, and editorial layouts. Blends engineering discipline with expressive digital drawing.",
-    socials: {
-      instagram: "https://instagram.com/syntax_vnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
-    },
-    skills: ["Figma", "Vector Illustration", "Blender", "Motion Design", "Typography"],
-    projects: [
-      {
-        title: "SyntaX Visual Identity 2.0",
-        description: "Complete brand guidelines, editorial doodle system, and merchandise design for SyntaX VNIT.",
-      },
-    ],
-    achievements: [
-      "Winner, National Youth Festival Design Trophy 2023",
-    ],
-  },
-  {
-    slug: "sneha-mukherjee",
-    name: "Sneha Mukherjee",
-    department: "Electrical Engineering",
-    batch: "2026",
-    roleCurrent: "Operations & SynHack Convener",
-    bio: "Community builder and event strategist. Coordinates sponsor partnerships, hackathon logistics, venue operations, and inter-college outreach for SynHack.",
-    socials: {
-      linkedin: "https://linkedin.com/company/syntaxvnit",
-    },
-    skills: ["Event Operations", "Sponsorship Outreach", "Public Relations", "Team Leadership"],
-    projects: [
-      {
-        title: "SynHack 2024 Logistics Pipeline",
-        description: "End-to-end participant onboarding, mentoring track scheduling, and live evaluation rounds.",
-      },
-    ],
-    achievements: [
-      "Organized Central India's largest student hackathon with 600+ physical attendees",
-    ],
-  },
+
   // Historical council members
-  {
-    slug: "siddharth-rao",
-    name: "Siddharth Rao",
-    department: "Computer Science & Engineering",
-    batch: "2024",
-    roleCurrent: "Past President (2023-2024)",
-    bio: "Software Engineer at a tier-1 tech firm. Former SyntaX President who spearheaded the inauguration of SynHack as Central India's premier collegiate hackathon.",
-    socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
-    },
-    skills: ["Distributed Systems", "Go", "Kubernetes", "C++", "System Architecture"],
-    achievements: [
-      "Google Summer of Code 2023 (Linux Foundation)",
-      "Founding Convener of SynHack",
-    ],
-  },
-  {
-    slug: "megha-bose",
-    name: "Megha Bose",
-    department: "Computer Science & Engineering",
-    batch: "2024",
-    roleCurrent: "Past Vice President (2023-2024)",
-    bio: "Cloud Systems Engineer and open-source enthusiast. Championed women in engineering workshops and competitive coding bootcamps at VNIT.",
-    socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
-    },
-    skills: ["Cloud Engineering", "AWS", "Python", "TypeScript", "Mentorship"],
-    achievements: [
-      "Grace Hopper Celebration India Scholar 2023",
-    ],
-  },
-  {
-    slug: "varun-gupta",
-    name: "Varun Gupta",
-    department: "Computer Science & Engineering",
-    batch: "2023",
-    roleCurrent: "Past Technical Lead (2022-2023)",
-    bio: "Backend specialist and founding member of SyntaX. Laid the initial architectural foundation for student code reviews and repository governance.",
-    socials: {
-      github: "https://github.com/syntaxvnit",
-      linkedin: "https://linkedin.com/company/syntaxvnit",
-    },
-    skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
-    achievements: [
-      "SyntaX Club Co-founder",
-    ],
-  },
   {
     slug: "Shresth-Verma",
     name: "Shresth Verma",
@@ -359,7 +307,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -375,7 +323,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -391,7 +339,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -407,7 +355,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -423,7 +371,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -439,7 +387,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+     
     ],
   },
   {
@@ -455,7 +403,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -471,7 +419,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -487,7 +435,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -503,7 +451,7 @@ export const people: Person[] = [
     },
     skills: ["Go", "Python", "C/C++", "Java", "JavaScript", "TypeScript", "Django", "FastAPI", "Flutter", "SQL", "MongoDB", "Firebase", "GCP", "Docker", "Jenkins", "Git"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -519,7 +467,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -535,7 +483,7 @@ export const people: Person[] = [
     },
     skills: ["Java", "Spring Boot", "Microservices", "Kafka", "PostgreSQL"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
   {
@@ -551,7 +499,7 @@ export const people: Person[] = [
     },
     skills: ["C++", "C", "Python", "JavaScript", "TypeScript", "Dart", "MATLAB", "Flutter", "React.js", "Next.js", "Node.js", "Express.js"],
     achievements: [
-      "SyntaX Club Co-founder",
+      
     ],
   },
 ];
