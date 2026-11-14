@@ -1,3 +1,4 @@
+
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { events, type ClubEvent } from '../../data/events';
@@ -19,147 +20,320 @@ interface Props {
 }
 
 const { event } = Astro.props;
+
+// Temporary gallery images.
+// Replace these URLs with actual SyntaX event photographs later.
+const gallery = [
+  {
+    src: `/images/events/${event.slug}/photo-1.jpg`,
+    alt: `${event.title} - Event photograph 1`,
+    caption: 'Event Moments',
+  },
+  {
+    src: `/images/events/${event.slug}/photo-2.jpg`,
+    alt: `${event.title} - Event photograph 2`,
+    caption: 'Team Collaboration',
+  },
+  {
+    src: `/images/events/${event.slug}/photo-3.jpg`,
+    alt: `${event.title} - Event photograph 3`,
+    caption: 'Learning Together',
+  },
+  {
+    src: `/images/events/${event.slug}/photo-4.jpg`,
+    alt: `${event.title} - Event photograph 4`,
+    caption: 'Behind The Scenes',
+  },
+];
 ---
 
 <BaseLayout
   title={`${event.title} | SyntaX VNIT Events`}
   description={event.summary}
 >
-  <article class="section pt-8 pb-16">
-    <div class="container max-w-4xl space-y-8">
-      <!-- Breadcrumb -->
-      <ScrollReveal animation="fade-up" delay={50}>
-        <nav class="font-mono text-xs text-slate-400 flex items-center gap-2" aria-label="Breadcrumb">
+  <article class="section pt-8 pb-20">
+    <div class="container max-w-6xl space-y-10">
+
+      <!-- BREADCRUMB -->
+      <ScrollReveal animation="fade-up">
+        <nav class="font-mono text-xs text-slate-400 flex items-center gap-2 flex-wrap">
           <a href="/" class="hover:text-white">Home</a>
           <span>/</span>
           <a href="/events" class="hover:text-white">Events</a>
           <span>/</span>
-          <span class="text-cyan-400 font-bold truncate">{event.title}</span>
+          <span class="text-cyan-400 truncate">{event.title}</span>
         </nav>
       </ScrollReveal>
 
-      <!-- Main Event Brief Card -->
-      <ScrollReveal animation="fade-up" delay={150}>
-        <div class="card p-8 md:p-12 bg-gradient-to-br from-[#0F172A] to-[#0A0E1A] border-2 border-cyan-500/30">
+      <!-- EVENT INFORMATION -->
+      <ScrollReveal animation="fade-up" delay={100}>
+        <div class="card p-6 md:p-10 lg:p-12 bg-gradient-to-br from-[#0F172A] to-[#0A0E1A] border border-cyan-500/30">
+
           <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="badge badge-brand text-xs font-mono">{event.category}</span>
-              <span class={`badge ${event.status === 'upcoming' ? 'badge-amber' : 'badge-emerald'} text-xs font-mono`}>
-                ● STATUS: {event.status.toUpperCase()}
+
+            <div class="flex flex-wrap gap-2">
+              <span class="badge badge-brand text-xs">
+                {event.category}
+              </span>
+
+              <span class="badge badge-emerald text-xs">
+                {event.status.toUpperCase()}
               </span>
             </div>
+
             <span class="font-mono text-xs text-slate-400">
               {event.date}
             </span>
+
           </div>
 
-          <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
             {event.title}
           </h1>
 
-          <div class="mt-6 flex flex-wrap gap-6 text-sm font-mono text-slate-300">
-            <div><strong class="text-white">{event.venue}</strong></div>
-            {event.speaker && (
-              <div class="text-cyan-400 font-semibold">
-                {event.speaker.name} ({event.speaker.role} @ {event.speaker.organization})
-              </div>
-            )}
+          <p class="text-base md:text-lg text-slate-300 leading-relaxed mt-5 max-w-3xl">
+            {event.summary}
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-5 text-sm font-mono text-slate-400">
+
+            <span>
+              <span class="text-cyan-400">⌖</span>
+              {event.venue}
+            </span>
+
+            <span>
+              <span class="text-cyan-400">◷</span>
+              {event.year}
+            </span>
+
           </div>
 
-          <!-- Matching Editorial Artwork Display -->
-          <div class="mt-8 p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center">
+          <!-- EVENT ARTWORK -->
+          <div class="mt-9 p-5 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex justify-center items-center">
+
             {event.doodleType === 'web' && <WebDevDoodle size={500} />}
             {event.doodleType === 'cp' && <CPDoodle size={500} />}
             {event.doodleType === 'ai' && <AIDoodle size={500} />}
             {event.doodleType === 'hackathon' && <SynHackDoodle size={500} />}
             {event.doodleType === 'general' && <WebDevDoodle size={500} />}
+
           </div>
 
-          <div class="mt-8 pt-6 border-t border-white/10 space-y-3">
-            <h2 class="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold">
-              SESSION OVERVIEW & OBJECTIVE
+          <!-- EVENT OVERVIEW -->
+          <div class="mt-9 pt-7 border-t border-white/10">
+
+            <span class="font-mono text-xs tracking-widest text-cyan-400">
+              ABOUT THE EVENT
+            </span>
+
+            <h2 class="text-2xl font-bold text-white mt-3 mb-4">
+              The Story Behind It.
             </h2>
-            <p class="text-lg leading-relaxed text-slate-300">
+
+            <p class="text-base md:text-lg text-slate-300 leading-relaxed">
               {event.description}
             </p>
+
           </div>
 
-          <!-- Registration Status Box -->
-          <div class="mt-8 p-6 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <!-- INSTAGRAM LINK -->
+          <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+
             <div>
-              <div class="font-mono text-xs font-bold text-white uppercase">
-                REGISTRATION ACCESS
-              </div>
-              <div class="text-xs text-slate-400 mt-1 font-mono">
-                {event.status === 'upcoming' || event.status === 'open'
-                  ? 'Official schedule & registration links open on this portal.'
-                  : 'This technical session has concluded. Check notes and takeaways below.'}
-              </div>
+              <p class="text-sm font-bold text-white">
+                Want to explore more?
+              </p>
+              <p class="text-xs text-slate-400 mt-1">
+                Follow SyntaX for event updates and memories.
+              </p>
             </div>
 
-            {event.status === 'open' && event.registrationUrl ? (
-              <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary text-xs font-mono py-2.5 px-6 shrink-0">
-                Register For Session ↗
-              </a>
-            ) : event.status === 'upcoming' ? (
-              <span class="badge badge-amber text-xs py-1.5 px-3 shrink-0">
-                Opening Soon
-              </span>
-            ) : (
-              <span class="badge badge-emerald text-xs py-1.5 px-3 shrink-0">
-                ✓ Concluded
-              </span>
-            )}
+            <a
+              href={event.instagramUrl || 'https://www.instagram.com/syntax_vnit/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary text-xs font-mono py-3 px-6"
+            >
+              Instagram ↗
+            </a>
+
           </div>
+
         </div>
       </ScrollReveal>
 
-      <!-- Highlights & Takeaways -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {event.highlights && event.highlights.length > 0 && (
-          <ScrollReveal animation="fade-up" delay={250}>
-            <div class="card p-8 h-full">
-              <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-cyan-400">✦</span>
-                <span>Session Highlights</span>
-              </h2>
-              <ul class="space-y-3 text-sm text-slate-300 font-mono">
-                {event.highlights.map((h) => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-cyan-400 font-bold">›</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollReveal>
-        )}
+      <!-- HIGHLIGHTS + GALLERY -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 
-        {event.takeaways && event.takeaways.length > 0 && (
-          <ScrollReveal animation="fade-up" delay={300}>
-            <div class="card p-8 h-full">
-              <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-purple-400">✦</span>
-                <span>Documented Takeaways</span>
-              </h2>
-              <ul class="space-y-3 text-sm text-slate-300 font-mono">
-                {event.takeaways.map((t) => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-purple-400 font-bold">›</span>
-                    <span>{t}</span>
+        <!-- EVENT HIGHLIGHTS -->
+        <ScrollReveal animation="fade-up" delay={100}>
+          <section class="card p-6 md:p-8 h-full flex flex-col">
+
+            <div class="flex items-center justify-between gap-3 mb-6">
+
+              <div>
+                <span class="font-mono text-[10px] tracking-widest text-cyan-400">
+  {event.status === 'upcoming' || event.status === 'open'
+    ? 'EVENT INFORMATION'
+    : 'EVENT RECAP'}
+</span>
+
+<h2 class="text-2xl font-extrabold text-white mt-2">
+  {event.status === 'upcoming' || event.status === 'open'
+    ? 'Event Details'
+    : 'Highlights'}
+  <span class="text-cyan-400">.</span>
+</h2>
+              </div>
+
+              <span class="text-2xl text-cyan-400">✦</span>
+
+            </div>
+
+            <div class="w-full h-px bg-white/10 mb-6"></div>
+
+            {event.highlights && event.highlights.length > 0 ? (
+
+              <ul class="space-y-5 flex-1">
+
+                {event.highlights.map((highlight, index) => (
+                  <li class="flex items-start gap-4">
+
+                    <span class="shrink-0 w-8 h-8 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xs font-mono font-bold text-cyan-400">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+
+                    <p class="text-sm md:text-base text-slate-300 leading-relaxed pt-1">
+                      {highlight}
+                    </p>
+
                   </li>
                 ))}
+
               </ul>
+
+            ) : (
+
+              <p class="text-sm text-slate-400">
+                Event highlights will be updated soon.
+              </p>
+
+            )}
+
+            {event.takeaways && event.takeaways.length > 0 && (
+              <div class="mt-7 pt-6 border-t border-white/10">
+
+                <h3 class="font-mono text-xs tracking-wider text-purple-400 mb-4">
+                  KEY TAKEAWAYS
+                </h3>
+
+                <ul class="space-y-3">
+                  {event.takeaways.map((item) => (
+                    <li class="text-sm text-slate-300 flex gap-3">
+                      <span class="text-purple-400">›</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
+            )}
+
+          </section>
+        </ScrollReveal>
+
+        <!-- EVENT GALLERY -->
+        <ScrollReveal animation="fade-up" delay={180}>
+          <section class="card p-6 md:p-8 h-full flex flex-col">
+
+            <div class="flex items-center justify-between gap-3 mb-6">
+
+              <div>
+                <span class="font-mono text-[10px] tracking-widest text-purple-400">
+                  {event.status === 'upcoming' || event.status === 'open'
+  ? 'EVENT PREVIEW'
+  : 'MOMENTS CAPTURED'}
+                </span>
+
+                <h2 class="text-2xl font-extrabold text-white mt-2">
+                  Event Gallery<span class="text-purple-400">.</span>
+                </h2>
+              </div>
+
+              <span class="text-2xl text-purple-400">▧</span>
+
             </div>
-          </ScrollReveal>
-        )}
+
+            <div class="w-full h-px bg-white/10 mb-6"></div>
+
+            <div class="grid grid-cols-2 gap-3 flex-1">
+
+              {gallery.map((photo, index) => (
+                <div class="group relative overflow-hidden rounded-xl border border-white/10 aspect-[4/3] bg-[#0F172A]">
+
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90"></div>
+
+                  <div class="absolute bottom-0 left-0 right-0 p-3">
+                    <span class="text-[10px] md:text-xs font-mono text-white font-semibold">
+                      {photo.caption}
+                    </span>
+                  </div>
+
+                  <span class="absolute top-2 right-2 w-6 h-6 rounded-md bg-black/50 backdrop-blur-md flex items-center justify-center text-[10px] text-white font-mono">
+                    0{index + 1}
+                  </span>
+
+                </div>
+              ))}
+
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+
+              <span class="text-[10px] font-mono text-slate-500">
+                SYNTAX EVENT ARCHIVE
+              </span>
+
+              <span class="text-xs text-purple-400 font-mono">
+                04 PHOTOS
+              </span>
+
+            </div>
+
+          </section>
+        </ScrollReveal>
+
       </div>
 
-      <div class="text-center pt-6">
-        <a href="/events" class="btn btn-secondary font-mono text-xs py-2.5 px-6">
+      <!-- BACK TO EVENTS -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
+
+        <div>
+          <h3 class="text-lg font-bold text-white">
+            Explore more SyntaX events.
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">
+            Discover more workshops, competitions and hackathons.
+          </p>
+        </div>
+
+        <a
+          href="/events"
+          class="btn btn-secondary font-mono text-xs py-3 px-6"
+        >
           ← Back to All Events
         </a>
+
       </div>
+
     </div>
   </article>
 </BaseLayout>

@@ -1,4 +1,11 @@
-export type EventCategory = 'Hackathon' | 'Workshop' | 'CP Contest' | 'AI Bootcamp' | 'Guest Talk';
+
+export type EventCategory =
+  | 'Hackathon'
+  | 'Workshop'
+  | 'CP Contest'
+  | 'AI Bootcamp'
+  | 'Guest Talk';
+
 export type EventStatus = 'upcoming' | 'open' | 'closed' | 'completed';
 
 export interface ClubEvent {
@@ -8,8 +15,10 @@ export interface ClubEvent {
   summary: string;
   description: string;
   date: string;
+  year: number;
   venue: string;
   status: EventStatus;
+  instagramUrl?: string;
   registrationUrl?: string;
   speaker?: {
     name: string;
@@ -23,123 +32,145 @@ export interface ClubEvent {
 }
 
 export const events: ClubEvent[] = [
+  // ==================== 2026 ====================
+
+{
+  slug: 'code-clash-2026',
+  title: 'SyntaX Code Clash',
+  category: 'CP Contest',
+  summary:
+    'A high-energy, team-based coding quiz where participants tackle progressively harder live challenges, compete under time pressure, and collaborate to climb the leaderboard.',
+  description:
+    'SyntaX Code Clash is a competitive coding quiz designed around individual problem-solving and team collaboration. Participants first qualify individually through a 45-minute coding round. Based on qualifier performance, balanced teams are formed using a snake-draft approach. Teams then compete in progressively challenging live coding rounds, earning points for correct submissions. The event concludes with a high-value final challenge followed by results and awards.',
+  date: '2026 · Date to be announced',
+  year: 2026,
+  venue: 'VNIT Nagpur · To be announced',
+  status: 'upcoming',
+  instagramUrl: 'https://www.instagram.com/syntax_vnit/',
+  highlights: [
+    '45-minute individual coding qualifier',
+    'Balanced team formation based on qualifier performance',
+    '2-hour-30-minute live team coding competition',
+    '15-minute high-value final challenge',
+    'Live leaderboard and competitive scoring',
+    'Results and awards for winning teams',
+  ],
+  takeaways: [
+    'Problem-solving under time pressure',
+    'Teamwork and collaborative coding',
+    'Accuracy, speed and logical thinking',
+    'Competitive programming experience',
+  ],
+  doodleType: 'cp',
+},
+
   {
-    slug: "synhack-2025",
-    title: "SynHack '25: The Flagship 36-Hour Hackathon",
-    category: "Hackathon",
-    summary: "Central India's biggest collegiate hackathon uniting 500+ developers, designers, and problem solvers at VNIT Nagpur.",
-    description: "SynHack '25 is the premier annual hackathon organized by SyntaX VNIT. Featuring tracks in Autonomous Agents, Distributed Infrastructure, Campus Modernization, and Open Innovation, participants spend 36 hours building high-impact prototypes with direct mentorship from industry veterans and VNIT alumni.",
-    date: "March 2025 (Official Dates Dropping Soon)",
-    venue: "CSE Department & Assembly Hall, VNIT Nagpur",
-    status: "upcoming",
-    doodleType: "hackathon",
+    slug: 'gemini-ai-session-2026',
+    title: 'Explore AI with Google Gemini',
+    category: 'AI Bootcamp',
+    summary:
+      'An interactive AI-focused session introducing first-year students to Gemini, AI-assisted learning, creativity, and hands-on challenges.',
+    description:
+      'SyntaX announced an AI-focused session in collaboration with the Google Gemini Campus Ambassador. The session was designed for first-year VNIT students and included interactive AI-based games and challenges.',
+    date: '27 September 2026 · 10:00 AM',
+    year: 2026,
+    venue: 'CRC 3–4, VNIT Nagpur',
+    status: 'completed',
+    instagramUrl: 'https://www.instagram.com/syntax_vnit/',
     highlights: [
-      "₹1,50,000+ Prize Pool with track bounties",
-      "Round-the-clock technical mentorship from leading tech architects",
-      "Direct fast-track interview pipelines for standout teams",
-      "Midnight mini-games, algorithmic sprints, and developer swag",
+      'Introduction to Google Gemini and practical AI use',
+      'Interactive AI-based games and challenges',
+      'Prizes and certificates for winners',
     ],
-    takeaways: [
-      "Ship a working production-grade full-stack prototype in 36 hours",
-      "Master rapid architectural trade-offs under high-energy sprint conditions",
-      "Collaborate with multidisciplinary engineering peers across India",
-    ],
-    prerequisites: ["Curiosity to build, laptop with dev environment, collaborative mindset."],
+    doodleType: 'ai',
   },
   {
-    slug: "zero-to-production-web-systems",
-    title: "Zero to Production: Modern Web Systems & Edge Architecture",
-    category: "Workshop",
-    summary: "Hands-on deep dive into building ultra-fast static-first applications, edge compute, and headless CMS architecture.",
-    description: "An intensive weekend technical session conducted by senior SyntaX engineers exploring the paradigm shift from heavy monolithic servers to edge-rendered, statically optimized web applications using Astro, TypeScript, and distributed edge workers.",
-    date: "October 12, 2024",
-    venue: "Lab 3, Department of CSE, VNIT Nagpur",
-    status: "completed",
-    doodleType: "web",
+    slug: 'web-development-workshop-2026',
+    title: 'Web Development Workshop & Recruitment Drive',
+    category: 'Workshop',
+    summary:
+      'A first-year hands-on introduction to web development, building a Snake Game and exploring the Smart Quiz App recruitment project.',
+    description:
+      'SyntaX conducted a beginner-friendly web development workshop for first-year students. Participants started with the fundamentals and built a Snake Game, with an introduction to the Smart Quiz App as the recruitment project.',
+    date: '14 February 2026 · 9:30 AM',
+    year: 2026,
+    venue: 'CRC, VNIT Nagpur',
+    status: 'completed',
+    instagramUrl: 'https://www.instagram.com/syntax_vnit/',
     highlights: [
-      "120+ VNIT students attended in-person",
-      "100% of attendees built and deployed their personal portfolio to edge CDN in 3 hours",
-      "Deep dive into Island Architecture, Partial Hydration, and Lighthouse performance profiling",
+      'Hands-on Snake Game project',
+      'Logic building and DOM manipulation',
+      'Introduction to the Smart Quiz App recruitment project',
     ],
-    takeaways: [
-      "How browser rendering pipelines execute DOM, CSSOM, and composite passes",
-      "Configuring zero-JS baselines with Astro components",
-      "Deploying distributed edge functions on Vercel and Cloudflare",
+    doodleType: 'web',
+  },
+
+  // ==================== 2025 ====================
+  {
+    slug: 'synhack-2025',
+    title: 'SynHack 2025',
+    category: 'Hackathon',
+    summary:
+      'A 30-hour hackathon bringing developers, designers, and problem-solvers together at VNIT Nagpur.',
+    description:
+      'SynHack 2025 was a hackathon organized by SyntaX VNIT. Participants worked on real-world problem statements with opportunities for mentorship, collaboration and rewards.',
+    date: '8–9 November 2025',
+    year: 2025,
+    venue: 'VNIT Nagpur',
+    status: 'completed',
+    instagramUrl: 'https://www.instagram.com/syntax_vnit/',
+    highlights: [
+      '30 hours of building and collaboration',
+      '70+ teams and 250+ participants',
+      '24 teams in the final round',
+      '₹50,000+ announced prize pool',
     ],
+    doodleType: 'hackathon',
   },
   {
-    slug: "code-syntax-october-contest",
-    title: "Code-SyntaX: Bi-Weekly Algorithmic Clash (Round 14)",
-    category: "CP Contest",
-    summary: "Curated 2-hour competitive programming sprint challenging problem solvers across dynamic programming and graph invariants.",
-    description: "Our signature bi-weekly algorithmic contest designed to simulate ACM-ICPC and Google Code Jam environments. 6 carefully balanced problems spanning standard data structures to tricky mathematical number theory.",
-    date: "September 28, 2024",
-    venue: "Online on CodeChef / HackerRank Platform",
-    status: "completed",
-    doodleType: "cp",
+    slug: 'competitive-programming-workshop-2025',
+    title: 'Competitive Programming Workshop',
+    category: 'Workshop',
+    summary:
+      'A beginner-friendly session for first- and second-year students focused on logic, problem decomposition, and competitive programming.',
+    description:
+      'SyntaX hosted a Competitive Programming workshop for first- and second-year students. The session emphasized building logical thinking and breaking down problems.',
+    date: '2025 · Exact date to be updated',
+    year: 2025,
+    venue: 'VNIT Nagpur',
+    status: 'completed',
+    instagramUrl: 'https://www.instagram.com/syntax_vnit/',
     highlights: [
-      "180+ active participants across 4 VNIT batches",
-      "First blood achieved in 4 minutes 12 seconds on Problem A",
-      "Comprehensive post-contest video editorial and testcase breakdowns",
+      'Logic before language',
+      'Problem breakdown and reasoning',
+      'Introduction to competitive programming',
     ],
-    takeaways: [
-      "Techniques for identifying optimal greedy bounds vs memoized states",
-      "Writing clean C++20 template setups with fast I/O",
-      "Handling edge-case overflow constraints and memory limits",
-    ],
-  },
-  {
-    slug: "llm-agents-rag-hands-on",
-    title: "Demystifying Agentic AI & RAG Pipelines",
-    category: "AI Bootcamp",
-    summary: "A practical guide to building autonomous multi-step reasoning agents, vector embeddings, and evaluation metrics.",
-    description: "The AI track of SyntaX hosted an exploratory masterclass on modern generative workflows. Students built an end-to-end question-answering agent over VNIT academic regulations and past research papers using open-weights models.",
-    date: "August 24, 2024",
-    venue: "Audi-2, Academic Block, VNIT Nagpur",
-    status: "completed",
-    doodleType: "ai",
-    speaker: {
-      name: "SyntaX AI Division",
-      role: "Lead Researchers",
-      organization: "SyntaX VNIT",
-    },
-    highlights: [
-      "Constructed a local vector database using ChromaDB and sentence transformers",
-      "Evaluated semantic chunking strategies vs sliding windows",
-      "Deployed a live Streamlit interface for campus document synthesis",
-    ],
-    takeaways: [
-      "How cosine similarity and hybrid BM25 search combine in production RAG",
-      "Tool-calling schemas and JSON-mode prompting protocols",
-      "Optimizing local inference with Ollama and quantization",
-    ],
-  },
-  {
-    slug: "git-and-open-source-foundations",
-    title: "Git, GitHub & The Art of Open Source Contributions",
-    category: "Workshop",
-    summary: "The essential orientation workshop for first-year engineers to master version control, branch management, and pull requests.",
-    description: "Every engineer's journey starts with version control. SyntaX mentors guided freshers through Git plumbing, resolving merge conflicts, crafting meaningful commit messages, and contributing their first PR to VNIT club repositories.",
-    date: "August 10, 2024",
-    venue: "CSE Seminar Hall, VNIT Nagpur",
-    status: "completed",
-    doodleType: "general",
-    highlights: [
-      "220+ first-year students equipped with Git workflows",
-      "Hands-on interactive conflict resolution terminal drills",
-      "Launch of SyntaX Fresher Mentorship Cohort 2024",
-    ],
+    doodleType: 'cp',
   },
 ];
 
+// Add verified 2024 events here when their details are available.
+
+export const eventYears = [2026, 2025, 2024] as const;
+
+export function getEventsByYear(year: number): ClubEvent[] {
+  return events.filter((event) => event.year === year);
+}
+
 export function getUpcomingEvents(): ClubEvent[] {
-  return events.filter((e) => e.status === 'upcoming' || e.status === 'open');
+  return events.filter(
+    (event) => event.status === 'upcoming' || event.status === 'open'
+  );
 }
 
 export function getPastEvents(): ClubEvent[] {
-  return events.filter((e) => e.status === 'completed' || e.status === 'closed');
+  return events.filter(
+    (event) => event.status === 'completed' || event.status === 'closed'
+  );
 }
 
-export function getEventBySlug(slug: string): ClubEvent | undefined {
-  return events.find((e) => e.slug === slug);
+export function getEventBySlug(
+  slug: string
+): ClubEvent | undefined {
+  return events.find((event) => event.slug === slug);
 }
