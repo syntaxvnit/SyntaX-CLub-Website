@@ -80,7 +80,7 @@ export const people: Person[] = [
     bio: "Hey, I’m Hrushikesh, a final-year Computer Science student at VNIT Nagpur and a former Engineering Intern at Goldman Sachs. I enjoy building impactful technology, from full-stack applications and real-time systems to AI-powered tools that solve real-world problems. I’m passionate about turning ideas into practical solutions and constantly exploring new technologies.",
     socials: {
       github: "https://github.com/Hrushikesh-0105",
-      website: "linkedin.com/in/hrushikeshmusaloj",
+      linkedin: "https://www.linkedin.com/in/hrushikeshmusaloj/",
     },
     skills: ["Flutter", "MERN"],
     projects: [
