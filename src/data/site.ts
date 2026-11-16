@@ -59,7 +59,7 @@ export const siteConfig: SiteConfig = {
     { label: "Events", href: "/events" },
     { label: "Achievements", href: "/achievements" },
     { label: "Journal", href: "/blogs" },
-    { label: "Alumni", href: "/alumni" },
+    { label: "Alumni", href: "/comming_soon" },
   ],
   synhackCta: {
     label: "SynHack '25",
