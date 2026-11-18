@@ -57,14 +57,14 @@ export const synhackEditions: SynHackEdition[] = [
     edition: "SynHack '25",
     theme: "Autonomous Agents, Resilient Infrastructure & Open Web",
     tagline: "36 hours of relentless engineering at VNIT Nagpur.",
-    status: "upcoming", // Can be toggled to 'open', 'closed', or 'completed'
-    dates: "March 2025 (Dates Announced Shortly)",
+    status: "open", // Can be toggled to 'open', 'closed', or 'completed'
+    dates: "January 2027 (Dates Announced Shortly)",
     venue: "Department of Computer Science & Engineering, VNIT Nagpur",
     mode: "In-person (VNIT Campus)",
     durationHours: 36,
     expectedHackerCount: 500,
     prizePool: "₹1,50,000+ in Cash & Cloud Credits",
-    registrationUrl: "", // When open, insert external Google Form / Tally link
+    registrationUrl: "/register", // When open, insert external Google Form / Tally link
     registrationDeadline: "TBA with official announcement",
     isCurrent: true,
     overview: "SynHack is Central India's flagship student hackathon hosted annually by SyntaX at VNIT Nagpur. It brings together over 500 ambitious builders, developers, designers, and algorithmic thinkers for 36 hours of nonstop prototyping, mentorship sessions, and technical showmanship.",
